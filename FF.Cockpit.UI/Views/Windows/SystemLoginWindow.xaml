@@ -1,0 +1,387 @@
+﻿<Window x:Class="FF.Cockpit.UI.Views.Windows.SystemLoginWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls"
+             xmlns:common="clr-namespace:FF.Cockpit.Common;assembly=FF.Cockpit.Common"
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+             xmlns:converter="clr-namespace:FF.Cockpit.Theme.Converters;assembly=FF.Cockpit.Theme"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d"
+             WindowStyle="None"
+             WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent"
+        >
+
+    <!-- Ressourcen des Controls -->
+    <Window.Resources>
+        <!-- Converter -->
+        <converter:StringCaseConverter x:Key="StringCaseConverter" />
+        <converter:InvertBoolConverter x:Key="InvertBooleanConverter" />
+
+        <!-- Style für Radiobuttons im Login-Control -->
+        <Style x:Key="LoginRadioButtonStyle" TargetType="{x:Type RadioButton}">
+            <Setter Property="Margin" Value="30,4,0,0" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+
+
+        <!-- Images -->
+        <BitmapImage x:Key="MaskImage" UriSource="/FF.Cockpit.UI;component/Images/LoginDialog/mask.png"/>
+        <BitmapImage x:Key="RotatingOverlayImage" UriSource="/FF.Cockpit.UI;component/Images/LoginDialog/red_overlay.png" />
+        <BitmapImage x:Key="LockImage" UriSource="/FF.Cockpit.UI;component/Images/LoginDialog/lock.png" />
+
+    </Window.Resources>
+
+    <Grid x:Name="GrdMainContent" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="10.0" Color="Black" Opacity=".65" BlurRadius="20" Direction="-45.0" />
+        </Grid.Effect>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="8.0" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Roter Bereich (links) -->
+        <Grid Grid.Column="0" Width="256.0" Height="822.0">
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX=".5" ScaleY=".5" />
+            </Grid.LayoutTransform>
+            <Grid.OpacityMask>
+                <ImageBrush ImageSource="{StaticResource MaskImage}" />
+            </Grid.OpacityMask>
+            <Canvas ClipToBounds="True">
+                <Image Source="{StaticResource RotatingOverlayImage}" Width="1035.0" Height="1270.0" ClipToBounds="True" Canvas.Left="-520.0" Canvas.Top="-270.0">
+                    <Image.RenderTransform>
+                        <RotateTransform x:Name="RotateTransformation" Angle=".0" CenterX="517.5" CenterY="635.0" />
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard Storyboard.TargetName="RotateTransformation" Storyboard.TargetProperty="Angle" RepeatBehavior="Forever">
+                                    <DoubleAnimation From=".0" To="180.0" Duration="0:1:15.0" AccelerationRatio=".0" DecelerationRatio=".01" />
+                                    <DoubleAnimation From="180.0" To=".0" Duration="0:1:15.0" BeginTime="0:1:15.0" AccelerationRatio=".01" DecelerationRatio=".01" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+            </Canvas>
+            <DockPanel Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5,0,5,30" >
+                <Image Source="{StaticResource LockImage}" Width="60.0" Height="60.0" />
+                <TextBlock Foreground="White"
+                           FontSize="46.0"
+                           VerticalAlignment="Bottom"
+                           Margin="5,0,2,-9"
+                           Style="{StaticResource DefaultTextblockStyle}"
+                           Text="{x:Static localisation:Resources.Login_resx}" />
+            </DockPanel>
+        </Grid>
+
+        <!-- Grauer Bereich (rechts) -->
+        <Grid Grid.Column="2" Width="601.0" Height="405.0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Grid Grid.Row="0" HorizontalAlignment="Stretch" Background="{StaticResource SolidBackgroundBrush}">
+                <TextBlock Margin="10,4,0,4"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Text="{x:Static localisation:Resources.LoginWindowHeader_resx}"
+                           Style="{StaticResource DefaultTextblockStyle}" />
+                <Button x:Name="userLogin"
+                        Cursor="Hand"
+                        Margin="20,5"
+                        MinWidth="120"
+                        HorizontalAlignment="Right" HorizontalContentAlignment="Center"
+                        Content="User Login"
+                        Style="{DynamicResource CustomMessageBoxButtonStyle}"
+                        Command="{Binding UserLoginCommand}"/>
+
+
+            </Grid>
+
+            <!-- Farbtrenner -->
+            <Rectangle Grid.Row="1" Fill="Black" Height="1.0" />
+
+            <!-- Inhaltsbereich -->
+            <Grid Grid.Row="2" Background="{StaticResource WorkBackgroundBrush}" Width="601.0" HorizontalAlignment="Center">
+
+                <!-- Infobox -->
+                <Grid x:Name="GrdInfoBox"
+                      Grid.Row="0"
+                      Grid.RowSpan="2"
+                      Margin="1,0,0,0"
+                      Panel.ZIndex="10"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Top"
+                      ClipToBounds="True"
+                      Cursor="Hand"
+                      ToolTip="Click to close ...">
+                    <!--PreviewMouseLeftButtonDown="GrdInfoBox_PreviewMouseLeftButtonDown">-->
+                    <Grid Height="100.0">
+                        <Grid.Style>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <TranslateTransform X=".0" Y="-100.0" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="IsHitTestVisible" Value="False" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsInfoBoxVisible, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="True">
+                                        <DataTrigger.EnterActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="(Grid.RenderTransform).(TranslateTransform.Y)" Duration="0:0:.3" DecelerationRatio=".3" To=".0" />
+                                                    <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsHitTestVisible" BeginTime="0:0:.2" Duration="0:0:.0">
+                                                        <DiscreteBooleanKeyFrame KeyTime="0:0:.0" Value="True" />
+                                                    </BooleanAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </DataTrigger.EnterActions>
+                                        <DataTrigger.ExitActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsHitTestVisible" BeginTime="0:0:.2" Duration="0:0:.0">
+                                                        <DiscreteBooleanKeyFrame KeyTime="0:0:.0" Value="False" />
+                                                    </BooleanAnimationUsingKeyFrames>
+                                                    <DoubleAnimation Storyboard.TargetProperty="(Grid.RenderTransform).(TranslateTransform.Y)" Duration="0:0:.3" AccelerationRatio=".3" To="-100.0" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </DataTrigger.ExitActions>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <Border Width="400.0" Height="90.0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="1.0">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="2.0" Color="Black" Opacity=".46" BlurRadius="3" Direction="-45.0" />
+                            </Border.Effect>
+                            <Grid>
+                                <Grid Background="{StaticResource SolidBackgroundBrush}" Opacity=".8" Panel.ZIndex="-1" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10.0" />
+                                        <ColumnDefinition Width="5.0" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="1" BorderBrush="Transparent" BorderThickness=".0" Background="{StaticResource AccentBrush}" />
+                                    <TextBlock x:Name="TbInfoBox" Grid.Column="2" Style="{StaticResource DefaultTextblockStyle}" FontSize="12.0" TextWrapping="Wrap" Margin="10.0" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <!--Helloo  Inhalt -->
+                <!--<uc:DatabaseControl Grid.Row="1"></uc:DatabaseControl>-->
+                <Grid Grid.Row="1"  Margin="40,15,40,15" Background="{StaticResource WorkBackgroundBrush}" SnapsToDevicePixels="True" MinWidth="400.0">
+                    <StackPanel Orientation="Vertical">
+
+                        <!-- Datenbank-Server Einstellungen -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="8.0" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Orientation="Vertical">
+
+                                <!-- SQL-Server Instance -->
+                                <TextBlock Text="{x:Static localisation:Resources.LoginDatabaseLoginInstance_resx}"
+                               Style="{StaticResource DefaultTextblockStyle}" />
+                                <TextBox x:Name="TxtServerInstance"
+                             Margin="0,0,0,5"
+                             Style="{StaticResource EditTextBoxStyle}" 
+                             Text="{Binding Login.ServerInstance, Mode=TwoWay}"
+                             IsEnabled="{Binding Login.AreDatabaseValuesLocked, Mode=TwoWay, Converter={StaticResource InvertBooleanConverter}}" />
+
+                                <!-- Database Name-->
+                                <TextBlock Text="{x:Static localisation:Resources.LoginDatabaseName_resx}"
+                               Style="{StaticResource DefaultTextblockStyle}" />
+                                <TextBox Margin="0,0,0,5" 
+                              Style="{StaticResource EditTextBoxStyle}"
+                              Text="{Binding Login.DatabaseName, Mode=TwoWay}"
+                               IsEnabled="{Binding Login.AreDatabaseValuesLocked, Mode=TwoWay, Converter={StaticResource InvertBooleanConverter}}" />
+
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2" Orientation="Vertical">
+
+                                <!-- Right Side Rectangle Panel -->
+                                <StackPanel Orientation="Horizontal" Margin="0,26,0,0">
+                                    <Rectangle Fill="{StaticResource ForegroundBrush}" Width="20.0" Height="1.0" VerticalAlignment="Top" />
+                                    <Rectangle Fill="{StaticResource ForegroundBrush}" Width="1.0" Height="12.0" />
+                                </StackPanel>
+
+                                <!--Right Side Lock Icon -->
+                                <Image x:Name="ImgLockIcon" Width="18.0" Height="18.0" Margin="11,5,0,5" Cursor="Hand"  >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding LockCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="{StaticResource LockOpened2}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Login.AreDatabaseValuesLocked, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="True">
+                                                    <Setter Property="Source" Value="{StaticResource LockClosed}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+
+                                </Image>
+
+                                <!-- Right Side Lock Bottom -->
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Fill="{StaticResource ForegroundBrush}" Width="20.0" Height="1.0" VerticalAlignment="Bottom" />
+                                    <Rectangle Fill="{StaticResource ForegroundBrush}" Width="1.0" Height="12.0" />
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Login Panel-->
+                        <StackPanel Margin="0,4,0,0" Orientation="Vertical">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <!-- Authentifizierung -->
+                                <TextBlock Text="{x:Static localisation:Resources.LoginDatabaseAuthentication_resx}"
+                               Style="{StaticResource DefaultTextblockStyle}" />
+                                <RadioButton x:Name="RadAuthenticationSQLServer"
+                                 IsChecked="{Binding Login.UseSQLAuthenticate}"
+                                 Content="{x:Static localisation:Resources.LoginDatabaseAuthenticationSqlServer_resx}"
+                                 Style="{StaticResource LoginRadioButtonStyle}"
+                                 Command="{Binding AuthenticateSQLCommand}" />
+
+                                <RadioButton x:Name="RadAuthenticationWindows"
+                                 IsChecked="{Binding Login.UseWindowsSecurity}"
+                                 Content="{x:Static localisation:Resources.LoginDatabaseAuthenticationOperationSystem_resx}"
+                                 Style="{StaticResource LoginRadioButtonStyle}"
+                                 Command="{Binding AuthenticateWindowCommand}" />
+
+                            </StackPanel>
+
+                            <StackPanel x:Name="PanelUserAuthentication"
+                            Orientation="Vertical"
+                            IsEnabled="{Binding Login.UseWindowsSecurity, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Converter={StaticResource InvertBooleanConverter}}">
+                                <StackPanel Orientation="Vertical" Margin="0,5,0,0">
+
+                                    <!-- Benutzername -->
+                                    <TextBlock Text="{x:Static localisation:Resources.LoginDatabaseUserName_resx}"
+                                   Style="{StaticResource DefaultTextblockStyle}" />
+                                    <TextBox x:Name="TxtUsername"
+                                       Margin="0,0,0,5"
+                                       Text="{Binding Login.UserName, Mode=TwoWay}"
+                                         Style="{StaticResource EditTextBoxStyle}"/>
+
+                                    <!-- Passwort -->
+                                    <TextBlock Text="{x:Static localisation:Resources.LoginDatabasePassword_resx}"
+                                   Style="{StaticResource DefaultTextblockStyle}" />
+                                    <PasswordBox common:BoundPasswordBox.Attach="True" 
+                                                 common:BoundPasswordBox.Password="{Binding Login.UserPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                 Margin="0,0,0,3" PasswordChar="*"
+                                                 Style="{StaticResource LoginPasswordBoxStyle}" />
+
+                                </StackPanel>
+
+                                <Grid Margin="0,2,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="17*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox HorizontalAlignment="Left"
+                                  FontSize="12.0"
+                                  Content="{x:Static localisation:Resources.LoginDatabaseSavePassword_resx}"
+                                  Style="{StaticResource CheckBoxStyle}"
+                                  Foreground="{StaticResource ForegroundBrush}"
+                                  Command="{Binding SaveDbLoginCommand}"
+                                  IsChecked="{Binding Login.IsSaveDbUserDetails, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="250,0,0,0" />
+                                </Grid>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+
+            </Grid>
+
+            <!-- Footer -->
+            <Grid Grid.Row="3" HorizontalAlignment="Center" Background="{StaticResource SolidBackgroundBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Farbtrenner -->
+                <Rectangle Grid.Row="0" Fill="Black" Height="1.0" />
+
+                <!-- Nächster Schritt -->
+                <Button x:Name="BtnLogin"
+                        Grid.Row="2"
+                        Height="35"
+                        Cursor="Hand"
+                        MinWidth="150.0"
+                        Margin="0,15,20,0"
+                        HorizontalAlignment="Right"
+                        Content="{x:Static localisation:Resources.Login_resx}"
+                        Style="{DynamicResource CustomMessageBoxButtonStyle}"
+                        Command="{Binding LoginCommand}"/>
+
+                <!-- Vorheriger Schritt -->
+                <Button x:Name="BtnExit"
+                        Grid.Row="2"
+                        Height="35"
+                        Cursor="Hand"
+                        Margin="20,15,0,0"
+                        MinWidth="150.0"
+                        HorizontalAlignment="Left"
+                        Content="{x:Static localisation:Resources.ExitBtn_resx}"
+                              Style="{DynamicResource CustomMessageBoxButtonStyle}"
+                        Command="{Binding ExitCommand}"/>
+
+                <Grid Grid.Row="3" Width="601.0" HorizontalAlignment="Center" Height="31.0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="469*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="92*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="10.0"
+                           HorizontalAlignment="Left"  
+                           VerticalAlignment="Bottom"
+                           Margin="300,0,0,6"
+                           Opacity="0.5"
+                           Style="{StaticResource DefaultTextblockStyle}"/>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>
+
+
+
+
+
+
+

@@ -1,0 +1,710 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.Performance.HighRiskPatientTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+             Background="Transparent" SizeChanged="UserControl_SizeChanged"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:converter="clr-namespace:FF.Cockpit.UI.Converters">
+    <UserControl.Resources>
+       
+        <Style TargetType="syncfusion:GridHeaderCellControl" x:Key="HeaderStyle">
+            <Setter Property="Background" Value="{DynamicResource BrownBrush}"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0 0 0 1"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10 0 0 0"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="syncfusion:GridHeaderCellControl">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" >
+                                    <ContentPresenter.Content>
+                                        <TextBlock Text="{Binding HeaderText}"  TextWrapping="Wrap"/>
+                                    </ContentPresenter.Content>
+                                </ContentPresenter>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="syncfusion:GridCell" x:Key="CellStyle">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource LightBlackBrush}"/>
+            <Setter Property="BorderThickness" Value="0 0 0 3"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="TextBlock.TextWrapping" Value="WrapWithOverflow"/>
+            <Setter Property="Padding" Value="10 1 0 1"/>
+        </Style>
+        <Style TargetType="syncfusion:GridCell" x:Key="GridCellStyle">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="#BF967E"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0 0 0 0"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="TextBlock.TextWrapping" Value="WrapWithOverflow"/>
+            <Setter Property="Padding" Value="10 1 0 1"/>
+        </Style>
+        <Style x:Key="PerformanceDataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource BaseCustomDataGridColumnHeaderStyle}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}"  >
+                        <Grid>
+                            <Border x:Name="DataGridCellGrid" Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}" >
+                                <DockPanel VerticalAlignment="Center">
+                                    <ContentPresenter Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}"
+                                                  DockPanel.Dock="Left" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" />
+                                    <Path x:Name="SortArrow" HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"                                           
+                                            Width="8" Height="6" Margin="4,0,2,0"
+                                            Stretch="Fill" Opacity="0.5" Fill="White"
+                                            RenderTransformOrigin="0.5,0.4"
+                                            Visibility="Visible"
+                                            Data="M0,0 L1,0 0.5,1 z" />
+                                </DockPanel>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="SortDirection" Value="Ascending">
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                                <Setter TargetName="SortArrow" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="180" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="SortDirection" Value="Descending">
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <converter:AnonymizeStringConverter x:Key="AnonymizeStringConverter"/>
+    </UserControl.Resources>
+    <Border CornerRadius="4" Background="{DynamicResource TileBackgroundBrush}">
+        <Border.Effect>
+            <DropShadowEffect/>
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height="88.5*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="tileHeader" VerticalAlignment="Center" Margin="8 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{x:Static localisation:Resources.HighRiskPatientTileHeader_resx}" Style="{DynamicResource TileHeaderTextStyle}" VerticalAlignment="Center"/>
+
+                <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+                    <Image x:Name="Export_CSV" Width="20" Cursor="Hand" Source="{DynamicResource Icon_CSV}" ToolTip="Export to csv">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseUp">
+                                <i:InvokeCommandAction Command="{Binding ExportCSVCommand}" CommandParameter="{Binding ElementName=dataGrid}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+
+                    <Image x:Name="Export_PDF" Margin="10 0" Width="15" Cursor="Hand" Source="{DynamicResource Icon_PDF}" ToolTip="Export to pdf">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseUp">
+                                <i:InvokeCommandAction Command="{Binding ExportPDFCommand}" CommandParameter="{Binding ElementName=dataGrid}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+
+                    <Image Width="15" Cursor="Hand" Source="{DynamicResource Icon_TileOpenWith}" Visibility="Visible" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseUp">
+                                <i:InvokeCommandAction Command="{Binding GridExpandCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Border Background="Transparent" BorderBrush="Transparent" Width="{Binding Width}" Height="{Binding Height}" CornerRadius="5">
+                        <Image Width="10" Source="{DynamicResource Icon_TileWarning}" Visibility="Collapsed" />
+                        <Border.ToolTip>
+                            <ToolTip Background="Red" Foreground="White" BorderBrush="Transparent" BorderThickness="0"
+                                     HorizontalOffset="-5" VerticalOffset="-30">
+                                <TextBlock Background="Transparent" Text="{x:Static localisation:Resources.DataGridCol_Comment_Resx}"
+                                           FontSize="10"/>
+                            </ToolTip>
+                        </Border.ToolTip>
+                    </Border>
+                    <Image Width="12" Margin="8 2 8 0" ToolTip="Edit" Source="{DynamicResource Icon_TileEdit}" Visibility="Collapsed" Style="{DynamicResource TileHeaderImageStyle}"/>
+                    <Image Width="10" Source="{DynamicResource Icon_TileLock}" Visibility="Collapsed"/>
+                </DockPanel>
+
+            </Grid>
+
+            <Border Grid.Row="1" Background="{DynamicResource TileHeaderLineBrush}" Height="1.5"/>
+            <!--<Grid Grid.Row="2" HorizontalAlignment="Right">
+                <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Grid.Column="1" Text="Page No:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        
+                        <TextBlock  Text="Select Page Size:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+
+                        <ComboBox x:Name="cbPageSize" HorizontalAlignment="Left"  
+                            VerticalAlignment="Bottom" Width="60" SelectedIndex="0" 
+                            SelectedValue="{Binding PageSize,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        </ComboBox>
+
+                        <Button Grid.Column=" 0" HorizontalAlignment="Right"
+                         Name="btnPrevious" VerticalAlignment="Bottom" 
+                         Width="60" FontSize="8"
+                         Content='&lt; Previous' Margin="10,0,10,0" Command="{Binding PreviousPageCommand}" >
+                        </Button>
+                        <ListBox Grid.Column="2" Height="50" Width="200" VerticalAlignment="Top" ItemContainerStyle="{DynamicResource Custom_ListViewForPaging}" ItemsSource="{Binding CollectionList}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            
+            <ListBoxItem Content="1" Width="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ListBoxItem Content="2" Width="10"/>
+                            <ListBoxItem Content="3" />
+                            <ListBoxItem Content="4"/>
+                            <ListBoxItem Content="5"/>
+            
+                        </ListBox>
+                        
+            <TextBox Grid.Column="2" Name="txtPageNo" Height="20" Width="30"
+                         Background="#373E46" BorderBrush="Gray" FontWeight="Normal" FontSize="14"
+                         Text="{Binding PageNumber}" />
+            
+                        <Button Grid.Column="2" VerticalAlignment="Bottom"
+                        Name="btnNext" Opacity="0.75" Width="60" Content='&gt; Next' Margin="10,0,0,0" FontSize="8" Command="{Binding NextPageCommand}">
+                        </Button>
+
+                    </StackPanel>
+                </Grid>
+
+            </Grid>-->
+            <Grid x:Name="tileContent" Grid.Row="2" Margin="0 0">
+                <DataGrid x:Name="dataGrid" Grid.ColumnSpan="6" ItemsSource="{Binding HighRiskPatientTileData_ResultList}" 
+                          AutoGenerateColumns="False" CanUserAddRows="False" 
+                          CanUserSortColumns="False"  
+                          CanUserResizeColumns="True" HorizontalScrollBarVisibility="Auto" 
+                          VerticalAlignment="Top" Background="Transparent" ColumnHeaderHeight="48"
+                          RowStyle="{DynamicResource PerformanceTab_DataGridRowHoverStyle}" 
+                          SelectedValue="PatientId" SelectedItem="{Binding SelectedHighRiskPatient,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource PerformanceColumnHeaderStyle}">
+                            <EventSetter Event="Click" Handler="DataGridColumnHeader_Click" />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn SortMemberPath="PatientName">
+                            <DataGridTemplateColumn.Header>
+                                <DockPanel>
+                                    <Path VerticalAlignment="Center" Width="8" Height="6" Margin="4,0,2,0" Stretch="Fill" Opacity="0.5" 
+                                          Fill="White" RenderTransformOrigin="0.5,0.4" Data="M0,0 L1,0 0.5,1 z" DockPanel.Dock="Right">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColName}" Value="PatientName">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColOrder}" Value="Ascending">
+                                                        <Setter Property="RenderTransform">
+                                                            <Setter.Value>
+                                                                <RotateTransform Angle="180"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <TextBlock Text="{x:Static localisation:Resources.DataGridHeaderCol_Name_resx}" HorizontalAlignment="Left"/>
+                                </DockPanel>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Margin="7,0,0,0">
+                                        <Run Text="{Binding PatientName , Converter={StaticResource AnonymizeStringConverter}}" FontSize="14" FontWeight="Bold" Foreground="{DynamicResource BrownBrush2}"/><LineBreak />
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn SortMemberPath="BodyScanCount">
+                            <DataGridTemplateColumn.Header>
+                                <DockPanel>
+                                    <Path VerticalAlignment="Center" Width="8" Height="6" Margin="4,0,2,0" Stretch="Fill" Opacity="0.5" 
+                                          Fill="White" RenderTransformOrigin="0.5,0.4" Data="M0,0 L1,0 0.5,1 z" DockPanel.Dock="Right">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColName}" Value="BodyScanCount">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColOrder}" Value="Ascending">
+                                                        <Setter Property="RenderTransform">
+                                                            <Setter.Value>
+                                                                <RotateTransform Angle="180"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <TextBlock Text="{x:Static localisation:Resources.DataGridHeaderCol_AverageBodyScan_resx}" HorizontalAlignment="Center" TextWrapping="Wrap" ToolTip="Bodyscan" Background="Transparent"/>
+                                </DockPanel>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="0 0 0 2">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderBrush" Value="{DynamicResource LightBlackBrush}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsBodyScanCountChange}" Value="True">
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource BrownBrush}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding BodyScanCount}" TextAlignment="Center" FontWeight="Medium" Margin="0 0 0 0" FontSize="20">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{DynamicResource LightGrayBrush2}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsBodyScanCountChange}" Value="True">
+                                                            <Setter Property="Foreground" Value="White"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn SortMemberPath="MarkerCount">
+                            <DataGridTemplateColumn.Header>
+                                <DockPanel>
+                                    <Path VerticalAlignment="Center" Width="8" Height="6" Margin="4,0,2,0" Stretch="Fill" Opacity="0.5" 
+                                          Fill="White" RenderTransformOrigin="0.5,0.4" Data="M0,0 L1,0 0.5,1 z" DockPanel.Dock="Right">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColName}" Value="MarkerCount">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColOrder}" Value="Ascending">
+                                                        <Setter Property="RenderTransform">
+                                                            <Setter.Value>
+                                                                <RotateTransform Angle="180"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <TextBlock Text="{x:Static localisation:Resources.DataGridCol_Marked_resx}" HorizontalAlignment="Center" ToolTip="Marked" TextAlignment="Center" />
+                                </DockPanel>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Border BorderThickness="0 0 0 2">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderBrush" Value="{DynamicResource LightBlackBrush}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMarkerCountChange}" Value="True">
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource BrownBrush}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding MarkerCount}" TextAlignment="Center" FontWeight="Medium" Margin="0 0 0 0" FontSize="20">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{DynamicResource LightGrayBrush2}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsMarkerCountChange}" Value="True">
+                                                            <Setter Property="Foreground" Value="White"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn SortMemberPath="MicroImageCount" >
+                            <DataGridTemplateColumn.Header>
+                                <DockPanel>
+                                    <Path VerticalAlignment="Center" Width="8" Height="6" Margin="4,0,2,0" Stretch="Fill" Opacity="0.5" 
+                                          Fill="White" RenderTransformOrigin="0.5,0.4" Data="M0,0 L1,0 0.5,1 z" DockPanel.Dock="Right">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColName}" Value="MicroImageCount">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColOrder}" Value="Ascending">
+                                                        <Setter Property="RenderTransform">
+                                                            <Setter.Value>
+                                                                <RotateTransform Angle="180"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <TextBlock Text="{x:Static localisation:Resources.DataGridHeaderCol_MicroImages_resx}" HorizontalAlignment="Center" TextWrapping="Wrap" ToolTip="Micro Images"/>
+                                </DockPanel>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="0 0 0 2">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderBrush" Value="{DynamicResource LightBlackBrush}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMicroImageCountChange}" Value="True">
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource BrownBrush}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding MicroImageCount}" TextAlignment="Center" FontWeight="Medium" Margin="0 0 0 3" FontSize="20">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{DynamicResource LightGrayBrush2}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsMicroImageCountChange}" Value="True">
+                                                            <Setter Property="Foreground" Value="White"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn SortMemberPath="ExcisionCount">
+                            <DataGridTemplateColumn.Header>
+                                <DockPanel>
+                                    <Path VerticalAlignment="Center" Width="8" Height="6" Margin="4,0,2,0" Stretch="Fill" Opacity="0.5" 
+                                          Fill="White" RenderTransformOrigin="0.5,0.4" Data="M0,0 L1,0 0.5,1 z" DockPanel.Dock="Right">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColName}" Value="ExcisionCount">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColOrder}" Value="Ascending">
+                                                        <Setter Property="RenderTransform">
+                                                            <Setter.Value>
+                                                                <RotateTransform Angle="180"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <TextBlock Text="{x:Static localisation:Resources.DataGridHeaderCol_Excision_resx}" HorizontalAlignment="Center" ToolTip="Excision" TextAlignment="Center"/>
+                                </DockPanel>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="0 0 0 2">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderBrush" Value="{DynamicResource LightBlackBrush}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsExcisionCountChange}" Value="True">
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource BrownBrush}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding ExcisionCount}" TextAlignment="Center" FontWeight="Medium" Margin="0 0 0 3" FontSize="20">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{DynamicResource LightGrayBrush2}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsExcisionCountChange}" Value="True">
+                                                            <Setter Property="Foreground" Value="White"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn SortMemberPath="SessionsCount" MaxWidth="150" >
+                            <DataGridTemplateColumn.Header>
+                                <DockPanel>
+                                    <Path VerticalAlignment="Center" Width="8" Height="6" Margin="4,0,2,0" Stretch="Fill" Opacity="0.5" 
+                                          Fill="White" RenderTransformOrigin="0.5,0.4" Data="M0,0 L1,0 0.5,1 z" DockPanel.Dock="Right">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColName}" Value="SessionsCount">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColOrder}" Value="Ascending">
+                                                        <Setter Property="RenderTransform">
+                                                            <Setter.Value>
+                                                                <RotateTransform Angle="180"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <TextBlock Text="{x:Static localisation:Resources.DataGridHeaderCol_TotalSessions_resx}" HorizontalAlignment="Center" TextWrapping="Wrap" ToolTip="Sessions Count"/>
+                                </DockPanel>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="0 0 0 2">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderBrush" Value="{DynamicResource LightBlackBrush}"/>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding SessionsCount}" TextAlignment="Center" FontWeight="Medium" Margin="0 0 0 3" FontSize="20">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{DynamicResource LightGrayBrush2}"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn SortMemberPath="AvgSessionDuration" MaxWidth="150">
+                            <DataGridTemplateColumn.Header>
+                                <DockPanel>
+                                    <Path VerticalAlignment="Center" Width="8" Height="6" Margin="4,0,2,0" Stretch="Fill" Opacity="0.5" 
+                                          Fill="White" RenderTransformOrigin="0.5,0.4" Data="M0,0 L1,0 0.5,1 z" DockPanel.Dock="Right">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColName}" Value="AvgSessionDuration">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColOrder}" Value="Ascending">
+                                                        <Setter Property="RenderTransform">
+                                                            <Setter.Value>
+                                                                <RotateTransform Angle="180"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <TextBlock Text="{x:Static localisation:Resources.DataGridHeaderCol_SessionDuration_resx}" HorizontalAlignment="Center" TextWrapping="Wrap" ToolTip="Average session duration" />
+                                </DockPanel>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="0 0 0 2">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderBrush" Value="{DynamicResource LightBlackBrush}"/>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding AvgSessionDuration}"  TextAlignment="Center" FontWeight="Medium" Margin="0 0 0 3" FontSize="20">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{DynamicResource LightGrayBrush2}"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn SortMemberPath="Email" MaxWidth="150" Visibility="Collapsed">
+                            <DataGridTemplateColumn.Header>
+                                <DockPanel>
+                                    <Path VerticalAlignment="Center" Width="8" Height="6" Margin="4,0,2,0" Stretch="Fill" Opacity="0.5" 
+                                          Fill="White" RenderTransformOrigin="0.5,0.4" Data="M0,0 L1,0 0.5,1 z" DockPanel.Dock="Right">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColName}" Value="AvgSessionDuration">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SortColOrder}" Value="Ascending">
+                                                        <Setter Property="RenderTransform">
+                                                            <Setter.Value>
+                                                                <RotateTransform Angle="180"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <TextBlock Text="{x:Static localisation:Resources.DataGridColHeaderEmail_resx}" HorizontalAlignment="Center" TextWrapping="Wrap" ToolTip="Average session duration" />
+                                </DockPanel>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="0 0 0 2">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderBrush" Value="{DynamicResource LightBlackBrush}"/>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding Email}"  TextAlignment="Center" FontWeight="Medium" Margin="0 0 0 3" FontSize="20">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{DynamicResource LightGrayBrush2}"/>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                    <i:Interaction.Triggers>
+                        <!--<i:EventTrigger EventName="Sorting">
+                            <i:InvokeCommandAction Command="{Binding SortingCommand}" CommandParameter="{Binding ElementName=dataGrid}"/>
+                        </i:EventTrigger>-->
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.NavigateToPatientDashboardCommand}" CommandParameter="{Binding ElementName=dataGrid, Path=SelectedItem.PatientId}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <!--<behaviours:Interaction.Triggers>
+                        <behaviours:EventTrigger EventName="Sorting">
+                            <behaviours:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.SortingCommand}"
+                                                    PassEventArgsToCommand="True" />
+                        </behaviours:EventTrigger>
+
+                    </behaviours:Interaction.Triggers>-->
+
+
+                </DataGrid>
+
+            </Grid>
+            <!--<syncfusion:SfDataGrid x:Name="dataGrid" 
+                Grid.Row="3"  
+                HeaderStyle="{StaticResource HeaderStyle}" 
+                RowHeight="40"
+                CellStyle="{StaticResource CellStyle}"                  
+                Background="Transparent"
+                HeaderRowHeight="53" 
+                 ItemsSource="{Binding HighRiskPatientTileData_ResultList}">
+                -->
+            <!--ItemsSource="{Binding ElementName=dataPager,Path=PagedSource}"-->
+            <!--SelectionUnit="Row"-->
+            <!--
+                <syncfusion:SfDataGrid.Columns>
+                    -->
+            <!--<syncfusion:GridTextColumn HeaderText="Name"  MappingName="PatientId" TextAlignment="Left" />-->
+            <!--
+                    <syncfusion:GridTextColumn AllowSorting="True" HeaderText="Name" MappingName="PatientName" CellStyle="{StaticResource GridCellStyle}"  />
+                    <syncfusion:GridTextColumn AllowSorting="True" HeaderText="Bodyscan" MappingName="BodyScanCount"  TextAlignment="Center"/>
+                    <syncfusion:GridTextColumn AllowSorting="True"  HeaderText="Marked" MappingName="MarkerCount" TextAlignment="Center"/>
+                    <syncfusion:GridTextColumn AllowSorting="True" HeaderText="Micro Images Total" MappingName="MicroImageCount" TextAlignment="Center"/>
+                    <syncfusion:GridTextColumn AllowSorting="True" HeaderText="{x:Static localisation:Resources.ExcisionTileHeader_resx}" MappingName="ExcisionCount" TextAlignment="Center"/>
+                    <syncfusion:GridTextColumn AllowSorting="True" HeaderText="Total Sessions" MappingName="SessionsCount" TextAlignment="Center"/>
+                    <syncfusion:GridTextColumn AllowSorting="True" HeaderText="Avg. Session Duration" MappingName="AvgSessionDuration" TextAlignment="Center" />
+                </syncfusion:SfDataGrid.Columns>
+                -->
+            <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding SelectedPatientCommand}" CommandParameter="{Binding Path=SelectedItem.PatientId}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+            <!--
+            </syncfusion:SfDataGrid>-->
+
+            <!--<Grid  Grid.Row="2" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                    <TextBlock Text="Please select the Page Size:" FontSize="15" VerticalAlignment="Center"></TextBlock>
+                    <ComboBox  x:Name="cbPageSize" HorizontalAlignment="Right"   Grid.Row="2" 
+                            VerticalAlignment="Center" Width="80" SelectedIndex="0"  Margin="30,0,10,0"
+                            SelectedValue="{Binding PageSize,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </ComboBox>
+                </StackPanel>-->
+            <!--<syncfusion:SfDataPager x:Name="dataPager" 
+                Grid.Row="2"
+                PageSize="{Binding PageSize}"
+                          HorizontalAlignment="Left"
+                          Source="{Binding HighRiskPatientTileData_ResultList}"/>-->
+
+            <!--</Grid>-->
+
+
+
+
+        </Grid>
+    </Border>
+
+</UserControl>

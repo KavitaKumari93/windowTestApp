@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.TrendsGraphExamined.TrendsGraphUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls.TrendsGraphExamined"
+             mc:Ignorable="d" 
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+              xmlns:res="clr-namespace:FF.Cockpit.Theme.Custom_Resources;assembly=FF.Cockpit.Theme">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.ColumnSpan="2">
+
+            <Button x:Name="oneYearbtn"  Content="{x:Static localisation:Resources.OneYearFilter_resx}" Uid="YEAR"   
+                    Style="{StaticResource FilterButtonStyle}" 
+                    CommandParameter="{Binding ElementName=oneYearbtn,Path=Uid}" 
+                    Command="{Binding FilterSelectionCommand}"/>
+
+            <Button x:Name="fiveYearbtn"  Content="{x:Static localisation:Resources.FiveYearFilter_resx}" Uid="FIVEYEAR"   
+                    Style="{StaticResource FilterButtonStyle}" 
+                    CommandParameter="{Binding ElementName=fiveYearbtn,Path=Uid}"
+                    Command="{Binding FilterSelectionCommand}"/>
+
+            <Button x:Name="twentyYearbtn"  Content="{x:Static localisation:Resources.TwentyYearFilter_resx}" Uid="TWENTYYEAR"   
+                    Style="{StaticResource FilterButtonStyle}" 
+                     CommandParameter="{Binding ElementName=twentyYearbtn,Path=Uid}"
+                     Command="{Binding FilterSelectionCommand}"/>
+
+        </DockPanel>
+
+        <local:ExaminationTrends_1Year x:Name="exam_1" Grid.Row="1" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.ExaminationTrendsModel}" Visibility="{Binding IsOneYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:PatientTrends_1Year x:Name="patient_1" Grid.Row="1" Grid.Column="1" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.PatientTrendsModel}" Visibility="{Binding IsOneYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:MicroImagesTaken_1Year x:Name="microImages_1" Grid.Row="2"  Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.MicroImagesTrendsModel}" Visibility="{Binding IsOneYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:SessionDurationTrends_1Year x:Name="sessionDuration_1" Grid.Row="2" Grid.Column="1" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SessionDurationTrendsModel}" Visibility="{Binding IsOneYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:AverageSessionDurationTrends_1Year x:Name="avgsessionDuration_1" Grid.Row="3"  Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.AvgSessionDurationTrendsModel}" Visibility="{Binding IsOneYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+
+        <!--<local:ExaminationTrends_5Year />-->
+        <local:ExaminationTrends_5Year x:Name="exam_5" Grid.Row="1" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.ExaminationTrendsModel}" Visibility="{Binding IsFiveYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:PatientTrends_5Year x:Name="patient_5" Grid.Row="1" Grid.Column="1" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.PatientTrendsModel}" Visibility="{Binding IsFiveYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:MicroImagesTaken_5Year x:Name="microImages_5" Grid.Row="2" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.MicroImagesTrendsModel}" Visibility="{Binding IsFiveYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:SessionDurationTrends_5Year x:Name="sessionDuration_5" Grid.Row="2" Grid.Column="1" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SessionDurationTrendsModel}" Visibility="{Binding IsFiveYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:AverageSessionDurationTrends_5Year x:Name="avgsessionDuration_5" Grid.Row="3"  Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.AvgSessionDurationTrendsModel}" Visibility="{Binding IsFiveYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+
+        <local:ExaminationTrends_20Year x:Name="exam_20" Grid.Row="1" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.ExaminationTrendsModel}" Visibility="{Binding IsTwentyYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:PatientTrends_20Year x:Name="patient_20" Grid.Row="1" Grid.Column="1" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.PatientTrendsModel}" Visibility="{Binding IsTwentyYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:MicroImagesTaken_20Year x:Name="microImages_20" Grid.Row="2"  Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.MicroImagesTrendsModel}" Visibility="{Binding IsTwentyYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:SessionDurationTrends_20Year x:Name="sessionDuration_20" Grid.Row="2" Grid.Column="1" Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SessionDurationTrendsModel}" Visibility="{Binding IsTwentyYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+        <local:AverageSessionDurationTrends_20Year x:Name="avgsessionDuration_20" Grid.Row="3"  Margin="3" DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.AvgSessionDurationTrendsModel}" Visibility="{Binding IsTwentyYearSelected,UpdateSourceTrigger=PropertyChanged}"/>
+
+    </Grid>
+</UserControl>

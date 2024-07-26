@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.Service.AppUpdateTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls.Service"
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+             mc:Ignorable="d" >
+    <Grid>
+        <Border CornerRadius="4" Background="{DynamicResource TileBackgroundBrush}">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="77*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="tileHeader" VerticalAlignment="Center" Margin="8 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{x:Static localisation:Resources.AppUpdateTileHeader_resx}" Style="{DynamicResource TileHeaderTextStyle}" VerticalAlignment="Center"/>
+                    <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <Image Width="15" Source="{DynamicResource Notification_Icon}" Visibility="Visible"/>
+                    </DockPanel>
+                </Grid>
+
+                <Border Grid.Row="1" Background="{DynamicResource TileHeaderLineBrush}" Height="2"/>
+
+                <Grid Background="{DynamicResource UpdateTileBackgroundBrush}" Grid.Row="2" >
+                    <Grid x:Name="tileContent" Margin="8 0 8 0" VerticalAlignment="Center" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="30*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="53*"/>
+                            <RowDefinition Height="9*"/>
+                            <RowDefinition Height="35*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="tileTextblockTxt" Grid.Row="1"  
+                                   Text="{x:Static localisation:Resources.AppUpdateTileContent_resx}"  Margin="5,0"
+                                Style="{DynamicResource TileContentTextStyle}"/>
+                        <Border Grid.Column="0" Grid.Row="3" BorderBrush="{DynamicResource WhiteBrushColor}"  BorderThickness="1" CornerRadius="13" Cursor="Hand" 
+                                 Background="{DynamicResource TransparentBackground}">
+                            <TextBlock Text="{x:Static localisation:Resources.AppUpdateTileBtnUpdate_resx}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFFFFF"/>
+                        </Border>
+                        <StackPanel Grid.Column="2"  Grid.RowSpan="3">
+                            <Viewbox x:Name="viewCount" Stretch="Uniform" >
+                                <TextBlock Text="{Binding ServiceTilesData_ResultObj.VersionUpdatedNumber}" FontWeight="Medium" Foreground="{DynamicResource WhiteBrushColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Viewbox>
+                            <Border Background="{DynamicResource WhiteBrushColor}" VerticalAlignment="Center" Height="2.5"/>
+                        </StackPanel>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

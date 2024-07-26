@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.Operational.OperationalTreatmentBreakdownTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls.Operational"
+             mc:Ignorable="d" 
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common" 
+             xmlns:wpfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended">
+    <Grid>
+        <Border CornerRadius="4" Background="{DynamicResource TileBackgroundBrush}">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="88*"/>
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="tileHeader" VerticalAlignment="Center" Margin="8 0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="{x:Static localisation:Resources.OperationalTreatmentBreakDown_resx}" Style="{DynamicResource TileHeaderTextStyle}" VerticalAlignment="Center"/>
+
+                </Grid>
+
+                <Border Grid.Row="1" Background="{DynamicResource TileHeaderLineBrush}" Height="1.5"/>
+
+                <Grid x:Name="tileContent" Grid.Row="2" Margin="8 0">
+                    <lvc:PieChart LegendLocation="Bottom" Series="{Binding TreatmentBreakDownSeriesCollection,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
+                        <lvc:PieChart.ChartLegend>
+                            <lvc:DefaultLegend BulletSize="12" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </lvc:PieChart.ChartLegend>
+                        <lvc:PieChart.Resources>
+                            <Style TargetType="lvc:PieSeries">
+                                <Setter Property="DataLabels" Value="True"/>
+                                <Setter Property="FontSize" Value="15"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="LabelPosition" Value="InsideSlice"/>
+                            </Style>
+                        </lvc:PieChart.Resources>
+                    </lvc:PieChart>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,216 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.Dashboard.MedicalHistoryTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:FF.Cockpit.UI.Views.UserControls.Dashboard"
+             xmlns:viewModel="clr-namespace:FF.Cockpit.UI.ViewModels"
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+             xmlns:converter="clr-namespace:FF.Cockpit.Theme.Converters;assembly=FF.Cockpit.Theme"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             mc:Ignorable="d" 
+             xmlns:themeCtrl="clr-namespace:FF.Cockpit.Theme.Controls;assembly=FF.Cockpit.Theme"
+             xmlns:con="clr-namespace:FF.Cockpit.Theme.Converters;assembly=FF.Cockpit.Theme">
+
+    <UserControl.Resources>
+        <con:InvertBoolConverter x:Key="InvertBoolConverter"/>
+        <converter:VisibilityConverter x:Key="VisibilityConverter" />
+    </UserControl.Resources>
+
+
+    <!--Combobox options to set Yes/No-->
+    <!--<Border CornerRadius="4" Background="{DynamicResource TileBackgroundBrush}">
+        <Border.Effect>
+            <DropShadowEffect/>
+        </Border.Effect>
+        <Grid>
+            <Grid IsEnabled="{Binding IsLoaderActiveOnMedicalHistory,Converter={StaticResource InvertBoolConverter}}">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Opacity" Value="1"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsLoaderActiveOnMedicalHistory}" Value="True">
+                                <Setter Property="Opacity" Value=".3"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height="88.5*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="tileHeader" VerticalAlignment="Center" Margin="8 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="45*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{x:Static localisation:Resources.MedicalHistoryTileHeader_resx}" Style="{DynamicResource TileHeaderTextStyle}" VerticalAlignment="Center"/>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" Visibility="{Binding MedicalHistoryTileModelObj.LastUpdatedVisible,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
+                        <TextBlock Margin="0,2,0,0"  VerticalAlignment="Center" FontSize="12" Foreground="#FFFFFF" >
+                            <Run Text="Last Edited:" />
+                             <Run Text="{Binding MedicalHistoryTileModelObj.LastUpdatedOn}" />
+                        </TextBlock>
+                        </StackPanel>
+                    <DockPanel Grid.Column="2" HorizontalAlignment="Right">
+                        <Image Width="16" Margin="8 2 8 0" ToolTip="Edit" Source="{DynamicResource Icon_TileEdit}" Style="{DynamicResource TileHeaderImageStyle}"
+                           Visibility="{Binding IsEditButtonVisible,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" PreviewMouseDown="imgSave_MouseUp"  >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseDown">
+                                    <i:InvokeCommandAction Command="{Binding EditMedicalHistoryCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
+                        <Image x:Name="imgSave" Width="12" Margin="8 0" Source="{DynamicResource Icon_TileSave}" Style="{DynamicResource TileHeaderImageStyle}"
+                           Visibility="{Binding IsSaveButtonVisible,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" PreviewMouseDown="imgSave_MouseUp" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseDown" >
+                                    <i:InvokeCommandAction Command="{Binding SaveMedicalHistoryCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
+
+                        <Image Width="10" Source="{DynamicResource Icon_TileLock}" Visibility="Visible"/>
+                    </DockPanel>
+                </Grid>
+                <Border Grid.Row="1" Background="{DynamicResource TileHeaderLineBrush}" Height="1.5"/>
+                <Grid x:Name="tileContent" Grid.Row="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="10*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="90*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Skin Cancer in Family"  Style="{DynamicResource MedicalHistoryLabelStyle}" />
+
+                    <ComboBox x:Name="skinCombo" Grid.Row="2"  Grid.Column="1" Style="{DynamicResource MedicalHistoryComboBoxStyle}" IsEnabled="{Binding IsEditModeEnabled}" 
+                              ItemContainerStyle="{DynamicResource  MedicalHistoryComboBoxItemStyle}"
+                              ItemsSource="{Binding MedicalHistoryTileModelObj.MedicalHistorycomboItemsObj}" DisplayMemberPath="DisplayName"
+                              SelectedItem="{Binding MedicalHistoryTileModelObj.SelectedskinCancerOption}"
+                              BorderThickness=".5">
+                        <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding MedicalHistorySkinCancerAnalyzedCommand}" CommandParameter="{Binding ElementName=skinCombo,Path=SelectedItem.selectedId}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    </ComboBox>
+
+
+                    <Label Grid.Row="4" Grid.Column="1" Content="Cancer in Family" Style="{DynamicResource MedicalHistoryLabelStyle}"/>
+                    <ComboBox x:Name="Cancercombo" Grid.Row="5" Grid.Column="1" Style="{DynamicResource MedicalHistoryComboBoxStyle}"  IsEnabled="{Binding IsEditModeEnabled}" 
+                              ItemContainerStyle="{DynamicResource  MedicalHistoryComboBoxItemStyle}"
+                              ItemsSource="{Binding MedicalHistoryTileModelObj.MedicalHistorycomboItemsObj}" DisplayMemberPath="DisplayName"
+                             SelectedItem="{Binding MedicalHistoryTileModelObj.SelectedCancerOption}"
+                              BorderThickness=".5">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding MedicalHistoryCancerRiskAnalyzedCommand}" CommandParameter="{Binding ElementName=Cancercombo,Path=SelectedItem.selectedId}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+
+                    <Label Grid.Row="7"  Grid.Column="1" Content="Genetic concpicious mutation"  Style="{DynamicResource MedicalHistoryLabelStyle}" />
+                    <ComboBox x:Name="geneticscombo" Grid.Row="8" Grid.Column="1" Style="{DynamicResource MedicalHistoryComboBoxStyle}"  IsEnabled="{Binding IsEditModeEnabled}" 
+                              ItemContainerStyle="{DynamicResource  MedicalHistoryComboBoxItemStyle}"
+                              ItemsSource="{Binding MedicalHistoryTileModelObj.MedicalHistorycomboItemsObj}" DisplayMemberPath="DisplayName"
+                             SelectedItem="{Binding MedicalHistoryTileModelObj.SelectedgeneticalConspicuousOption}"
+                              BorderThickness=".5">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding MedicalHistoryGeneticCancerAnalyzedCommand}" CommandParameter="{Binding ElementName=geneticscombo,Path=SelectedItem.selectedId}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+
+                </Grid>
+            </Grid>
+            <themeCtrl:ProgressRing IsActive="{Binding IsLoaderActiveOnMedicalHistory,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                    Foreground="{DynamicResource LoaderBrush}" Width="40" Height="40" />
+        </Grid>
+
+    </Border>-->
+
+    <Border CornerRadius="4" Background="{DynamicResource TileBackgroundBrush}">
+        <Border.Effect>
+            <DropShadowEffect/>
+        </Border.Effect>
+        <Grid>
+            <Grid>
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Opacity" Value="1"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsLoaderActiveOnMedicalHistory}" Value="True">
+                                <Setter Property="Opacity" Value=".3"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="88*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="tileHeader" VerticalAlignment="Center" Margin="8 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="{x:Static localisation:Resources.MedicalHistoryTileHeader_resx}" Style="{DynamicResource TileHeaderTextStyle}"/>
+                    </Viewbox>
+                    <DockPanel Grid.Column="2" HorizontalAlignment="Right">
+                        <Image Width="10" Source="{DynamicResource Icon_TileLock}" Visibility="Visible"/>
+                    </DockPanel>
+                </Grid>
+                <Border Grid.Row="1" Background="{DynamicResource TileHeaderLineBrush}" Height="1.5"/>
+                <Grid x:Name="tileContent" Grid.Row="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="10*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="90*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="1" Grid.Column="1" Content="{x:Static localisation:Resources.Dashboard_MedicalHistoryTile_lbl1_resx}"  Style="{DynamicResource MedicalHistoryLabelStyle}" />
+                    <Border Grid.Row="2" Grid.Column="1" BorderThickness="1" BorderBrush="White" CornerRadius="5">
+                        <Label Content="{x:Static localisation:Resources.Dashboard_MedicalHistoryTile_Text_resx}" Style="{DynamicResource MedicalHistoryLabelStyle}" />
+                    </Border>
+                    <Label Grid.Row="4" Grid.Column="1" Content="{x:Static localisation:Resources.Dashboard_MedicalHistoryTile_lbl2_resx}"  Style="{DynamicResource MedicalHistoryLabelStyle}" />
+                    <Border Grid.Row="5" Grid.Column="1" BorderThickness="1" BorderBrush="White" CornerRadius="5">
+                        <Label Content="{x:Static localisation:Resources.Dashboard_MedicalHistoryTile_Text_resx}" Style="{DynamicResource MedicalHistoryLabelStyle}" />
+                    </Border>
+                    <Label Grid.Row="7"  Grid.Column="1" Content="{x:Static localisation:Resources.Dashboard_MedicalHistoryTile_lbl3_resx}"  Style="{DynamicResource MedicalHistoryLabelStyle}" />
+                    <Border Grid.Row="8" Grid.Column="1" BorderThickness="1" BorderBrush="White" CornerRadius="5">
+                        <Label Content="{x:Static localisation:Resources.Dashboard_MedicalHistoryTile_Text_resx}" Style="{DynamicResource MedicalHistoryLabelStyle}" />
+                    </Border>
+                </Grid>
+            </Grid>
+            <!--themeCtrl:ProgressRing IsActive="{Binding IsLoaderActiveOnMedicalHistory,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                    Foreground="{DynamicResource LoaderBrush}" Width="40" Height="40" />-->
+        </Grid>
+
+    </Border>
+</UserControl>

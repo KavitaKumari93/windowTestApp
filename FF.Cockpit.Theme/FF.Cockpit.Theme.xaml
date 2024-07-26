@@ -1,0 +1,149 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    mc:Ignorable="options"
+                    xmlns:Controls="clr-namespace:FF.Cockpit.Theme.Controls"
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                    xmlns:actions="clr-namespace:FF.Cockpit.Theme.Actions"
+                    xmlns:res="clr-namespace:FF.Cockpit.Theme.Custom_Resources"
+                    xmlns:con="clr-namespace:FF.Cockpit.Theme.Converters">
+
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Styles/Controls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Styles/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Styles/Colors.xaml" />
+        
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/Icons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/FlyoutStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/ListViewStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/ButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/Brushes.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/TextBlockStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/ImageStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/BorderStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/ComboBoxStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/TextboxStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/DateTimePickerStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/DatePickerStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/DataGridStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/TabStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/ToggleButtonStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/PasswordBoxStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--#region Convertors-->
+    <BooleanToVisibilityConverter x:Key="BoolToVisibleCon" />
+    <con:MultiValueEqualityConverter x:Key="multiValueEqualityConverter"/>
+    <!--#endregion-->
+
+    <!--#region Color Codes-->
+    <SolidColorBrush x:Key="WhiteColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="WhiteBrushColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="GrayLightColor" Color="#FAFBFC"/>
+    <SolidColorBrush x:Key="GrayMediumColor" Color="#D3D3D3"/>
+    <SolidColorBrush x:Key="GrayDarkColor" Color="#AFAFAF"/>
+    <SolidColorBrush x:Key="TransparentBackground" Color="Transparent"/>
+
+    <SolidColorBrush x:Key="GrayBlueColor" Color="#505F79"/>
+    <SolidColorBrush x:Key="GrayBlueColorLowOpacity" Color="#505F79" Opacity="0.1"/>
+    <SolidColorBrush x:Key="GrayBlackColor" Color="#444444"/>
+
+    <!--#endregion-->
+
+    <Style x:Key="DescriptionHeaderStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Storyboard x:Key="MetroExpanderCollapseStoryboard">
+        <DoubleAnimation Storyboard.TargetName="ExpandSite"
+                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                 To="0"
+                                 Duration="0:0:0.1" />
+        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ExpandSite" Storyboard.TargetProperty="(UIElement.Visibility)">
+            <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Collapsed}" />
+        </ObjectAnimationUsingKeyFrames>
+
+    </Storyboard>
+
+    <Style x:Key="Custom_ImageStyle" TargetType="{x:Type Image}">
+        <Setter Property="res:ImageHelper.SourceResourceKey" Value="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" />
+    </Style>
+
+    <Style x:Key="Custom_BottomImageStyle" TargetType="{x:Type Image}" BasedOn="{StaticResource Custom_ImageStyle}">
+        <Setter Property="Opacity" Value=".5"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="1"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="Custom_BottomGridStyle" TargetType="{x:Type Grid}">
+        <Setter Property="Opacity" Value=".5"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="TextBlock.Foreground" Value="#836A50"/>
+                <Setter Property="Opacity" Value="1"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Dialog Window Style-->
+    <Style x:Key="PopBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#669dfa"/>
+        <Setter Property="BorderThickness" Value="8" />
+        <Setter Property="CornerRadius" Value="8" />
+
+    </Style>
+
+    <Style x:Key="DialogGridStyle" TargetType="Grid">
+        <Setter Property="Background" Value="#f2f4f5"/>
+
+    </Style>
+    <Style x:Key="WarningText" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Foreground" Value="#575c5b"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="DialogBoxCommonButton" TargetType="{x:Type Button}">
+
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="OuterBorder"
+                        Background="#6c98ba"
+                        BorderThickness="2"
+                        CornerRadius="8">
+                        <ContentPresenter
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="OuterBorder" Property="Border.Background" Value="{StaticResource ButtonPressedColor}" />
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

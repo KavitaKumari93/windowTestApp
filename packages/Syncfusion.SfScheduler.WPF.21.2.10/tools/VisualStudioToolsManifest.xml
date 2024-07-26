@@ -1,0 +1,9 @@
+<FileList>
+
+<File Reference="Syncfusion.SfScheduler.WPF.dll">
+	<ContainsControls>True</ContainsControls>
+	<ToolboxItems UIFramework="WPF" VSCategory="Syncfusion WPF UI Controls (NuGet)" BlendCategory="Syncfusion WPF UI Controls (NuGet)">
+		<Item Type="Syncfusion.UI.Xaml.Scheduler.SfScheduler"/>
+	</ToolboxItems>
+</File>
+</FileList>

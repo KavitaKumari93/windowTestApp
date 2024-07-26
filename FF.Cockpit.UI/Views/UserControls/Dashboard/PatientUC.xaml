@@ -1,0 +1,252 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.Dashboard.PatientUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls.Dashboard"
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+             mc:Ignorable="d"  
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:converter="clr-namespace:FF.Cockpit.UI.Converters">
+
+    <UserControl.Resources>
+        <converter:AnonymizeStringConverter x:Key="AnonymizeConverter"/>
+        <Style x:Key="AutoCompleteListBoxStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="Background" Value="{DynamicResource WorkBackgroundBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ForegroundBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Template" Value="{DynamicResource AutoCompleteListBoxControlTemplate}"/>
+            <Setter Property="ItemContainerStyle" Value="{DynamicResource AutoCompleteListBoxItemStyle}"/>
+        </Style>
+
+        <!-- 
+    ***************************************************************************
+    AutoCompleteListBoxControlTemplate
+    ***************************************************************************
+    -->
+        <ControlTemplate x:Key="AutoCompleteListBoxControlTemplate" TargetType="{x:Type ListBox}">
+            <Border x:Name="Border" 
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                Background="{TemplateBinding Background}" 
+                BorderThickness="{TemplateBinding BorderThickness}" 
+                SnapsToDevicePixels="True">
+                <ScrollViewer Focusable="False" 
+                          Padding="{TemplateBinding Padding}" 
+                          Template="{DynamicResource AutoCompleteScrollViewerControlTemplate}">
+                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                </ScrollViewer>
+            </Border>
+        </ControlTemplate>
+
+        <!-- 
+    ***************************************************************************
+    AutoCompleteScrollViewerControlTemplate
+    ***************************************************************************
+    -->
+        <ControlTemplate x:Key="AutoCompleteScrollViewerControlTemplate" TargetType="{x:Type ScrollViewer}">
+            <Grid>
+                <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                    Grid.ColumnSpan="2"
+    				CanContentScroll="{TemplateBinding CanContentScroll}" 
+    				ContentTemplate="{TemplateBinding ContentTemplate}" 
+    				Content="{TemplateBinding Content}" 
+    				Margin="{TemplateBinding Padding}"/>
+                    <ScrollBar x:Name="PART_VerticalScrollBar" 
+    				Grid.Column="1" 
+    				AutomationProperties.AutomationId="VerticalScrollBar" 
+    				Cursor="Arrow" Maximum="{TemplateBinding ScrollableHeight}" 
+    				Minimum="0" 
+    				Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+    				Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+    				ViewportSize="{TemplateBinding ViewportHeight}"
+    				Margin="0 17 0 0"/>
+                    <ScrollBar x:Name="PART_HorizontalScrollBar" 
+    				Grid.Row="1" 
+    				Orientation="Horizontal" 
+    				AutomationProperties.AutomationId="HorizontalScrollBar" 
+    				Cursor="Arrow"  
+    				Maximum="{TemplateBinding ScrollableWidth}"
+    				Minimum="0" 
+    				Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+    				Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" 
+    				ViewportSize="{TemplateBinding ViewportWidth}"/>
+                    <ResizeGrip x:Name="ResizeGrip" Grid.Row="1"  Grid.Column="1"  VerticalAlignment="Top" HorizontalAlignment="Right" Cursor="SizeNWSE"/>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+
+        <!-- 
+    ***************************************************************************
+    AutoCompleteResizeGripStyle
+    ***************************************************************************
+    -->
+        <Style x:Key="AutoCompleteResizeGripStyle" TargetType="{x:Type ResizeGrip}"/>
+
+        <!-- 
+    ***************************************************************************
+    AutoCompleteListBoxItemStyle
+    ***************************************************************************
+    -->
+        <Style x:Key="AutoCompleteListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                            <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Margin="0,1,0,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="27*"/>
+                                    <ColumnDefinition Width="27*"/>
+                                    <ColumnDefinition Width="27*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="imgGenderMale" Source="{DynamicResource DashboardPatientMale}" Width="155" Margin="3,3,10,3" Visibility="{Binding Gender, ConverterParameter=m }" Height="16"/>
+                                <Image x:Name="imgGenderFemale" Source="{DynamicResource DashboardPatientFemale}" Width="16" Margin="3,3,10,3" Visibility="{Binding Gender, ConverterParameter=f}" Height="16"/>
+                                <TextBlock x:Name="tbName" Text="{Binding PatientName,Converter={StaticResource AnonymizeConverter}}" Grid.Column="1" Margin="0,0,10,0"/>
+                                <TextBlock x:Name="tbDateOfBirth" Text="{Binding DateOfBirth,StringFormat=d}" Grid.Column="2" Margin="0,0,10,0"/>
+                                <TextBlock x:Name="tbPatientId" Text="{Binding ConcatpatientRecordnumber}" Grid.Column="3"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="Border" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid  MouseDown="Grid_MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="70*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="94*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1" x:Name="LayoutRootGrid" UseLayoutRounding="True" Background="Gray">
+            <!--Patient Search-->
+            <Border x:Name="PatientSearchPanel"
+                    Visibility="{Binding IsSearchTextBoxVisible}"
+                    BorderBrush="#171A1D" Background="#171A1D" 
+                    BorderThickness="1" CornerRadius="30" Margin="15,4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="94*" x:Name="autocompletebox" />
+                        <!--<ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>-->
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="TbxSearchPatientWatermark"  
+                       Text="{x:Static localisation:Resources.Dashboard_PatientTbxSearchPatientWatermark_resx}"
+                       Visibility="{Binding TbxSearchPatientWatermark ,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                       Background="{x:Null}"
+                       BorderBrush="{x:Null}"
+                       Opacity="0.5"  
+                       Foreground="{DynamicResource ForegroundBrush}"
+                       FontSize="24" BorderThickness="0"  CaretBrush="{DynamicResource ForegroundBrush}" VerticalContentAlignment="Center" Margin="30,0,0,0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding HiddenTextboxWatermarkCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+
+                    <TextBox x:Name="TbxSearchPatient"  
+                      Visibility="{Binding TbxSearchPatient}"
+                      Background="{x:Null}"
+                       BorderBrush="{x:Null}"
+                       GotFocus="TbxSearchPatient_GotFocus"
+                       Text="{Binding SearchedText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                       Foreground="{DynamicResource ForegroundBrush}"
+                       FontSize="24" BorderThickness="0" SelectionOpacity="0"
+                        CaretBrush="{DynamicResource ForegroundBrush}"
+                       VerticalContentAlignment="Center" Padding="30 0 0 0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="KeyUp">
+                                <i:InvokeCommandAction Command="{Binding DocumentType_KeyUpCommand , UpdateSourceTrigger=PropertyChanged}" CommandParameter="{Binding ElementName=TbxSearchPatient, Path=Text}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </TextBox>
+
+                <Popup x:Name="autoCompletorListPopup"
+                MinHeight="400" MinWidth="800"
+                Visibility="{Binding IsAutoCompletorPopupVisible}"
+                StaysOpen="False"
+                IsOpen="{Binding IsAutoCompletorPopupOpen}"
+                AllowsTransparency="True" 
+                PlacementTarget="{Binding ElementName=TbxSearchPatient}"
+                Placement="Bottom">
+                <ListBox x:Name="autoCompletorList"
+                MinWidth="800"
+                MaxHeight="400"        
+                Margin="20 0"
+                Style="{StaticResource AutoCompleteListBoxStyle}"    
+                ItemsSource="{Binding PatientsDetails_ResultAutoCompleteObj,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding AutoCompletorListSelectionChangedCommand}" CommandParameter="{Binding ElementName=autoCompletorList, Path=SelectedItem}" />
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="PreviewMouseDown">
+                                    <i:InvokeCommandAction Command="{Binding DocumentType_LostFocusCommand, UpdateSourceTrigger=PropertyChanged}" CommandParameter="{Binding ElementName=autoCompletorList, Path=SelectedItem}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ListBox>
+                    </Popup>
+
+                    <Image Source="{DynamicResource Icon_Search}" Grid.Column="2" Width="30" Height="30" Margin="10,0,30,0"></Image>
+                </Grid>
+            </Border>
+        </Grid>
+
+
+        <StackPanel Grid.Row="2"  Grid.Column="1" Background="Black" Orientation="Horizontal" >
+        
+            <!--<TextBlock Foreground="White" VerticalAlignment="Center" FontWeight="DemiBold"  Margin="20,0" FontSize="16" >
+             <Run Text="{x:Static localisation:Resources.Dashboard_PatientDescription_resx}"/> 
+             <Run Text="{Binding TotalPatientCount}"   />
+             <Run Text="{x:Static localisation:Resources.Dashboard_PatientDescriptionAddontxt_resx}" />
+            </TextBlock>-->
+        </StackPanel>
+        <Grid Grid.Row="3"  Grid.Column="1" Background="Black">
+            <!--<DataGrid VerticalAlignment="Top"
+             x:Name="patientListGrid"  
+             Style="{DynamicResource DataGridStyle}"
+             ItemsSource="{Binding PatientsDetails_ResultObj,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+             RowStyle="{DynamicResource ResourceKey=DataGridRowHoverStyle}" SelectionMode="Single"
+             SelectedValue="ObjectId" SelectedItem="{Binding SelectedPatient}" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static localisation:Resources.DataGridColHeaderRecordNumber_resx}" Binding="{Binding PatientRecordnumber}" SortMemberPath="PatientRecordnumber" />
+                    <DataGridTextColumn Header="{x:Static localisation:Resources.DataGridColHeaderFirstName_resx}" Binding="{Binding FirstName}" SortMemberPath="FirstName" />
+                    <DataGridTextColumn Header="{x:Static localisation:Resources.DataGridColHeaderMiddleName_resx}" Binding="{Binding MiddleName}" SortMemberPath="MiddleName" />
+                    <DataGridTextColumn Header="{x:Static localisation:Resources.DataGridColHeaderLastName_resx}" Binding="{Binding LastName}" SortMemberPath="LastName"  />
+                    <DataGridTextColumn Header="{x:Static localisation:Resources.DataGridColHeaderDOB_resx}" Binding="{Binding DateOfBirth,StringFormat=d, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}" />
+
+                </DataGrid.Columns>
+                <i:Interaction.Triggers>
+                   
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding PatientListSelectionChangedCommand}" CommandParameter="{Binding ElementName=patientListGrid, Path=SelectedItem.ObjectId}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+               
+            </DataGrid>-->
+        </Grid>
+    </Grid>
+</UserControl>

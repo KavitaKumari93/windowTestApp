@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.Performance.DiagnosedPatientsTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls.Performance"
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+             mc:Ignorable="d">
+    <Grid>
+        <Border CornerRadius="4" Background="{DynamicResource TileBackgroundBrush}">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="77*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="tileHeader" VerticalAlignment="Center" Margin="8 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{x:Static localisation:Resources.DiagnosedPatientTileHeader_resx}" Style="{DynamicResource TileHeaderTextStyle}" VerticalAlignment="Center"/>
+                    <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <Image Width="10" Source="{DynamicResource Icon_TileLock}" Visibility="Visible"/>
+                    </DockPanel>
+                </Grid>
+                <Border Grid.Row="1" Background="{DynamicResource TileHeaderLineBrush}" Height="2"/>
+                <Grid x:Name="tileContent" Grid.Row="2" Margin="8 -5 8 0" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="44*"/>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="38*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock x:Name="tileTextblockTxt"  Text="{x:Static localisation:Resources.DiagnosedPatientTileContent_resx}"  
+                                Style="{DynamicResource TileContentTextStyle}" />
+                   
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="85*"/>
+                            <RowDefinition Height="15*"/>
+                        </Grid.RowDefinitions>
+                        <Viewbox x:Name="viewCount" Stretch="Uniform">
+                            <TextBlock Grid.Row="1" Text="{Binding PerformanceTilesData_ResultObj.PatientCount}" FontSize="50" FontWeight="Medium" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Viewbox>
+                        <Border Grid.Row="1" Background="{DynamicResource BrownBrush}" VerticalAlignment="Center" Height="2.5"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
+

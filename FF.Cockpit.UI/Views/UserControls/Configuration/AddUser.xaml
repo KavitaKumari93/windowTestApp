@@ -1,0 +1,231 @@
+﻿<Window x:Class="FF.Cockpit.UI.UserControls.AddUser"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+        mc:Ignorable="d"
+        ResizeMode="NoResize" WindowStyle="None"
+        WindowStartupLocation="CenterOwner" Width="600" SizeToContent="Height" ShowInTaskbar="False"
+        xmlns:behaviours="http://schemas.microsoft.com/xaml/behaviors" 
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:themeCtrl="clr-namespace:FF.Cockpit.Theme.Controls;assembly=FF.Cockpit.Theme"
+        xmlns:common="clr-namespace:FF.Cockpit.Common;assembly=FF.Cockpit.Common"
+        xmlns:model="clr-namespace:FF.Cockpit.Entity.EntityModel;assembly=FF.Cockpit.Entity"
+        xmlns:uc="clr-namespace:FF.Cockpit.UI.UserControls"
+        xmlns:converter="clr-namespace:FF.Cockpit.Theme.Converters;assembly=FF.Cockpit.Theme"
+        xmlns:localization="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+        xmlns:wpfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended">
+    <Window.Resources>
+        <converter:InvertBoolConverter x:Key="InvertBooleanConverter" />
+    </Window.Resources>
+    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Background="#81684E" BorderBrush="Gray" BorderThickness="0 0 0 1">
+                <Grid Margin="10 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <DockPanel></DockPanel>
+                    <TextBlock Foreground="#FFFFFF" FontWeight="Medium" FontSize="14"  
+                               HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="{x:Static localization:Resources.ConfigurationDoctorTabEditDoctorHeader_resx}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsAdd}" Value="True">
+                                        <Setter Property="Text" Value="{x:Static localization:Resources.ConfigurationDoctorTabAddUserHeader_resx}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <Button Grid.Column="1" x:Name="CloseButton" Width="20" 
+                            Style="{DynamicResource OpacityButton}" HorizontalAlignment="Right" 
+                            WindowChrome.IsHitTestVisibleInChrome="True" Click="CloseButton_Click" IsCancel="True">
+                        <Path Width="12" Height="12" Stroke="White" StrokeThickness="2.2" Stretch="Fill" 
+                              Data="{DynamicResource CloseX}" />
+                    </Button>
+                </Grid>
+            </Border>
+
+            <StackPanel Grid.Row="1" Margin="10" Background="#22262B">
+                <!--<DockPanel>
+                    <DockPanel Width="185">
+                        <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderFirstName_resx}" Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                        <TextBox Text="{Binding UpdateSourceTrigger=PropertyChanged,Path=SelectedUser.FirstName,
+                                 ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 ToolTip="{Binding SelectedUser.ErrorCollection[FirstName]}" 
+                                 Padding="3 0 0 0" Background="#373E46" 
+                                 BorderBrush="Gray" FontWeight="Normal" FontSize="14"/>
+                    </DockPanel>
+                    <DockPanel Width="185" Margin="10 0 0 0">
+                        <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderMiddleName_resx}"  Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                        <TextBox Text="{Binding UpdateSourceTrigger=PropertyChanged,Path=SelectedUser.MiddleName,
+                                 ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 ToolTip="{Binding SelectedUser.ErrorCollection[MiddleName]}" 
+                                 Padding="3 0 0 0" Background="#373E46" 
+                                 BorderBrush="Gray" FontWeight="Normal" FontSize="14"/>
+                    </DockPanel>
+                    <DockPanel Width="185">
+                        <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderLastName_resx}" Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                        <TextBox Text="{Binding UpdateSourceTrigger=PropertyChanged,Path=SelectedUser.LastName,
+                                 ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 ToolTip="{Binding SelectedUser.ErrorCollection[LastName]}" 
+                                 Padding="3 0 0 0" Background="#373E46" 
+                                 BorderBrush="Gray" FontWeight="Normal" FontSize="14"/>
+                    </DockPanel>
+
+                </DockPanel>-->
+                
+                <DockPanel>
+                    <DockPanel Width="280">
+                        <TextBlock Text="{x:Static localization:Resources.DataGridHeaderCol_Name_resx}" Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                        <TextBox Name="myTextBox" Text="{Binding UpdateSourceTrigger=PropertyChanged,Path=SelectedUser.UserName,
+                                 ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 ToolTip="{Binding SelectedUser.ErrorCollection[UserName]}"
+                                 Padding="3 0 0 0" Background="#373E46"
+                                 BorderBrush="Gray" FontWeight="Normal" FontSize="14" />
+                    </DockPanel>
+                    <DockPanel Width="280" Margin="10 0 0 0">
+                        <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderPhoneNumber_resx}"  Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                        <wpfx:MaskedTextBox  Mask="+00 (000) 000-0000"  Text="{Binding UpdateSourceTrigger=PropertyChanged,Path=SelectedUser.PhoneNumber,
+                                 ValidatesOnDataErrors=true, NotifyOnValidationError=true}" ToolTip="{Binding SelectedUser.ErrorCollection[PhoneNumber]}" 
+                                 Padding="3 0 0 0"  Background="#373E46"
+                                 BorderBrush="Gray" FontWeight="Normal" FontSize="14" />
+                    </DockPanel>
+                </DockPanel>
+                
+                <DockPanel Margin="0 10 0 0">
+                   
+                    <DockPanel Width="280">
+                        <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderEmail_resx}" Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                        <TextBox Text="{Binding UpdateSourceTrigger=PropertyChanged,Path=SelectedUser.Email,
+                                 ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 ToolTip="{Binding SelectedUser.ErrorCollection[Email]}" 
+                                 Padding="3 0 0 0" Background="#373E46" 
+                                 BorderBrush="Gray" FontWeight="Normal" FontSize="15" Margin="0,0,0,5"/>
+                    </DockPanel>
+                    <DockPanel Margin="10 0 0 0" Width="280">
+                        <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderPassword_resx}" Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                        <!--<PasswordBox common:BoundPasswordBox.Attach="True" PasswordChar="*" 
+                                     common:BoundPasswordBox.Password="{Binding UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,Path=SelectedUser.Password,
+                                     ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                     ToolTip="{Binding SelectedUser.ErrorCollection[Password]}" 
+                                     Padding="3 0 0 0" Background="#373E46"
+                                     BorderBrush="Gray" FontWeight="Normal" FontSize="14"/>-->
+                        <Grid Grid.Row="1" Grid.Column="2">
+                            <!--Masked Password Pannel-->
+                            <Grid x:Name="MaskedPasswordPannel" Visibility="{Binding IsUserPasswordMasked, Converter={StaticResource InvertBooleanConverter}}">
+                                <PasswordBox x:Name="psswordKey" common:BoundPasswordBox.Attach="True" common:BoundPasswordBox.Password="{Binding UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,Path=SelectedUser.Password,
+                                     ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Margin="0,0,0,5" PasswordChar="*" DockPanel.Dock="Left" Style="{StaticResource EditPasswordBoxStyle}"   />
+                                <Image x:Name="ImgLockIcon" Width="18.0" Height="18.0" Margin="0,0,10,0" Cursor="Hand" Source="{StaticResource Icon_EyeVision}" HorizontalAlignment="Right">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding PasswordToggleCommand}" CommandParameter="UserPassword"   />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Image>
+                            </Grid>
+                            <!--String Password Pannel-->
+                            <Grid x:Name="StringPasswordPannel" Visibility="{Binding IsUserPasswordMasked, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <TextBox x:Name="psswordKeyString" Margin="0,0,0,5" Text="{Binding UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,Path=SelectedUser.Password,
+                                     ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Style="{StaticResource EditTextBoxStyle}"  />
+                                <Image x:Name="ImgEyeVisionIcon" Width="18.0" Height="18.0" Margin="0,0,5,0" Cursor="Hand" Source="{StaticResource Icon_Eye}" HorizontalAlignment="Right">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding PasswordToggleCommand}" CommandParameter="UserPassword"  />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Image>
+                            </Grid>
+                        </Grid>
+
+                    </DockPanel>
+                </DockPanel>
+                <DockPanel Margin="0 10 0 0">
+                    <DockPanel  Width="280">
+                        <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderAppointmentColor_resx}" Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                        <wpfx:ColorPicker SelectedColor="{Binding UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,Path=SelectedUser.LightThemeColor,
+                                          ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                          ToolTip="{Binding SelectedUser.ErrorCollection[LightThemeColor]}" 
+                                          ShowAdvancedButton="True" ShowAvailableColors="True"
+                                          Padding="3 0 0 0" Background="#373E46"
+                                          BorderBrush="Gray" FontWeight="Normal" FontSize="14"/>
+                    </DockPanel>
+
+                    <DockPanel Margin="0 0 0 0"  >
+                        <DockPanel Width="280">
+                            <TextBlock Text="Select User Role:" Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                            <!--<TextBox Text="{Binding UpdateSourceTrigger=PropertyChanged,Path=SelectedUser.UserRoleId,
+                                 ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 ToolTip="{Binding SelectedUser.ErrorCollection[UserRoleId]}" 
+                                 Padding="3 0 0 0" Background="#373E46" 
+                                 BorderBrush="Gray" FontWeight="Normal" FontSize="14"/>-->
+                            
+                            <ComboBox x:Name="roleCMB" 
+                                  ItemsSource="{Binding UserRoleList}"
+                                  DisplayMemberPath="RoleName"
+                                  SelectedValuePath="RoleId" 
+                                  ToolTip="{Binding SelectedUser.ErrorCollection[UserRoleId], ValidatesOnDataErrors=true, NotifyOnValidationError=true}"
+                                  SelectedValue="{Binding UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,Path=SelectedUser.UserRoleId,
+                                  ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                  
+                                  Padding="3 0 0 0" Background="#373E46"
+                                  BorderBrush="Gray" FontWeight="Normal" FontSize="14"/>
+                        </DockPanel>
+                    </DockPanel>
+                       
+                
+                </DockPanel>
+                <DockPanel Margin="0 10 0 0" HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderSelectImage_resx}" Style="{StaticResource DefaultTextblockStyle}" DockPanel.Dock="Top"/>
+                    <DockPanel DockPanel.Dock="Top" HorizontalAlignment="Left" Width="280">
+                        <Button Height="27" Width="240" Content="Browse" Command="{Binding OpenFileDialogCommand}" 
+                                    BorderBrush="Gray" BorderThickness=".5"/>
+                        <Image Margin="10 0 0 0" 
+                                   Source="{Binding UpdateSourceTrigger=PropertyChanged,Path=SelectedUser.PhotoSource}" 
+                                   Height="28" Width="28"/>
+                    </DockPanel>
+                </DockPanel>
+
+                <DockPanel Margin="0 10 5 0" Height="70">
+                    <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderDescription_resx}" DockPanel.Dock="Top" Style="{StaticResource DefaultTextblockStyle}"/>
+                    <TextBox Text="{Binding SelectedUser.Description,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" TextWrapping="Wrap" 
+                             Padding="3 0 0 0" Background="#373E46"
+                             BorderBrush="Gray" FontWeight="Normal" FontSize="14"/>
+                </DockPanel>
+                
+                
+               
+
+
+                <DockPanel Margin="0 12 0 0" HorizontalAlignment="Right">
+                    <Button x:Name="Save" Height="30" Width="90" Command="{Binding SaveUpdateDeleteCommand}" >
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource FotoFinderButtonStyle}">
+                                <Setter Property="Content" Value="{x:Static localization:Resources.UpdateButton_resx}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsAdd}" Value="True">
+                                        <Setter Property="Content" Value="{x:Static localization:Resources.SaveButton_resx}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="Cancel" Height="30" Width="90" Content="{x:Static localization:Resources.CancelButton_resx}" Command="{Binding CancelCommand}" 
+                                Margin="8 0" Style="{StaticResource FotoFinderButtonStyle}"/>
+                </DockPanel>
+
+            </StackPanel>
+
+        </Grid>
+    </Border>
+
+</Window>

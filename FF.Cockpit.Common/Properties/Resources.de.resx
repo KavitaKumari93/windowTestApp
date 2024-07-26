@@ -1,0 +1,1423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMaintenance_resx" xml:space="preserve">
+    <value>Wartungsinformationen</value>
+  </data>
+  <data name="AboutRightsText_resx" xml:space="preserve">
+    <value>Alle Rechte vorbehalten</value>
+  </data>
+  <data name="AboutTitleTextMainWindow_resx" xml:space="preserve">
+    <value>FotoFinder.Universum Version</value>
+  </data>
+  <data name="AboutTitle_resx" xml:space="preserve">
+    <value>Info über...</value>
+  </data>
+  <data name="About_resx" xml:space="preserve">
+    <value>Info über...</value>
+  </data>
+  <data name="Scheduler_resx" xml:space="preserve">
+    <value>Planer</value>
+  </data>
+  <data name="AppTitle_resx" xml:space="preserve">
+    <value>COCKPIT</value>
+  </data>
+  <data name="AppUpdateTileContent_resx" xml:space="preserve">
+    <value>Dieses Update ist eine neue Version von Universe und wird einige Zeit in Anspruch nehmen. Schätzung - 2 Stunden</value>
+  </data>
+  <data name="AppUpdateTileHeader_resx" xml:space="preserve">
+    <value>Update verfügbar</value>
+  </data>
+  <data name="AppVersionTileContent_resx" xml:space="preserve">
+    <value>Fotofinder Universe Software Version, bitte regelmäßig aktualisieren.</value>
+  </data>
+  <data name="AppVersionTileHeader_resx" xml:space="preserve">
+    <value>Software-Version</value>
+  </data>
+  <data name="ATBMmasterTileHeader_resx" xml:space="preserve">
+    <value>ATBM master</value>
+  </data>
+  <data name="ChangeAppointment_resx" xml:space="preserve">
+    <value>Termin ändern</value>
+  </data>
+  <data name="Company_resx" xml:space="preserve">
+    <value>FotoFinder Systems GmbH</value>
+  </data>
+  <data name="ContactSupport_resx" xml:space="preserve">
+    <value>Kontakt zum Support</value>
+  </data>
+  <data name="Contact_resx" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="CopyrightYears_resx" xml:space="preserve">
+    <value>2010-2023</value>
+  </data>
+  <data name="Copyright_resx" xml:space="preserve">
+    <value>@copyright</value>
+  </data>
+  <data name="Dashboards_resx" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Dashboard_resx" xml:space="preserve">
+    <value>Cockpit</value>
+  </data>
+  <data name="DatabaseFileManagementText_resx" xml:space="preserve">
+    <value>- FotoFinder Dateiverwaltung </value>
+  </data>
+  <data name="DatabaseVersion_resx" xml:space="preserve">
+    <value>Datenbank v</value>
+  </data>
+  <data name="DataToDisplayFilterText_resx" xml:space="preserve">
+    <value>Anzuzeigende Daten :</value>
+  </data>
+  <data name="DiagnosedPatientTileContent_resx" xml:space="preserve">
+    <value>Die Gesamtzahl der untersuchten Patienten.</value>
+  </data>
+  <data name="DiagnosedPatientTileHeader_resx" xml:space="preserve">
+    <value>Anzahl der Patienten</value>
+  </data>
+  <data name="Error_AppClose_resx" xml:space="preserve">
+    <value>'{0}' hat aufgehört zu arbeiten und wird geschlossen.GRUND:{1}</value>
+  </data>
+  <data name="Error_Description_resx" xml:space="preserve">
+    <value>Fehlerbeschreibung_{0} {1} :</value>
+  </data>
+  <data name="Error_Headline_resx" xml:space="preserve">
+    <value>Schwerwiegender Fehler</value>
+  </data>
+  <data name="ExaminationHistoryTileHeader_resx" xml:space="preserve">
+    <value>Anamnese der Untersuchung</value>
+  </data>
+  <data name="ExaminationTimeTileHeader_resx" xml:space="preserve">
+    <value>Durchschnittliche Prüfungszeit</value>
+  </data>
+  <data name="ExcisionTileContent_resx" xml:space="preserve">
+    <value>Gesamtzahl der entfernten Marker </value>
+  </data>
+  <data name="ExcisionTileHeader_resx" xml:space="preserve">
+    <value>Exzision</value>
+  </data>
+  <data name="FollowUpIntervalTileHeader_resx" xml:space="preserve">
+    <value>Follow-up-Intervall</value>
+  </data>
+  <data name="ExaminationTrends_resx" xml:space="preserve">
+    <value>Prüfung Trend</value>
+  </data>
+  <data name="PatientTrends_resx" xml:space="preserve">
+    <value>Patienten Trend</value>
+  </data>
+  <data name="Frequency_resx" xml:space="preserve">
+    <value>Frequenz</value>
+  </data>
+  <data name="Full_resx" xml:space="preserve">
+    <value>Vollständig</value>
+  </data>
+  <data name="HardwareCounterTileCounterColumn_resx" xml:space="preserve">
+    <value>Zähler</value>
+  </data>
+  <data name="HardwareCounterTileDescriptionColumn_resx" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="HardwareCounterTileHardwareColumn_resx" xml:space="preserve">
+    <value>Komponente</value>
+  </data>
+  <data name="HardwareCounterTileHeader_resx" xml:space="preserve">
+    <value>Laufzeitzähler</value>
+  </data>
+  <data name="HardwareCounterTileLastServiceDateColumn_resx" xml:space="preserve">
+    <value>Datum des letzten Dienstes</value>
+  </data>
+  <data name="HardwareCounterTileNextServiceColumn_resx" xml:space="preserve">
+    <value>Nächster Dienst</value>
+  </data>
+  <data name="HardwareCounterTileNextServiceDateColumn_resx" xml:space="preserve">
+    <value>Nächster Servicetermin</value>
+  </data>
+  <data name="HardwareCounterTileStatusColumn_resx" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="HighRiskPatientTileHeader_resx" xml:space="preserve">
+    <value>Patienten</value>
+  </data>
+  <data name="Last_resx" xml:space="preserve">
+    <value>Letzte</value>
+  </data>
+  <data name="LesionTileContent_resx" xml:space="preserve">
+    <value>Durchschnittliche Anzahl von Bodyscan-Befunden pro Sitzung</value>
+  </data>
+  <data name="LesionTileHeader_resx" xml:space="preserve">
+    <value>Durchschnittliche Bodyscan-Befunde</value>
+  </data>
+  <data name="LoginDatabaseLoginInstance_resx" xml:space="preserve">
+    <value>SQL Server Instanz:</value>
+  </data>
+  <data name="LoginDatabaseName_resx" xml:space="preserve">
+    <value>Datenbankname:</value>
+  </data>
+  <data name="LoginDatabasePassword_resx" xml:space="preserve">
+    <value>Passwort:</value>
+  </data>
+  <data name="LoginDatabaseSavePassword_resx" xml:space="preserve">
+    <value>Passwort speichern:</value>
+  </data>
+  <data name="LoginDatabaseUserName_resx" xml:space="preserve">
+    <value>Benutzername:</value>
+  </data>
+  <data name="Logout_resx" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MaintenanceDays" xml:space="preserve">
+    <value>t</value>
+  </data>
+  <data name="MaintenanceMinutes" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="MedicalHistoryTileHeader_resx" xml:space="preserve">
+    <value>Anamnese</value>
+  </data>
+  <data name="TrendsGraph_resx" xml:space="preserve">
+    <value>Trend Grafik</value>
+  </data>
+  <data name="MessageConfirmTemplateName" xml:space="preserve">
+    <value>Möchten Sie fortfahren?</value>
+  </data>
+  <data name="MicroImagesTileContent_resx" xml:space="preserve">
+    <value>Gesamtzahl der für diesen Patienten aufgezeichneten Mikrobilder.</value>
+  </data>
+  <data name="MicroImagesTileHeader_resx" xml:space="preserve">
+    <value>Mikro-Bilder aufgenommen </value>
+  </data>
+  <data name="MyAccount_resx" xml:space="preserve">
+    <value>Mein Konto</value>
+  </data>
+  <data name="NextAppointment_resx" xml:space="preserve">
+    <value>Nächster Termin</value>
+  </data>
+  <data name="Patients_resx" xml:space="preserve">
+    <value>Patienten</value>
+  </data>
+  <data name="PerformanceFilterDefaultDateWatermark_resx" xml:space="preserve">
+    <value>mm/tt/jjjj</value>
+    <comment>Needs clarification with devs!</comment>
+  </data>
+  <data name="PerformanceFilterDefaultStartDate_resx" xml:space="preserve">
+    <value>01/01/2000</value>
+  </data>
+  <data name="Performance_resx" xml:space="preserve">
+    <value>Leistung</value>
+  </data>
+  <data name="Privacy_resx" xml:space="preserve">
+    <value>Datenschutz</value>
+  </data>
+  <data name="RiskFactor_resx" xml:space="preserve">
+    <value>Risikofaktor</value>
+  </data>
+  <data name="Service_resx" xml:space="preserve">
+    <value>Dienst</value>
+  </data>
+  <data name="Configuration_resx" xml:space="preserve">
+    <value>Konfiguration</value>
+  </data>
+  <data name="SessionsTileHeader_resx" xml:space="preserve">
+    <value>Sitzungen</value>
+  </data>
+  <data name="SkinTileImportantNotice_resx" xml:space="preserve">
+    <value>-Wichtiger Hinweis</value>
+  </data>
+  <data name="SkinTileUpdateConfirmation_resx" xml:space="preserve">
+    <value>Eine Änderung der Hauteinstellung kann sich direkt auf das Risikoprofil auswirken. Bitte beachten Sie die möglichen Auswirkungen auf Sicherheit und Wirksamkeit.</value>
+    <comment>Will not be used in non-medical software!</comment>
+  </data>
+  <data name="SkinTileWarningMessage_resx" xml:space="preserve">
+    <value>Eine Änderung der Hauteinstellung kann sich direkt auf das Risikoprofil auswirken. Bitte beachten Sie die möglichen Auswirkungen auf Sicherheit und Wirksamkeit.</value>
+    <comment>Will not be used in non-medical software!</comment>
+  </data>
+  <data name="SkinTypeTileHeader_resx" xml:space="preserve">
+    <value>Hauttyp</value>
+  </data>
+  <data name="SwitchAccount_resx" xml:space="preserve">
+    <value>Konto wechseln</value>
+  </data>
+  <data name="Terms_resx" xml:space="preserve">
+    <value>Geschäftsbedingungen</value>
+    <comment>Nutzungsbedingungen?</comment>
+  </data>
+  <data name="TimeMinutes_resx" xml:space="preserve">
+    <value>Zeit in Minuten</value>
+  </data>
+  <data name="SessionCount_resx" xml:space="preserve">
+    <value>Anzahl der Sitzungen</value>
+  </data>
+  <data name="PatientCount_resx" xml:space="preserve">
+    <value>Patienten</value>
+  </data>
+  <data name="TraceBoot_resx" xml:space="preserve">
+    <value>{0} - BOOT SCHRITT '{1}' gestartet.</value>
+    <comment>confirmation from dev required</comment>
+  </data>
+  <data name="TreatmentBreakdown_resx" xml:space="preserve">
+    <value>Aufschlüsselung der Untersuchungen</value>
+  </data>
+  <data name="VersionFull_resx" xml:space="preserve">
+    <value>Version 1.0.42</value>
+    <comment>Needs adaption from dev side: {0}</comment>
+  </data>
+  <data name="Version_resx" xml:space="preserve">
+    <value>V. 1.0.42</value>
+    <comment>Needs adaption from dev side: {0}</comment>
+  </data>
+  <data name="Warning_resx" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="XXFactor_resx" xml:space="preserve">
+    <value>Basierend auf den {0} Statistiken aus der Quelle {1} legal test</value>
+  </data>
+  <data name="Years_resx" xml:space="preserve">
+    <value>Jahre</value>
+  </data>
+  <data name="ContactContent_resx" xml:space="preserve">
+    <value>FotoFinder Systems GmbH 
+Industriestraße 12  
+84364 Bad Birnbach, Deutschland
+
+ 
+
+
+Telefon: +49 (0)8563 97720-0 
+Fax: +49 (0)8563 97720-10 
+Support Hotline +49 (0)856397720-45
+
+
+
+www.fotofinder.de 
+
+
+
+Kontaktieren Sie uns per E-Mail unter: 
+info@fotofinder.de</value>
+  </data>
+  <data name="CopyrightContact_resx" xml:space="preserve">
+    <value>(c)Urheberrecht 2010-2030 FotoFinder Systems GmbH</value>
+  </data>
+  <data name="Footer_resx" xml:space="preserve">
+    <value>Zurück zur Hauptseite</value>
+  </data>
+  <data name="PrivacyContent_resx" xml:space="preserve">
+    <value>FOTOFINDER HUB
+
+ 
+
+REGISTRIERUNG
+Wenn Sie sich für FOTOFINDER HUB registrieren, wird FotoFinder Systems GmbH (FFS) Sie nach persönlichen Daten und anderen Informationen über Sie und Ihr Unternehmen fragen und diese sammeln. Es kann sein, dass wir für die Bereitstellung von Diensten für unsere Nutzer einen Drittanbieter einsetzen, dem es untersagt ist, die persönlichen Daten unserer Nutzer zu verwenden. Das bei der ersten Anmeldung gewählte Passwort wird von unserer Software auf seine Sicherheit geprüft. Sie können während der Eingabe sehen, wie sicher Ihr Passwort ist! Beim Einloggen werden diese Daten durch SSL / TSL verschlüsselt.
+
+ 
+
+PASSWORTSCHUTZ
+Sie sind dafür verantwortlich, alle angemessenen Maßnahmen zu ergreifen, um sicherzustellen, dass keine unbefugten Personen Zugang zu Ihren FOTOFINDER HUB Passwörtern oder Konten haben. Es liegt in Ihrer alleinigen Verantwortung, (1) die Verbreitung und Nutzung von Aktivierungscodes und Passwörtern zu kontrollieren; (2) die FFS unverzüglich zu informieren, wenn ein Passwort deaktiviert werden muss. Sie gewähren der FFS und allen anderen am Betrieb der FOTOFINDER HUB beteiligten Personen oder Einrichtungen das Recht, Ihre persönlichen Daten im Zusammenhang mit dem Betrieb der FOTOFINDER HUB zu übertragen, zu überwachen, abzurufen, zu speichern und zu nutzen. Die FFS kann und wird keine Verantwortung oder Haftung für von Ihnen übermittelte Informationen oder die Nutzung oder den Missbrauch von Informationen, die Sie oder Dritte über FOTOFINDER HUB übermitteln oder empfangen, übernehmen
+
+ 
+
+UPLOAD VON DATEN
+Der Upload auf FOTOFINDER HUB erfolgt über eine verschlüsselte Datenverbindung (SSL /TSL), wie sie z.B. von Online-Banking-Portalen verwendet wird. Dabei wird ein sicheres, signiertes Zertifikat verwendet, um die Sicherheit des Endpunktes zu gewährleisten, bevor die verschlüsselten Daten zwischen FOTOFINDER HUB und dem hochladenden Gerät (z.B. Handyscope oder FotoFinder PC) ausgetauscht werden.
+
+ 
+
+PATIENTENBEZOGENE DATEN
+Wenn Sie ein FFS-Kunde sind, der Gesundheitsdienstleistungen anbietet, können Sie FOTOFINDER HUB nutzen, um detaillierte Gesundheitsdaten und andere personenbezogene Daten über Ihre Patienten zu speichern und zur Verfügung zu stellen. Patientenbezogene Daten, die Sie auf FOTOFINDER HUB speichern, sind nur über Ihr persönliches Konto zugänglich.
+
+ 
+
+DATENSPEICHERUNG
+FFS nutzt sichere Amazon S3-Cloud-Dienste, um Ihre Daten zu speichern. Die Daten werden in Clustern in Europa gespeichert, um die FOTOFINDER HUB-Funktionalität zu hosten. Die FFS behält sich das Recht vor, den Speicherplatz für jeden Nutzer nach eigenem Ermessen zu begrenzen.
+VERANTWORTUNG FÜR DIE DATEN
+Sie tragen die alleinige Verantwortung für alle Daten, die Sie auf FOTOFINDER HUB hochladen. Sie sind außerdem verpflichtet, die Regeln und Vorschriften Ihres Berufsrechts zu befolgen. Die FFS gibt keine Garantien oder Zusicherungen in Bezug auf Daten und/oder Informationen, die von einem Nutzer auf FOTOFINDER HUB bereitgestellt oder zugänglich gemacht werden. Die FFS garantiert nicht, dass die Daten/Informationen wahrheitsgetreu oder genau sind4 oder dass sie einen bestimmten Zweck erfüllen oder dazu dienen.
+
+ 
+
+VERHALTENSREGELN
+Wenn Sie auf FOTOFINDER HUB zugreifen oder es nutzen, erklären Sie sich damit einverstanden, zusätzlich zu allen anderen Bedingungen, Regeln oder Richtlinien, die in diesen Nutzungsbedingungen enthalten sein können, die folgenden Handlungen nicht vorzunehmen, die jeweils einen wesentlichen Verstoß gegen diese Nutzungsbedingungen darstellen:
+
+ 
+
+ 
+
+Die Nutzung von FOTOFINDER HUB für einen Zweck, der gegen lokale, staatliche, nationale oder internationale Gesetze verstößt;
+
+ 
+
+- Das Hochladen von Material, das die Rechte am geistigen Eigentum anderer verletzt oder die Privatsphäre oder die Öffentlichkeitsrechte anderer verletzt;
+- Hochladen von Material, das nach alleinigem Ermessen der FFS ungesetzlich, obszön, verleumderisch, bedrohlich, belästigend, beleidigend, hasserfüllt oder peinlich für andere Personen oder Organisationen ist
+- Verbreitung von Computerviren oder anderem schädlichen Computercode;
+- einer anderen natürlichen oder juristischen Person zu gestatten, Ihre Kennung für die Nutzung von FOTOFINDER HUB zu verwenden;
+
+ 
+
+  Die FFS behält sich das Recht vor (ist aber nicht verpflichtet), einige oder alle der folgenden Maßnahmen zu ergreifen:
+
+ 
+
+ 
+
+- eine Behauptung zu untersuchen, dass ein auf FOTOFINDER HUB hochgeladener Inhalt nicht den Bedingungen dieses Abschnitts entspricht, und nach eigenem Ermessen zu entscheiden, den Inhalt zu entfernen oder seine Entfernung zu verlangen.
+- Inhalte zu entfernen, die missbräuchlich, illegal oder störend sind, oder die anderweitig nicht mit diesen Nutzungsbedingungen übereinstimmen.
+- Beendigung des Zugangs eines Nutzers zur FFS-Website bei einem Verstoß gegen diese Nutzungsbedingungen.
+- Inhalte, die auf FOTOFINDER HUB hochgeladen werden, zu bearbeiten oder zu löschen, unabhängig davon, ob diese Inhalte gegen die vorliegenden Nutzungsbedingungen verstoßen.
+
+ 
+
+ 
+
+NUTZUNG VON INFORMATIONEN DURCH DIE FFS
+
+ 
+
+ 
+
+Zusätzlich zu den Informationen, die Sie wissentlich zur Verfügung stellen, sammelt die FFS die Domainnamen und IP-Adressen ihrer Besucher sowie Nutzungsstatistiken. Die FFS kann diese Informationen mit den von ihr gesammelten personenbezogenen und anderen Informationen kombinieren, mit Ausnahme von patientenbezogenen Daten.
+Die FFS kann die von uns gesammelten Informationen verwenden:
+Zur Bereitstellung unserer Dienstleistungen.
+- Um Ihnen personalisierte Inhalte zur Verfügung zu stellen, z. B. durch Speicherung Ihrer Bilder und anderer Präferenzen, damit Sie Ihre Erfahrungen individuell gestalten können.
+- Um Ihre Anfragen zu beantworten. - Um FOTOFINDER HUB zu verbessern, z.B. um festzustellen, welche Funktionen am meisten genutzt werden, um Navigationsprobleme zu finden und zu beheben und um die zukünftige Entwicklung zu unterstützen.
+- Um Sie über neue Funktionen, besondere Ereignisse und Dienstleistungen zu informieren, sofern Sie dem zustimmen.
+- Für andere Zwecke, sofern diese Zwecke bei der Erfassung der Daten deutlich angegeben wurden.
+- Zur Durchsetzung der Nutzungsbedingungen, z. B. um Sie wegen eines Verstoßes zu kontaktieren oder um eine rechtliche Beschwerde einzuleiten.
+
+ 
+
+Die FFS kann die gesammelten Daten an andere Unternehmen weitergeben, (i) um eine oder mehrere der im vorherigen Abschnitt beschriebenen Funktionen auszulagern, einschließlich eines Aspekts von FOTOFINDER HUB (z.B. sichere Fernspeicherung); (ii) um von Ihnen bereitgestellte Daten zu bestätigen oder zu aktualisieren; oder (iii) um Sie über wichtige Informationen zu informieren. Wir können Informationen auch als Reaktion auf eine Vorladung, eine gerichtliche Anordnung oder eine offizielle Anfrage weitergeben, wenn wir glauben, dass Sie gegen die Nutzungsbedingungen verstoßen haben, oder wenn wir glauben, dass dies Ihre Sicherheit oder die Sicherheit anderer schützen kann.
+
+ 
+
+COOKIES
+Zusätzlich zu den von Ihnen zur Verfügung gestellten Informationen und den anderen oben beschriebenen Methoden können wir auch Informationen durch die Verwendung von Cookies, Web Beacons oder ähnlichen in FOTOFINDER HUB integrierten Technologien sammeln.
+
+ 
+
+DATENSCHUTZ
+FFS unternimmt große Anstrengungen, um die von uns erfassten personenbezogenen und gesundheitsbezogenen Daten vor Verlust, Missbrauch und Veränderung zu schützen. Unsere Server sind durch angemessene physische und elektronische Sicherheitsmaßnahmen geschützt, und wir verwenden Verschlüsselung, wo immer dies gerechtfertigt oder erforderlich ist.
+
+ 
+
+VERTRAULICHKEIT
+Die FFS behandelt die ihr zur Kenntnis gelangenden personenbezogenen Daten vertraulich, es sei denn, sie ist aufgrund einer gesetzlichen Vorschrift zu einer Mitteilung verpflichtet, worüber sie den Auftraggeber vor der Mitteilung informiert. Die FFS verpflichtet auch ihre Mitarbeiter, die Zugang zu den personenbezogenen Daten haben, zu dieser Vertraulichkeit.
+
+ 
+
+VERPFLICHTUNG ZUR SICHERHEIT UND ZUR MELDUNG VON DATENVERLETZUNGEN
+Die FFS ergreift im Einklang mit den jeweils geltenden Vorschriften die geeigneten technischen und organisatorischen Maßnahmen, um die personenbezogenen Daten gegen Verlust oder gegen jede Form der unrechtmäßigen Verarbeitung zu sichern, wobei sie den Stand der Technik und die Kosten der Umsetzung berücksichtigt und die mit der Verarbeitung und der Art der zu schützenden Daten verbundenen Risiken berücksichtigt. Im Falle einer Verletzung der Sicherheit personenbezogener Daten oder einer Verletzung des Schutzes personenbezogener Daten, die zu (erheblichen) Risiken für die Rechte und Freiheiten natürlicher Personen führen kann, unternimmt die FFS alle Anstrengungen, um den Auftraggeber unverzüglich darüber zu informieren.
+
+ 
+
+EINSICHTNAHME UND DATENSCHUTZ-FOLGENABSCHÄTZUNG
+Der Kunde ist berechtigt, auf eigene Kosten die Maßnahmen und die Einhaltung der Verpflichtungen der FFS durch einen unabhängigen Dritten überprüfen zu lassen, sofern (i) der Kunde einen triftigen Grund für eine Überprüfung hat, (ii) der Kunde die FFS mindestens vierzehn Arbeitstage vor der geplanten Überprüfung über diese Absicht informiert, (iii) der unabhängige Dritte die von der FFS mit der Überprüfung gegebenen Hinweise befolgt und (iv) die Überprüfung den Geschäftsbetrieb der FFS nicht stört. Auf Ersuchen des Kunden unterstützt die FFS den Kunden bei der Erfüllung seiner Verpflichtungen im Rahmen einer Datenschutz-Folgenabschätzung und gegebenenfalls nach vorheriger Konsultation der Aufsichtsbehörde. Die FFS unterrichtet den Auftraggeber unverzüglich, wenn sie der Ansicht ist, dass eine Anweisung einen Verstoß gegen die DSGVO oder eine andere datenschutzrechtliche Vorschrift verursacht
+
+ 
+
+UNTERAUFTRAGNEHMER
+FotoFinder kann die im Folgenden aufgeführten Unterauftragsverarbeiter einsetzen:
+
+ 
+
+Stripe
+Wenn Sie mit Ihrer Kreditkarte bezahlen, werden Ihre Kreditkartendaten, Ihr Name, Ihre (Büro-)Adresse und Ihre E-Mail-Adresse von unserem Zahlungsanbieter Stripe sicher gespeichert und verarbeitet. Wir können diese Informationen einsehen, wobei die Kreditkartendaten auf das Ablaufdatum und die letzten vier Ziffern Ihrer Karte beschränkt sind. Wir können weder Ihre Kreditkartennummer noch den CVC (Card Verification Code) einsehen.
+
+ 
+
+ 
+
+Wenn Sie Fragen, Bedenken oder Vorschläge bezüglich der Datenschutzpolitik der FFS haben, kontaktieren Sie uns bitte unter info@fotofinder.de</value>
+  </data>
+  <data name="Operational_resx" xml:space="preserve">
+    <value>Buchungen</value>
+  </data>
+  <data name="FollowUp_resx" xml:space="preserve">
+    <value>Folgeaufnahmen</value>
+  </data>
+  <data name="OperationalScheduledHours_resx" xml:space="preserve">
+    <value>Geplante Stunden insgesamt/</value>
+  </data>
+  <data name="OperationalTreatmentBreakDown_resx" xml:space="preserve">
+    <value>Aufschlüsselung der Prüfung</value>
+  </data>
+  <data name="OperationaRoomOccupancy_resx" xml:space="preserve">
+    <value>Bericht über die Zimmerbelegung</value>
+  </data>
+  <data name="CloudSync_resx" xml:space="preserve">
+    <value>Cloud-Synchronisation</value>
+  </data>
+  <data name="LesionsUndeFollowUpTileContent_resx" xml:space="preserve">
+    <value>Läsionen zur Weiterverfolgung nach der letzten Sitzung.</value>
+  </data>
+  <data name="LesionsUndeFollowUpTileheader_resx" xml:space="preserve">
+    <value>Läsionen, die weiterverfolgt werden</value>
+  </data>
+  <data name="Trends_resx" xml:space="preserve">
+    <value>Trends</value>
+  </data>
+  <data name="Refresh_resx" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="AboutCity_resx" xml:space="preserve">
+    <value>84364 Bad Birnbach, Deutschland</value>
+    <comment>DO_NOT_TRANSLATE</comment>
+  </data>
+  <data name="AboutCompanyName_resx" xml:space="preserve">
+    <value>FotoFinder Systems GmbH</value>
+    <comment>DO_NOT_TRANSLATE</comment>
+  </data>
+  <data name="AboutContactEMail_resx" xml:space="preserve">
+    <value>info@fotofinder.de</value>
+  </data>
+  <data name="AboutCountryOfOriginDateOfProduction_resx" xml:space="preserve">
+    <value>Herkunftsland / Produktionsdatum</value>
+  </data>
+  <data name="AboutEndOfUpdatesDate_resx" xml:space="preserve">
+    <value>Produktaktualisierungen bis:</value>
+  </data>
+  <data name="AboutFollowInstruction_resx" xml:space="preserve">
+    <value>Bitte Handbuch befolgen!</value>
+  </data>
+  <data name="AboutManufacturer_resx" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AboutMedicalDeviceDirective_resx" xml:space="preserve">
+    <value>Das Produkt wurde nach den geltenden Normen entwickelt</value>
+  </data>
+  <data name="AboutMedicalDevice_resx" xml:space="preserve">
+    <value>Medizinprodukt</value>
+    <comment>Cockpit is not a Medical Device!</comment>
+  </data>
+  <data name="AboutModelNumber_resx" xml:space="preserve">
+    <value>Modellnummer</value>
+  </data>
+  <data name="AboutProductManufacturing_resx" xml:space="preserve">
+    <value>Das Produkt wurde nach den geltenden Normen entwickelt.</value>
+  </data>
+  <data name="AboutStreet_resx" xml:space="preserve">
+    <value>Industriestraße 12</value>
+    <comment>DO_NOT_TRANSLATE</comment>
+  </data>
+  <data name="AboutSupportEMail_resx" xml:space="preserve">
+    <value>support@fotofinder.de</value>
+    <comment>DO_NOT_TRANSLATE</comment>
+  </data>
+  <data name="AboutSupportHotline_resx" xml:space="preserve">
+    <value>Hotline: +49 8563 97720-45</value>
+  </data>
+  <data name="AboutSupportText_resx" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="AboutSwissRepHeader_resx" xml:space="preserve">
+    <value>Schweizer zuständiger Vertreter (nur Schweiz)</value>
+  </data>
+  <data name="AboutSwissRepText_resx" xml:space="preserve">
+    <value>Johner Medical Schweiz GmbH
+Tafelstattstrasse 13a
+6415 Arch
+Switzerland</value>
+  </data>
+  <data name="ApplicationVersion_resx" xml:space="preserve">
+    <value>1.0.42</value>
+  </data>
+  <data name="AppointmentColorAlreadyExists_resx" xml:space="preserve">
+    <value>AppointmentType oder Farbe bereits existiert, wählen Sie eine andere.</value>
+  </data>
+  <data name="AppointmentEditor_AppointmentTypeTitle_resx" xml:space="preserve">
+    <value>Art der Ernennung</value>
+  </data>
+  <data name="AppointmentEditor_DoctorSelectionTitle_resx" xml:space="preserve">
+    <value>Arzt auswählen</value>
+  </data>
+  <data name="AppointmentEditor_DurationSelectionTitle_resx" xml:space="preserve">
+    <value>Laufzeit</value>
+  </data>
+  <data name="AppointmentEditor_EditAppointmentHeader_resx" xml:space="preserve">
+    <value>Termin bearbeiten</value>
+  </data>
+  <data name="AppointmentEditor_EndTimeTitle_resx" xml:space="preserve">
+    <value>Endzeit</value>
+  </data>
+  <data name="AppointmentEditor_NewAppointmentHeader_resx" xml:space="preserve">
+    <value>Neue Ernennung</value>
+  </data>
+  <data name="AppointmentEditor_PatientSelectionTitle_resx" xml:space="preserve">
+    <value>Patient auswählen</value>
+  </data>
+  <data name="AppointmentEditor_RecurrenceDescriptionTitle_resx" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="AppointmentEditor_RecurrenceEditRadioButton1_resx" xml:space="preserve">
+    <value>Aktuell</value>
+  </data>
+  <data name="AppointmentEditor_RecurrenceEditRadioButton2_resx" xml:space="preserve">
+    <value>Vollständige Serie</value>
+  </data>
+  <data name="AppointmentEditor_RecurrencelblTitle_resx" xml:space="preserve">
+    <value>Wiederholung</value>
+  </data>
+  <data name="AppointmentEditor_RoomSelectionTitle_resx" xml:space="preserve">
+    <value>Zimmer auswählen</value>
+  </data>
+  <data name="AppointmentEditor_StartTimeTitle_resx" xml:space="preserve">
+    <value>Startzeit</value>
+  </data>
+  <data name="AppUpdateTileBtnUpdate_resx" xml:space="preserve">
+    <value>Jetzt aktualisieren</value>
+  </data>
+  <data name="AppVersionTileBtnCheckForUpdate_resx" xml:space="preserve">
+    <value>Auf Aktualisierung prüfen</value>
+  </data>
+  <data name="AttachFileMsgStr_resx" xml:space="preserve">
+    <value>Bitte wählen Sie eine .exe-Datei</value>
+  </data>
+  <data name="BodyscanStr_resx" xml:space="preserve">
+    <value>Bodyscan</value>
+  </data>
+  <data name="CancelButton_resx" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="CleanLocalStorageSuccessMsg_resx" xml:space="preserve">
+    <value>Lokale Bilder werden erfolgreich entfernt.</value>
+  </data>
+  <data name="CloudSyncAWSmagesText_resx" xml:space="preserve">
+    <value>AWS</value>
+  </data>
+  <data name="CloudSyncLocalImagesText_resx" xml:space="preserve">
+    <value>Lokales</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Btn_DownloadLog_resx" xml:space="preserve">
+    <value>Logbuch herunterladen</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Btn_UploadLog_resx" xml:space="preserve">
+    <value>Log hochladen</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_Action_resx" xml:space="preserve">
+    <value>Aktion</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_DOB_resx" xml:space="preserve">
+    <value>Geburtsdatum</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_DoctorName_resx" xml:space="preserve">
+    <value>Name des Arztes</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_DownloadStatus_resx" xml:space="preserve">
+    <value>Status herunterladen</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_EndTime_resx" xml:space="preserve">
+    <value>Endzeit</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_ImgAWS_resx" xml:space="preserve">
+    <value>Bilder auf AWS</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_ImgLocal_resx" xml:space="preserve">
+    <value>Bilder auf lokaler Ebene</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_PatientName_resx" xml:space="preserve">
+    <value>Patientenname</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_RoomName_resx" xml:space="preserve">
+    <value>Zimmer Name</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_StartTime_resx" xml:space="preserve">
+    <value>Startzeit</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_Status_resx" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_Type_resx" xml:space="preserve">
+    <value>Synchrontyp</value>
+  </data>
+  <data name="CloudSync_AppointedPatient_Col_UploadStatus_resx" xml:space="preserve">
+    <value>Status hochladen</value>
+  </data>
+  <data name="CloudSync_BtnCleanLog_resx" xml:space="preserve">
+    <value>Saubere lokale Speicherung</value>
+  </data>
+  <data name="CloudSync_BtnDownloadNow_resx" xml:space="preserve">
+    <value>Jetzt herunterladen</value>
+  </data>
+  <data name="CloudSync_BtnDownloadSyncService_resx" xml:space="preserve">
+    <value>Download-Dienst ausführen</value>
+  </data>
+  <data name="CloudSync_BtnScheduleDownload_resx" xml:space="preserve">
+    <value>Zeitplan Download</value>
+  </data>
+  <data name="CloudSync_BtnScheduleUpload_resx" xml:space="preserve">
+    <value>Zeitplan Upload</value>
+  </data>
+  <data name="CloudSync_BtnUploadAllSyncService_resx" xml:space="preserve">
+    <value>Dienst "Alle hochladen" ausführen</value>
+  </data>
+  <data name="CloudSync_BtnUploadSyncService_resx" xml:space="preserve">
+    <value>Upload-Dienst ausführen</value>
+  </data>
+  <data name="CloudSync_LblPieChart_resx" xml:space="preserve">
+    <value>Lokale VS AWS</value>
+  </data>
+  <data name="CloudSync_TrackDownload_Col_DownloadTime_resx" xml:space="preserve">
+    <value>Download Zeit</value>
+  </data>
+  <data name="CloudSync_TrackUpload_Col_ImageName_resx" xml:space="preserve">
+    <value>Bild Name</value>
+  </data>
+  <data name="CloudSync_TrackUpload_Col_MachineName_resx" xml:space="preserve">
+    <value>Name der Maschine</value>
+  </data>
+  <data name="CloudSync_TrackUpload_Col_UploadTime_resx" xml:space="preserve">
+    <value>Upload-Zeit</value>
+  </data>
+  <data name="CloudSync_UpdateDownloadPopUpHeader_resx" xml:space="preserve">
+    <value>Update Download-Datum</value>
+  </data>
+  <data name="CloudSync_UpdateDownloadPopUpLbl_resx" xml:space="preserve">
+    <value> Datum herunterladen</value>
+  </data>
+  <data name="CloudSync_UpdateUploadPopUpHeader_resx" xml:space="preserve">
+    <value> Update Upload-Datum</value>
+  </data>
+  <data name="CloudSync_UpdateUploadPopUpLbl_resx" xml:space="preserve">
+    <value>Datum des Hochladens</value>
+  </data>
+  <data name="ConfigurationAppointmentTabAddFormHeader_resx" xml:space="preserve">
+    <value>Neuer Termintyp</value>
+  </data>
+  <data name="ConfigurationAppointmentTabDataGridHeaderAddType_resx" xml:space="preserve">
+    <value>AppointmentType Name</value>
+  </data>
+  <data name="ConfigurationAppointmentTabUpdateFormHeader_resx" xml:space="preserve">
+    <value>Termintyp bearbeiten</value>
+  </data>
+  <data name="ConfigurationDoctorTabAddUserHeader_resx" xml:space="preserve">
+    <value>Arzt hinzufügen</value>
+  </data>
+  <data name="ConfigurationDoctorTabEditDoctorHeader_resx" xml:space="preserve">
+    <value>Arzt bearbeiten</value>
+  </data>
+  <data name="ConfigurationRoleTabAddFormHeader_resx" xml:space="preserve">
+    <value>Neue Rolle</value>
+  </data>
+  <data name="ConfigurationRoleTabEditFormHeader_resx" xml:space="preserve">
+    <value>Rolle bearbeiten</value>
+  </data>
+  <data name="ConfigurationRoleTabFormTitleIsActive_resx" xml:space="preserve">
+    <value>Ist aktiv</value>
+  </data>
+  <data name="ConfigurationRoleTabFormTitleRoleName_resx" xml:space="preserve">
+    <value>Rolle Name</value>
+  </data>
+  <data name="ConfigurationRoomTabAddFormHeader_resx" xml:space="preserve">
+    <value>Zimmer hinzufügen</value>
+  </data>
+  <data name="ConfigurationRoomTabEditFormHeader_resx" xml:space="preserve">
+    <value>Raum bearbeiten</value>
+  </data>
+  <data name="ConfigurationTabBtnAddAppointmentType_resx" xml:space="preserve">
+    <value>Termintyp hinzufügen</value>
+  </data>
+  <data name="ConfigurationTabBtnAddUser_resx" xml:space="preserve">
+    <value>Ärzte hinzufügen</value>
+  </data>
+  <data name="ConfigurationTabBtnAddRole_resx" xml:space="preserve">
+    <value>Rolle hinzufügen</value>
+  </data>
+  <data name="ConfigurationTabBtnAddRoom_resx" xml:space="preserve">
+    <value>Zimmer hinzufügen</value>
+  </data>
+  <data name="ConfigurationTabHeaderAppointmentTypes_resx" xml:space="preserve">
+    <value>Arten von Terminen</value>
+  </data>
+  <data name="ConfigurationTabHeaderDoctor_resx" xml:space="preserve">
+    <value>Ärzte</value>
+  </data>
+  <data name="ConfigurationTabHeaderRole_resx" xml:space="preserve">
+    <value>Rollen</value>
+  </data>
+  <data name="ConfigurationTabHeaderRoom_resx" xml:space="preserve">
+    <value>Zimmer</value>
+  </data>
+  <data name="ConnectionError_resx" xml:space="preserve">
+    <value>Verbindungsfehler</value>
+  </data>
+  <data name="ContactTileHeader_resx" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="CSVExport_resx" xml:space="preserve">
+    <value>Exportieren nach csv</value>
+  </data>
+  <data name="CustomFilterlbl_resx" xml:space="preserve">
+    <value>Startdatum - Enddatum</value>
+  </data>
+  <data name="Dashboard_BadgeLText_resx" xml:space="preserve">
+    <value>Id :</value>
+  </data>
+  <data name="Dashboard_BadgeUText_resx" xml:space="preserve">
+    <value>Hallo,</value>
+  </data>
+  <data name="Dashboard_ExaminationTimeTileContent_resx" xml:space="preserve">
+    <value>Durchschnittliche Untersuchungszeit für die Patienten in Minuten.</value>
+  </data>
+  <data name="Dashboard_ExaminationTimeTileHeader_resx" xml:space="preserve">
+    <value>Avg. Prüfungszeit</value>
+  </data>
+  <data name="Dashboard_ExcisedMarkersListTitle_resx" xml:space="preserve">
+    <value>Exzidierte Marker</value>
+  </data>
+  <data name="Dashboard_ExcisedMarkerTile_Col_ExcisionDate_resx" xml:space="preserve">
+    <value>Datum der Exzision</value>
+  </data>
+  <data name="Dashboard_ExcisedMarkerTile_Col_Marker_resx" xml:space="preserve">
+    <value>Marker</value>
+  </data>
+  <data name="Dashboard_GhostMarkerTileHeader_resx" xml:space="preserve">
+    <value>Unbestätigte Markierungen</value>
+  </data>
+  <data name="Dashboard_MedicalHistoryTile_lbl1_resx" xml:space="preserve">
+    <value>Hautkrebs in der Familie</value>
+  </data>
+  <data name="Dashboard_MedicalHistoryTile_lbl2_resx" xml:space="preserve">
+    <value>Krebs in der Familie</value>
+  </data>
+  <data name="Dashboard_MedicalHistoryTile_lbl3_resx" xml:space="preserve">
+    <value>Verdächtige genetische Mutation</value>
+  </data>
+  <data name="Dashboard_MedicalHistoryTile_Text_resx" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="Dashboard_PatientDescriptionAddontxt_resx" xml:space="preserve">
+    <value>Patienten</value>
+  </data>
+  <data name="Dashboard_PatientDescription_resx" xml:space="preserve">
+    <value>Beschreibung des Patienten -</value>
+  </data>
+  <data name="Dashboard_PatientTbxSearchPatientWatermark_resx" xml:space="preserve">
+    <value>Suchen Sie hier nach Patientennamen und Patientendatennummer</value>
+  </data>
+  <data name="Dashboard_SessionTileContent_resx" xml:space="preserve">
+    <value>Gesamtzahl der Sitzungen.</value>
+  </data>
+  <data name="Dashboard_SkinTileEdit_resx" xml:space="preserve">
+    <value>Hauttyp bearbeiten</value>
+  </data>
+  <data name="Dashboard_SkinTileMissingWarning_resx" xml:space="preserve">
+    <value>Fehlt</value>
+  </data>
+  <data name="DataGridColHeaderAppointmentColor_resx" xml:space="preserve">
+    <value>Farbe für Termin wählen</value>
+  </data>
+  <data name="DataGridColHeaderDescription_resx" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="DataGridColHeaderDOB_resx" xml:space="preserve">
+    <value>Geburtsdatum</value>
+  </data>
+  <data name="DataGridColHeaderEmail_resx" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="DataGridColHeaderFirstName_resx" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="DataGridColHeaderLastName_resx" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="DataGridColHeaderLastVisit_resx" xml:space="preserve">
+    <value>Letzter Besuch Dauer</value>
+  </data>
+  <data name="DataGridColHeaderMiddleName_resx" xml:space="preserve">
+    <value>2. Vorname</value>
+  </data>
+  <data name="DataGridColHeaderPassword_resx" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="DataGridColHeaderPhoneNumber_resx" xml:space="preserve">
+    <value>Telefonnummer</value>
+  </data>
+  <data name="DataGridColHeaderRecordNumber_resx" xml:space="preserve">
+    <value>Patientenummer</value>
+  </data>
+  <data name="DataGridColHeaderRoleName_resx" xml:space="preserve">
+    <value>Rolle Name</value>
+  </data>
+  <data name="DataGridColHeaderSelectImage_resx" xml:space="preserve">
+    <value>Bild auswählen</value>
+  </data>
+  <data name="DataGridCol_Comment_Resx" xml:space="preserve">
+    <value>{x:Static localisation:Resources.DataGridCol_Comment_Resx}</value>
+  </data>
+  <data name="DataGridCol_Marked_resx" xml:space="preserve">
+    <value>Markiert</value>
+  </data>
+  <data name="DataGridHeaderCol_AverageBodyScan_resx" xml:space="preserve">
+    <value>Avg. Bodyscan</value>
+  </data>
+  <data name="DataGridHeaderCol_Excision_resx" xml:space="preserve">
+    <value>Exzision</value>
+  </data>
+  <data name="DataGridHeaderCol_MicroImages_resx" xml:space="preserve">
+    <value>Mikro-Bilder aufgenommen</value>
+  </data>
+  <data name="DataGridHeaderCol_Name_resx" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="DataGridHeaderCol_SessionDuration_resx" xml:space="preserve">
+    <value>Avg. Sitzungsdauer (m)</value>
+  </data>
+  <data name="DataGridHeaderCol_TotalSessions_resx" xml:space="preserve">
+    <value>Sitzungen insgesamt</value>
+  </data>
+  <data name="DayStr_resx" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="DbConnectionErrorMsg_resx" xml:space="preserve">
+    <value>Datenbank nicht verbunden</value>
+  </data>
+  <data name="DeleteButton_resx" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="DermoscopyStr_resx" xml:space="preserve">
+    <value>Dermoskopie</value>
+  </data>
+  <data name="DeviceManufacturer_resx" xml:space="preserve">
+    <value>Hersteller</value>
+  </data>
+  <data name="DeviceNextService_resx" xml:space="preserve">
+    <value>Nächster Kundendienst in</value>
+  </data>
+  <data name="DeviceRemainingReleases_resx" xml:space="preserve">
+    <value>Verbleibende Freisetzungen</value>
+  </data>
+  <data name="DeviceSerialNumber_resx" xml:space="preserve">
+    <value>Seriennummer</value>
+  </data>
+  <data name="DialogWindowAlertCaption_resx" xml:space="preserve">
+    <value>Alarmierung</value>
+  </data>
+  <data name="DoctorNameAlreadyExists_resx" xml:space="preserve">
+    <value>Arztname existiert bereits, wählen Sie einen anderen Namen</value>
+  </data>
+  <data name="DownloadLogNotFoundMsg_resx" xml:space="preserve">
+    <value>Kein Download-Protokoll gefunden. !!</value>
+  </data>
+  <data name="Edit_resx" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="EmptyConfiguration_resx" xml:space="preserve">
+    <value>Um Termine zu vereinbaren, gehen Sie bitte in den Konfigurationsbereich und legen Sie mindestens einen Raum und mindestens einen Arzt an.</value>
+  </data>
+  <data name="EndDateStr_resx" xml:space="preserve">
+    <value>Enddatum</value>
+  </data>
+  <data name="ExaminationHistoryDataGridHeader_Col_BodyScan_resx" xml:space="preserve">
+    <value>Bodyscan</value>
+  </data>
+  <data name="ExaminationHistoryDataGridHeader_Col_Comments_resx" xml:space="preserve">
+    <value>Kommentare</value>
+  </data>
+  <data name="ExaminationHistoryDataGridHeader_Col_SessionDate_resx" xml:space="preserve">
+    <value>Datum der Sitzung </value>
+  </data>
+  <data name="ExaminationHistoryDataGridHeader_Col_TBMImages_resx" xml:space="preserve">
+    <value>TBM-Bilder</value>
+  </data>
+  <data name="ExcisionTileBtnContent_resx" xml:space="preserve">
+    <value>Details zu exzidierten Markern anzeigen</value>
+  </data>
+  <data name="ExitBtn_resx" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="FileCountInAwsMsg_resx" xml:space="preserve">
+    <value>Die Anzahl der hochgeladenen Dateien in AWS ist</value>
+  </data>
+  <data name="FileNoteExixtsMsg_resx" xml:space="preserve">
+    <value>Die erwartete .exe-Datei existiert nicht.</value>
+  </data>
+  <data name="FiveYearFilter_resx" xml:space="preserve">
+    <value>5 Jahre</value>
+  </data>
+  <data name="FotoFinderTermsndServices_resx" xml:space="preserve">
+    <value>Wichtiger Hinweis:
+Mit der Installation, dem Kopieren oder einer sonstigen Benutzung des Softwareproduktes stimmen Sie den folgenden Bedingungen zu. Falls Sie mit den Bedingungen nicht einverstanden sind, installieren und/oder verwenden Sie dieses Softwareprodukt nicht.
+
+Präambel
+Dieser Softwarelizenzvertrag (im Folgenden als EULA bezeichnet) ist eine Vereinbarung zwischen dem Lizenznehmer (als registrierter Anwender im eigenen Namen oder als registrierter Vertreter im Namen eines Unternehmens) und der FotoFinder Systems GmbH, Industriestr. 12, 84364 Bad Birnbach (nachfolgend Lizenzgeber). Die nachstehenden Bestimmungen regeln die Überlassung von Software unabhängig davon, ob diese auf einem Datenträger oder bereits vorinstalliert auf einer EDV- Anlage bereitgestellt wird.
+
+1. Definitionen
+Software:   Der Begriff Software schließt die Anwendungsprogramme, die diesbezüglichen Medien, Druckmaterialien sowie gedruckter oder elektronischer Anwendungsdokumentation ein. Vom Begriff Software sind auch die zu einer Ausgangsversion zugehörigen Updates erfasst, soweit die nachfolgenden Regelungen nicht ausdrücklich etwas anderes zu erkennen geben.
+Database Engine Der Begriff bezeichnet das Basismodul jeder FotoFinder Software Installation; sie stellt die Datenbank für die Speicherung der Daten bereit, steuert die Peripheriegeräte zur Bildgewinnung und verwaltet die Nutzungslizenzen (Lizenzserver). Die Database Engine ist für jede Softwareinstallation zwingend erforderlich.
+MOL Die Abkürzung steht für "Module Licence". Über die MOL werden die Anwendungsprogramme (FotoFinder dermoscope, FotoFinder mediscope, FotoFinder bodystudio) für die Verwendung mit Database Engine freigeschaltet.
+CAL Die Abkürzung steht für "Client Access Licence". Über die CAL wird die Berechtigung zur gleichzeitigen Nutzung der Software im Netzwerk erteilt (Mehrplatzinstallation).
+VO-CAL Die Abkürzung steht für View Only-Client Access License"- Über die VO-CAL wird die Berechtigung zur gleichzeitigen, jedoch funktional eingeschränkten Nutzung der Software im Netzwerk erteilt. VO-CAL Lizenzen geben nur Leserechte für die Datenbank.
+TML Die Abkürzung steht für "Time Module Licence" und gewährt dem Lizenznehmer ein zeitlich beschränktes Nutzungsrecht an der Software.
+Floating Lizenz Lizenz bei dem sich mehrere Anwender das Nutzungsrecht einer Software an unterschiedlichen Arbeitsplätzen teilen können.
+Add-ons: Dieser Begriff steht für Zusatzfunktionen der Software, die optional gegen eine zusätzliche Lizenzgebühr bereitgestellt werden können. Add-ons sind zum Beispiel Zusatzfunktionen wie: GDT- Schnittstelle, HL7 Schnittstelle, Abfragemodul oder Guided Photography.
+Expertensysteme:    Dieser Begriff steht für Software zur Bildauswertung (z.B: Tübinger Moleanalyzer, Bodyscan pro, Trichoscan, UVscan, Skinspector), die optional gegen eine zusätzliche Lizenzgebühr bereitgestellt werden können. Expertensysteme erfordern eine separate Installation.
+EDV-Anlage: Der Begriff EDV-Anlage bezeichnet einen einzelnen Computer bzw. Computerarbeitsplatz.
+Netzwerk: Unter Netzwerk wird die Verknüpfung von mehreren EDV-Anlagen innerhalb des Unternehmens des Lizenznehmers verstanden.
+Update: Software mit gleichbleibender oder verbesserter Funktionalität, jedoch mit der Absicht, eine Mängelbeseitigung durchzuführen.
+
+2. Gegenstand des Vertrages
+(1) Der Lizenzgeber überlässt dem Lizenznehmer nach Maßgabe der nachfolgenden Regelungen die im Angebot zum Vertragsabschluss bezeichnete Software zur dauerhaften Nutzung auf einem Datenträger oder durch Bereitstellung der Software vorinstalliert auf einer EDV-Anlage. Ist die Benutzerdokumentation als elektronische Version verfügbar, so ist die Übergabe einer Printausgabe der Benutzerdokumentation (Benutzerhandbuch) nicht geschuldet.
+(2) Die Erstellung, Pflege oder mietweise Überlassung von Software ist nicht geschuldet und Gegenstand gesonderter Vereinbarungen.
+
+3. Freischaltung der Software
+(1) Software muss vom Lizenznehmer innerhalb von 30 Tagen nach Installation der Software durch Eingabe der vom Lizenzgeber bereitgestellten Aktivierungsnummer aktiviert werden. Andernfalls ist die Funktionalität der Software nach Ablauf der ersten 30 Tage automatisch gesperrt.
+(2) Sofern der Lizenznehmer eine TML erworben hat, ist die Lizenzierung nach Ablauf der jeweiligen TML durch Eingabe einer neuen TML (= Lizenznummer) für den neuen Nutzungszeitraum zu wiederholen. Andernfalls ist die Funktionalität der Software dauerhaft gesperrt.
+(3) CAL und VO-CAL werden ausschließlich ohne zeitliche Beschränkung vergeben, CAL und VO-CAL setzen eine aktive MOL voraus.
+(4) Sofern der Lizenznehmer die Software auf einer anderen EDV-Anlage installiert oder die technische Konfiguration der EDV- Anlage ändert, auf der die Software bereits installiert ist, kann eine erneute Aktivierung der Software erforderlich sein.
+
+4. Umfang des Nutzungsrechts
+(1) Der Lizenzgeber räumt dem Lizenznehmer das einfache, nicht ausschließliche Recht ein, die Software zu den nachstehenden Bedingungen dauerhaft zu nutzen.
+(2) Hat der Lizenznehmer eine MOL erworben, ist er nicht berechtigt, die Software auf mehr als eine EDV-Anlage gleichzeitig zu nutzen. Der Lizenznehmer ist jedoch berechtigt, die Software im Floating Prinzip zu verwenden, d.h. der Lizenznehmer kann die Software auf mehreren in einem Netzwerk befindlichen EDV-Anlagen -jedoch nicht zeitgleich- einsetzen; die MOL und die Datenbase Engine müssen hierzu auf dem Netzwerk Server installiert sein.
+(3) Der Einsatz der Software auf mehr als einer EDV-Anlage gleichzeitig ist nur zulässig, wenn der Lizenznehmer die entsprechende Anzahl Nutzungslizenzen CAL oder VO-CAL erwirbt oder erworben hat und die Software (MOL und Datenbase Engine) in einem Netzwerk betrieben wird. Die Nutzung einer MOL auf mehreren EDV-Anlagen, die nicht in einem Netzwerk verbunden ist, setzt den Erwerb und die Installation der Database Engine für jede einzelne EDV-Anlage voraus.
+(4) Sofern der Lizenznehmer nur Updates oder Upgrades zu einer bestehenden Ausgangsversion erworben hat, ist er zur Nutzung dieser Updates oder Upgrades nur für die Originalsoftware, berechtigt, wenn er diese besitzt und nutzt und Inhaber einer für die Originalsoftware gültigen Lizenz ist.
+(5) Das Recht zur Nutzung der Software umfasst das Recht, eine Sicherungskopie zu erstellen, soweit dies notwendig ist.
+(6) Der Lizenznehmer ist berechtigt, die Originalsoftware an Dritte zu veräußern. Die zulässige Weiterveräußerung gegenüber Dritten setzt voraus, dass der Lizenznehmer dem Lizenzgeber vor Veräußerung den Dritten benennt, der die Software und die Rechte zur Nutzung erwirbt. Die Weiterveräußerung ist nur zulässig, wenn dem Dritten gegen über die Originaldatenträger einschließlich aller Kopien der Software, der Handbücher und etwaigen schriftlichen und elektronischen Begleitmaterials, die Lizenzbriefe oder Lizenzverbriefungen auf Datenträgern sowie die Updates und Upgrades und die Verbriefungen der an diesen Produkten bestehenden Lizenzen übergibt. Die Weiterveräußerung kann nur mit einer vollständigen Übertragung der Nutzungsrechte einhergehen. Eine teilweise Übertragung von Nutzungsrechten ist nicht gestattet.
+(7) Der Lizenznehmer ist in keiner Weise berechtigt, die Software an Dritte zu vermieten, zu verpachten oder zu verleihen. Er ist weiterhin nicht berechtigt, die Software zu bearbeiten oder anderweitige Änderungen an der Software vorzunehmen.
+(8) Der Lizenznehmer ist zur Vervielfältigung oder Rückübersetzung des Codes (Reverse-Engineering / Disassembling) oder der Codeform nur dann ohne Zustimmung des Lizenzgebers berechtigt, wenn die Vervielfältigung oder Übersetzung - ohne die normale Auswertung zu beeinträchtigen oder die berechtigten Interessen des Lizenzgebers unzumutbar zu verletzen - unerlässlich ist, um die erforderlichen Informationen zur Herstellung der Interoperabilität eines unabhängig geschaffenen Computerprogramms mit anderen Programmen zu erhalten. Dies gilt allerdings nur, sofern folgende Bedingungen erfüllt sind:
+- die Handlungen werden vom Lizenznehmer oder einer anderen zur Verwendung eines Vervielfältigungsstücks des Programms berechtigten Person oder in deren Namen von einer hierzu ermächtigten Person vorgenommen,
+- die für die Herstellung der Interoperabilität notwendigen Informationen sind für die im vorangegangenen Absatz genannten Personen nicht ohne weiteres zugänglich gemacht,
+- die Handlungen beschränken sich auf Teile des ursprünglichen Programms, die zur Herstellung der Interoperabilität notwendig sind,
+- die im Rahmen einer zulässigen Dekompilierung gewonnenen Informationen dürfen nicht zu anderen Zwecken als zur Herstellung der Interoperabilität des unabhängig geschaffenen Programms verwendet werden,
+- sie dürfen nicht an Dritte weitergegeben werden, es sei denn, dass dies für die Interoperabilität des unabhängig geschaffenen Programms notwendig ist,
+- für die Entwicklung oder Herstellung eines Programms mit im Wesentlichen ähnlicher Ausdrucksform oder irgendwelche anderen, das Urheberrecht verletzenden Handlungen dürfen diese Informationen ebenfalls nicht verwendet werden.
+
+5. Datensicherung und Backup
+Der Lizenznehmer wird darauf hingewiesen, dass er für die Datensicherungsstrategie, insbesondere für die regelmäßige Durchführung von Datensicherungen (Backup) einschließlich der Sicherungslogik, die Überprüfung der Datensicherung auf Vollständigkeit und Korrektheit sowie für die Sicherstellung der Wiederherstellbarkeit des Datenbestandes aus der Datensicherung selbst verantwortlich ist. Für Schäden, die dem Lizenznehmer oder Dritten durch eine mangelhafte oder unterlassene oder nicht rekonstruierbare Datensicherung entstehen, ist der Lizenznehmer selbst verantwortlich.
+
+6. Verletzung von Nutzungsrechten
+(1) Im Falle eines Verstoßes gegen die Regelungen unter Punkt 4 durch den Lizenznehmer, dessen gesetzliche Vertreter oder Erfüllungsgehilfen hat der Lizenznehmer dem Lizenzgeber unbeschadet etwaiger Schadensersatzansprüche - eine Vertragsstrafe in Höhe von € 5.000,00 pro Verletzungshandlung zu zahlen.
+(2) Der Lizenzgeber ist im Falle einer Verletzung seiner Nutzungsrechte - unbeschadet etwaiger Schadensersatzansprüche - berechtigt, vom Vertrag zurückzutreten. Der Lizenznehmer hat in dieser Falle sämtliche Software einschließlich aller Begleitmaterialien an den Lizenzgeber zurückzugeben. Soweit Sicherungskopien gefertigt wurden, sind diese zu vernichten. Auf Hardware installierte Software ist zu löschen. Die Vernichtung und Löschung ist dem Lizenzgeber auf erstes Anfordern schriftlich nachzuweisen.
+
+7. Mängelansprüche
+(1) Der Lizenznehmer hat die Software unverzüglich nach deren Ablieferung durch den Lizenzgeber oder deren Download, soweit dies nach dem ordnungsgemäßen Geschäftsgang tunlich ist, zu untersuchen und, wenn sich ein Mangel zeigt, dem Lizenzgeber unverzüglich Anzeige zu machen. Unterlässt der Lizenznehmer die Anzeige, so gilt die Software als genehmigt, es sei denn, dass es sich um einen Mangel handelt, der bei der Untersuchung nicht erkennbar war.
+(2) Zeigt sich ein solcher Mangel, so muss die Anzeige unverzüglich nach der Entdeckung gemacht werden; anderenfalls gilt die Ware auch in Ansehung dieses Mangels als genehmigt. Zur Erhaltung der Rechte des Lizenznehmers genügt die rechtzeitige Absendung der Anzeige. Die vorangegangenen Bestimmungen gelten nicht, wenn und soweit der Lizenzgeber einen Mangel arglistig verschwiegen haben sollte.
+(3) Ein Mangel der Software liegt vor, wenn diese bei Gefahrübergang nicht die vereinbarte Beschaffenheit besitzt. Ein Fehler liegt vor, wenn die Software die in ihrer Leistungsbeschreibung angegebenen Funktionen nicht erfüllt, ihren Lauf unkontrolliert abbricht oder sich in anderer Weise nicht funktionsgerecht verhält, so dass die Benutzung der Software verhindert oder erheblich beeinträchtigt wird. Unvollkommenheiten der Software, die deren Funktion nicht beeinträchtigen, sind keine Mängel.
+(4) Kein Mangel liegt vor, wenn der Lizenznehmer selbst oder durch Dritte ohne vorherige schriftliche Zustimmung des Lizenzgebers in die Software eingegriffen hat und der Mangel nach dem Eingriff aufgetreten ist. Dem Lizenznehmer ist der Nachweis gestattet, dass der Mangel der Software nicht auf dem Eingriff beruht. Ein Mangel liegt weiterhin nicht vor, wenn die Software auf einer Hardware oder einem Betriebssystem eingesetzt wird, die den Anforderungen nicht entspricht, die im Angebot zum Abschluss des Vertrages oder in den Produktbeschreibungen festhalten sind.
+(5) Kein Mangel liegt vor, wenn eine andere oder neue Softwaregeneration des Lizenzgebers die Funktionalität der bisher vom Lizenznehmer verwendeten Softwaregeneration nicht vollständig in Art und Umfang abbildet.
+(6) Tritt ein Mangel auf, ist der Lizenzgeber nach seiner Wahl berechtigt, den Mangel zu beseitigen oder einen Ersatz der Software zu liefern (Nacherfüllung).
+(7) Der Lizenzgeber kann die Nacherfüllung davon abhängig machen, dass ein im Verhältnis zu Umfang und Schwere des Mangels der Software angemessener Teil der vereinbarten Vergütung bereits durch den Lizenznehmer bezahlt ist.
+(8) Die Nacherfüllung gilt nach dem dritten erfolglosen Versuch als fehlgeschlagen. Schlägt die Nacherfüllung fehl, ist der Lizenznehmer berechtigt, vom Vertrag zurückzutreten.
+(9) Die Verjährungsfrist für Mängelansprüche beträgt bei sachgemäßer Verwendung zwölf (12) Monate. Sie beginnt mit der Ablieferung der Software beim Lizenznehmer.
+(10) Für den Verlust von Daten und/oder Programmen haftet der Lizenzgeber nur in Höhe des Aufwandes, der entsteht, wenn der Lizenznehmer regelmäßig und anwendungsadäquat Datensicherungen durchführt und dadurch sicherstellt, dass verlorengegangene Daten mit vertretbarem Aufwand wieder hergestellt werden können.  Auf Ziffer 5 der EULA wird hingewiesen.
+(11) Die Haftung für sämtliche Schäden wird ausgeschlossen, soweit sie nicht in den vorstehenden Bestimmungen ausdrücklich benannt sind, auch soweit sie nicht am Liefergegenstand selbst entstanden sind. Ausgenommen hiervon sind Schäden, die aufgrund von Vorsatz oder grober Fahrlässigkeit der Inhaber, leitender Angestellter oder Erfüllungsgehilfen des Lizenzgebers entstanden sind oder die aus schuldhafter Verletzung wesentlicher Vertragspflichten herrühren. Im letzteren Fall wird die Haftung allerdings nur für den typischerweise eintretenden, voraussehbaren Schaden übernommen. Der Haftungsausschluss gilt weiterhin nicht in den Fällen, in denen bei Fehlern des Liefergegenstandes für Schäden an Leben, Körper oder Gesundheit oder durch privat genutzte Gegenstände verursachte Schäden an Sachen gehaftet wird.
+(12) Soweit der Lizenzgeber für einen Fehler entsprechend den Regelungen des Produkthaftungsgesetzes (ProdHaftG) ersatzpflichtig ist, richtet sich der Umfang der Haftung ausschließlich nach den Regelungen dieses Gesetzes. Eine darüber hinausgehende Haftung bedarf einer ausdrücklichen schriftlichen Vereinbarung.
+(13) Der Lizenzgeber übernimmt keine Garantie. Auf eine Garantiezusage des Lizenzgebers kann sich der Lizenznehmer nur dann berufen, wenn diese durch den Lizenzgeber selbst oder dessen gesetzlichen Vertreter schriftlich bestätigt wurde.
+
+
+
+8. Haftung
+(1) Eine weitergehende Haftung als in Ziffer 7 vorgesehen, ist - ohne Rücksicht auf die Rechtsnatur des geltend gemachten Anspruchs - ausgeschlossen. Dies gilt insbesondere für Schadensersatzansprüche aus Verschulden bei Vertragsschluss, wegen sonstiger Pflichtverletzungen oder wegen deliktischer Ansprüche auf Ersatz von Sachschäden gemäß § 823 BGB.
+(2) Die Begrenzung nach Ziffer 1 gilt auch, soweit der Lizenznehmer anstelle eines Anspruchs auf Ersatz des Schadens, statt der Leistung Ersatz nutzloser Aufwendungen verlangt.
+(3) Soweit die Schadensersatzhaftung gegenüber dem Lizenznehmer ausgeschlossen oder eingeschränkt ist, gilt dies auch im Hinblick auf die persönliche Schadensersatzhaftung der Angestellten, Arbeitnehmer, Mitarbeiter, Vertreter und Erfüllungsgehilfen des Lizenzgebers.
+
+9. Schutzrechte Dritter
+(1) Sofern schriftlich nicht anders vereinbart, ist der Lizenzgeber verpflichtet, die Lieferung lediglich im Land des Lieferortes (Deutschland) frei von gewerblichen Schutzrechten und Urheberrechten Dritter (im Folgenden: Schutzrechte) zu erbringen. Sofern ein Dritter wegen der Verletzung von Schutzrechten durch den Lizenzgeber erbrachte, vertragsgemäß genutzte Lieferungen gegen den Lizenznehmer berechtigte Ansprüche erhebt, haftet der Lizenzgeber gegenüber dem Lizenznehmer innerhalb der in Ziffer 7.9 bestimmten Frist wie folgt:
+a) Der Lizenzgeber wird nach seiner Wahl und auf seine Kosten für die betreffenden Lieferungen entweder ein
+Nutzungsrecht erwirken, sie so ändern, dass das Schutzrecht nicht verletzt wird, oder austauschen. Ist dies dem Lizenzgeber nicht zu angemessenen Bedingungen möglich, stehen dem Lizenznehmer die gesetzlichen Rücktritts- oder Minderungsrechte zu.   
+b) Die Pflicht des Lizenzgebers zur Leistung von Schadensersatz richtet sich nach Ziffer 7 bzw. 8.
+c) Die vorstehend genannten Verpflichtungen des Lizenzgebers bestehen nur, soweit der Lizenznehmer den Lizenzgeber über die vom Dritten geltend gemachten Ansprüche unverzüglich schriftlich verständigt, eine Verletzung nicht anerkennt und dem Lizenzgeber alle Abwehrmaßnahmen und Vergleichsverhandlungen vorbehalten bleiben. Stellt der Lizenznehmer die Nutzung der Lieferung aus Schadensminderungs- oder sonstigen wichtigen Gründen ein, ist er verpflichtet, den Dritten darauf hinzuweisen, dass mit der Nutzungseinstellung kein Anerkenntnis einer Schutzrechtsverletzung verbunden ist.
+(2) Ansprüche des Lizenznehmers sind ausgeschlossen, soweit er die Schutzrechtsverletzung zu vertreten hat.
+(3) Ansprüche des Lizenznehmers sind ferner ausgeschlossen, soweit die Schutzrechtsverletzung durch spezielle Vorgaben des Lizenznehmers, durch eine vom Lizenzgeber nicht voraussehbare Anwendung oder dadurch verursacht wird, dass die Lieferung vom Lizenznehmer verändert oder zusammen mit nicht vom Lizenzgeber gelieferten Produkten eingesetzt wird.
+(4) Im Falle von Schutzrechtsverletzungen gelten für die in Ziffer 9.1 a) geregelten Ansprüche des Lizenznehmers, im Übrigen die Bestimmungen der Ziffer 7.8 entsprechend.
+(5) Bei Vorliegen sonstiger Rechtsmängel gelten die Bestimmungen der Ziffer 7 entsprechend.
+(6) Weitergehende oder andere als die in dieser Ziffer 9 geregelten Ansprüche des Lizenznehmers gegen den Lizenzgeber und dessen Erfüllungsgehilfen wegen eines Rechtsmangels sind ausgeschlossen.
+
+10. Ausfuhr
+Der Lizenznehmer wird darauf hingewiesen, dass die Ausfuhr der gelieferten Produkte, Informationen, Software und Dokumentationen (nach den jeweiligen einschlägigen Exportbestimmungen der Bundesrepublik Deutschland, der Europäischen Union und/oder den Vereinigten Staaten von Amerika z. B. aufgrund ihrer Art oder ihres Verwendungszweckes oder Endverbleibs der Genehmigungspflicht unterliegen kann oder ausgeschlossen sein kann und Zuwiderhandlungen strafrechtlich bewehrt sind. Der Lizenznehmer steht deshalb dafür ein, sämtliche national oder international geltenden einschlägigen Exportbestimmungen strikt zu beachten und die gegebenenfalls erforderlichen Genehmigungen einzuholen.
+
+11. Schlussbestimmungen
+(1) Änderungen und Ergänzungen dieser Vereinbarung bedürfen der Schriftform. Dies gilt auch für die Aufhebung, Abänderung oder einen Verzicht auf dieses Schriftformerfordernis.
+(2) Der Lizenzgeber akzeptiert keine allgemeinen Vertragsbedingungen des Lizenznehmers. Die Einbeziehung solcher allgemeinen Geschäftsbedingungen wird ausdrücklich widersprochen.
+(3) Als Erfüllungsort gilt D-84364 Bad Birnbach.
+(4) Gerichtsstand für sämtliche aus und im Zusammenhang sich ergebenden Streitigkeiten zwischen den Parteien wird, soweit zulässig, der Sitz des Lizenzgebers vereinbart. Die Vereinbarung unterliegt dem Recht der Bundesrepublik Deutschland.
+(5) Ergänzend gelten die Allgemeinen Geschäftsbedingungen der FotoFinder Systems GmbH in ihrem jeweils aktuellen Stand.</value>
+  </data>
+  <data name="GhostMarkersTileContent_resx" xml:space="preserve">
+    <value>Zu bestätigende Geistermarker</value>
+  </data>
+  <data name="HiskRiskPatientHeader_resx" xml:space="preserve">
+    <value>Hochrisikopatienten</value>
+  </data>
+  <data name="ImageDeletionLogStr_resx" xml:space="preserve">
+    <value>Bild aus dem Pfad gelöscht</value>
+  </data>
+  <data name="LoginDatabaseAuthenticationOperationSystem_resx" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="LoginDatabaseAuthenticationSqlServer_resx" xml:space="preserve">
+    <value>SQL-Server</value>
+  </data>
+  <data name="LoginDatabaseAuthentication_resx" xml:space="preserve">
+    <value>Authentifizierung:</value>
+  </data>
+  <data name="LoginWindowHeader_resx" xml:space="preserve">
+    <value>Bei Universe anmelden...</value>
+  </data>
+  <data name="Login_resx" xml:space="preserve">
+    <value>Anmelden</value>
+  </data>
+  <data name="LogOutStr_resx" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie sich aus dem Cockpit abmelden können?</value>
+  </data>
+  <data name="LowFrequency1DayFilterStr_resx" xml:space="preserve">
+    <value>mehr als einen Tag lang.</value>
+  </data>
+  <data name="LowFrequency1MonthFilterStr_resx" xml:space="preserve">
+    <value>für mehr als einen Monat.</value>
+  </data>
+  <data name="LowFrequency1WeekFilterStr_resx" xml:space="preserve">
+    <value>für mehr als eine Woche.</value>
+  </data>
+  <data name="LowFrequency1YearFilterStr_resx" xml:space="preserve">
+    <value>mehr als ein Jahr lang.</value>
+  </data>
+  <data name="LowFrequency5YearFilterStr_resx" xml:space="preserve">
+    <value>seit mehr als fünf Jahren.</value>
+  </data>
+  <data name="LowFrequencyDefaultStr_resx" xml:space="preserve">
+    <value>Gesamtzahl der Patienten, die nicht untersucht wurden</value>
+  </data>
+  <data name="LowFrequencyFilterAppendStr_resx" xml:space="preserve">
+    <value>je nach Datumsbereich.</value>
+  </data>
+  <data name="LowFrequencyFullViewFilterStr_resx" xml:space="preserve">
+    <value>Gesamtzahl der Patienten, die noch nie untersucht wurden.</value>
+  </data>
+  <data name="LowFrequentTileBtnContent_resx" xml:space="preserve">
+    <value>Liste der Patienten anzeigen</value>
+  </data>
+  <data name="LowFrequentTileHeader_resx" xml:space="preserve">
+    <value>Niedrig frequentierte Patienten</value>
+  </data>
+  <data name="MaintenanceHours_resx" xml:space="preserve">
+    <value>std</value>
+  </data>
+  <data name="MiscellaneousBtn_Save_resx" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="MiscellaneousEndHour_resx" xml:space="preserve">
+    <value>Ende Stunde</value>
+  </data>
+  <data name="MiscellaneousSchedulerSettingHeader_resx" xml:space="preserve">
+    <value>Planer-Einstellungen</value>
+  </data>
+  <data name="MiscellaneousStartHour_resx" xml:space="preserve">
+    <value>Start Stunde</value>
+  </data>
+  <data name="MiscellaneousSyncSettingHeader_resx" xml:space="preserve">
+    <value>Cloud-Einstellungen synchronisieren</value>
+  </data>
+  <data name="MiscellaneousSyncSettingVisibilityText_resx" xml:space="preserve">
+    <value>Sync Cloud Sichtbar</value>
+  </data>
+  <data name="MiscellaneousTextBox_WeekFirstDay_resx" xml:space="preserve">
+    <value>Erster Tag der Woche</value>
+  </data>
+  <data name="MonthStr_resx" xml:space="preserve">
+    <value>Monat</value>
+  </data>
+  <data name="NOBtn_resx" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="NoRecordFoundMsg_resx" xml:space="preserve">
+    <value>Keine Aufzeichnungen gefunden.</value>
+  </data>
+  <data name="NotApplicableStr_resx" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="OccupancyChartlbl1_resx" xml:space="preserve">
+    <value>Belegung</value>
+  </data>
+  <data name="OccupancyChartlbl2_resx" xml:space="preserve">
+    <value>Verfügbar</value>
+  </data>
+  <data name="OkBtn_resx" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="OneDayFilter_resx" xml:space="preserve">
+    <value>1 Tag</value>
+  </data>
+  <data name="OneMonthFilter_resx" xml:space="preserve">
+    <value>1 Monat</value>
+  </data>
+  <data name="OneWeekFilter_resx" xml:space="preserve">
+    <value>1 Woche</value>
+  </data>
+  <data name="OneYearFilter_resx" xml:space="preserve">
+    <value>1 Jahr</value>
+  </data>
+  <data name="OperationalUC_AdminBtn_resx" xml:space="preserve">
+    <value>Verwaltung</value>
+  </data>
+  <data name="Operational_AppointedDoctorGrid_Col_Appointments_resx" xml:space="preserve">
+    <value>Ernennungen</value>
+  </data>
+  <data name="Operational_AppointedDoctorGrid_Col_DoctorName_resx" xml:space="preserve">
+    <value>Name des Arztes</value>
+  </data>
+  <data name="Operational_AppointedDoctorGrid_Col_Duration_resx" xml:space="preserve">
+    <value>Gesamtdauer</value>
+  </data>
+  <data name="Operational_AppointedDoctorGrid_Col_TotalAppointments_resx" xml:space="preserve">
+    <value>Anzahl der Ernennungen</value>
+  </data>
+  <data name="Operational_AppointedDoctorsTileHeader_resx" xml:space="preserve">
+    <value>Arzttermine</value>
+  </data>
+  <data name="Operational_AppointedPatientsGrid_Col_AppointmentType_resx" xml:space="preserve">
+    <value>Neu/Nachbereitung</value>
+  </data>
+  <data name="Operational_AppointedPatientsGrid_Col_DoctorName_resx" xml:space="preserve">
+    <value>Artz</value>
+  </data>
+  <data name="Operational_AppointedPatientsGrid_Col_Name_resx" xml:space="preserve">
+    <value>Name des Patienten</value>
+  </data>
+  <data name="Operational_AppointedPatientsGrid_Col_Risk_resx" xml:space="preserve">
+    <value>Risikokategorie</value>
+  </data>
+  <data name="Operational_AppointedPatientsGrid_Col_RoomName_resx" xml:space="preserve">
+    <value>Zimmer</value>
+  </data>
+  <data name="Operational_RoomOccupancyChartXAxis_resx" xml:space="preserve">
+    <value>Zimmer</value>
+  </data>
+  <data name="Origin_resx" xml:space="preserve">
+    <value>Deutschland</value>
+  </data>
+  <data name="PatientSelectionMsg_resx" xml:space="preserve">
+    <value>Bitte wählen Sie einen Patienten aus, um fortzufahren.</value>
+  </data>
+  <data name="PDFExport_resx" xml:space="preserve">
+    <value>Exportieren in pdf</value>
+  </data>
+  <data name="Performance_BodyMappingSessionTileHeader_resx" xml:space="preserve">
+    <value>Total Body Mapping-Sitzungen</value>
+  </data>
+  <data name="Performance_BodyMappingTileContent_resx" xml:space="preserve">
+    <value>Gesamtzahl der Total Body Mapping-Sitzungen.</value>
+  </data>
+  <data name="Performance_CustomFilterUId_resx" xml:space="preserve">
+    <value>Benutzerdefiniert</value>
+  </data>
+  <data name="PrivacyTileHeader_resx" xml:space="preserve">
+    <value>Datenschutz</value>
+  </data>
+  <data name="ProcessFailedMsg_resx" xml:space="preserve">
+    <value>Prozess fehlgeschlagen</value>
+  </data>
+  <data name="Product updates until_resx" xml:space="preserve">
+    <value>Produktaktualisierungen bis:</value>
+  </data>
+  <data name="RecurrenceMonth_resx" xml:space="preserve">
+    <value>Monate</value>
+  </data>
+  <data name="RecurrenceYear_resx" xml:space="preserve">
+    <value>Jährlich</value>
+  </data>
+  <data name="RequiredFieldPopUpMsg_resx" xml:space="preserve">
+    <value>Alle Felder müssen ausgefüllt werden.</value>
+  </data>
+  <data name="RoleNameAlreadyExists_resx" xml:space="preserve">
+    <value>Rollenname existiert bereits, wählen Sie einen anderen Namen</value>
+  </data>
+  <data name="RoomNameAlreadyExists_resx" xml:space="preserve">
+    <value>Raumname existiert bereits, wählen Sie einen anderen Namen</value>
+  </data>
+  <data name="SaveButton_resx" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="SavedSuccessfullyMsg_resx" xml:space="preserve">
+    <value>Erfolgreich gespeichert</value>
+  </data>
+  <data name="ScheduledUploadFailedMsg_resx" xml:space="preserve">
+    <value>Geplanter Upload fehlgeschlagen</value>
+  </data>
+  <data name="Scheduler_ConsolidateView_resx" xml:space="preserve">
+    <value>Konsolidieren</value>
+  </data>
+  <data name="Scheduler_DoctorViewTxt_resx" xml:space="preserve">
+    <value>Arzt Ansicht</value>
+  </data>
+  <data name="Scheduler_PastDaysAppointmentCreationValidation_resx" xml:space="preserve">
+    <value>Es ist nicht möglich, einen Termin an vergangenen Tagen zu erstellen.</value>
+  </data>
+  <data name="Scheduler_PastDaysAppointmentRescheduleValidation_resx" xml:space="preserve">
+    <value>Es ist nicht möglich, Termine auf vergangene Tage zu verschieben.</value>
+  </data>
+  <data name="Scheduler_RescheduleAppointmentConfirmationMsg_resx" xml:space="preserve">
+    <value>Möchten Sie nur den aktuellen Termin verschieben oder eine komplette Wiederholungsserie durchführen, wählen Sie bitte unten.</value>
+  </data>
+  <data name="Scheduler_RescheduleAppointmentConfirmationTxt_resx" xml:space="preserve">
+    <value>Termin verschieben</value>
+  </data>
+  <data name="Scheduler_RoomViewTxt_resx" xml:space="preserve">
+    <value>Zimmer Ansicht</value>
+  </data>
+  <data name="ScheulerTileHeader_resx" xml:space="preserve">
+    <value>Planer</value>
+  </data>
+  <data name="Session_resx" xml:space="preserve">
+    <value>Sitzung</value>
+  </data>
+  <data name="StartDateStr_resx" xml:space="preserve">
+    <value>Datum des Beginns</value>
+  </data>
+  <data name="SuccessMsg_resx" xml:space="preserve">
+    <value>Erfolg</value>
+  </data>
+  <data name="SyncInprogressStr_resx" xml:space="preserve">
+    <value>In-Progress</value>
+  </data>
+  <data name="SyncLastRefreshStr_resx" xml:space="preserve">
+    <value>Letzte Auffrischung am</value>
+  </data>
+  <data name="SyncNeverRefreshStr_resx" xml:space="preserve">
+    <value>Niemals</value>
+  </data>
+  <data name="SyncStartStr_resx" xml:space="preserve">
+    <value>Sync-Start</value>
+  </data>
+  <data name="TermsServicesTileHeader_resx" xml:space="preserve">
+    <value>Bedingungen und Dienstleistungen</value>
+  </data>
+  <data name="ToogleSwitchOFF_resx" xml:space="preserve">
+    <value>Aus</value>
+  </data>
+  <data name="ToogleSwitchON_resx" xml:space="preserve">
+    <value>Ein</value>
+  </data>
+  <data name="UpdateButton_resx" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="UploadLogNotFoundMsg_resx" xml:space="preserve">
+    <value>Kein Upload-Protokoll gefunden. !!</value>
+  </data>
+  <data name="WeekStr_resx" xml:space="preserve">
+    <value>Woche</value>
+  </data>
+  <data name="YearStr_resx" xml:space="preserve">
+    <value>Jahr</value>
+  </data>
+  <data name="YesBtn_resx" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="ConfigurationTabHeaderMiscellaneous_resx" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+</root>

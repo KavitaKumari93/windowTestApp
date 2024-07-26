@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.Service.ATBMMasterTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls.Service"
+              xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+             mc:Ignorable="d">
+    <Grid>
+        <Border CornerRadius="4" Background="{DynamicResource TileBackgroundBrush}">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height="94.5*"/>
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="tileHeader" VerticalAlignment="Center" Margin="8 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{x:Static localisation:Resources.ATBMmasterTileHeader_resx}" Style="{DynamicResource TileHeaderTextStyle}" VerticalAlignment="Center"/>
+                    <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <Image Width="10" Source="{DynamicResource Icon_TileOpenWith}" Visibility="Collapsed" />
+                        <Border Background="Transparent" BorderBrush="Transparent" Width="{Binding Width}" Height="{Binding Height}" CornerRadius="5">
+                            <Image Width="10" Source="{DynamicResource Icon_TileWarning}" Visibility="Collapsed" />
+                            <Border.ToolTip>
+                                <ToolTip Background="Red" Foreground="White" BorderBrush="Transparent" BorderThickness="0"
+                                     HorizontalOffset="-5" VerticalOffset="-30">
+                                    <TextBlock Background="Transparent" Text="{x:Static localisation:Resources.DataGridCol_Comment_Resx}"
+                                           FontSize="10"/>
+                                </ToolTip>
+                            </Border.ToolTip>
+                        </Border>
+                        <Image Width="12" Margin="8 2 8 0" ToolTip="{x:Static localisation:Resources.Edit_resx}" Source="{DynamicResource Icon_TileEdit}" Visibility="Collapsed" Style="{DynamicResource TileHeaderImageStyle}"/>
+                        <Image Width="12" Source="{DynamicResource Icon_TileLock}" Visibility="Visible"/>
+                    </DockPanel>
+                </Grid>
+                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="{DynamicResource TileHeaderLineBrush}" Height="2"/>
+                
+                <Image Grid.Row="2" Grid.ColumnSpan="2" x:Name="atbmmaster" Source="/FF.Cockpit.UI;component/Images/ATBMMaster.png"/>
+                
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

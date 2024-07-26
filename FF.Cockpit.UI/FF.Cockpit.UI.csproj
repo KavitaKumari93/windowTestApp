@@ -1,0 +1,1191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3AA83DB9-D086-4F5F-9511-25E4D4D0A0F0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FF.Cockpit.UI</RootNamespace>
+    <AssemblyName>FF.Cockpit.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Shareef\Publish\FotoFinderCockpit\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>https://www.fotofinder.de/en/</SupportUrl>
+    <ProductName>FotoFinderCockpit</ProductName>
+    <PublisherName>FotoFinder Systems GmbH</PublisherName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Properties\app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.7.204\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.S3.3.7.205.9\lib\net45\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net47\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=7.2.0.1422, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.7.2.0.1422\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=7.2.0.1422, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Unity.7.2.0.1422\lib\net45\Prism.Unity.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=7.2.0.1422, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.7.2.0.1422\lib\net45\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Data.WPF, Version=24.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Data.WPF.24.1.41\lib\net46\Syncfusion.Data.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=24.1460.41.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.24.1.41\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfBusyIndicator.WPF.21.2.10\lib\net46\Syncfusion.SfBusyIndicator.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGrid.WPF, Version=24.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfGrid.WPF.24.1.41\lib\net46\Syncfusion.SfGrid.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfInput.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfInput.WPF.21.2.10\lib\net46\Syncfusion.SfInput.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfScheduler.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfScheduler.WPF.21.2.10\lib\net46\Syncfusion.SfScheduler.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfSkinManager.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfSkinManager.WPF.21.2.10\lib\net46\Syncfusion.SfSkinManager.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF, Version=24.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.WPF.24.1.41\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialDark.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Themes.MaterialDark.WPF.21.2.10\lib\net46\Syncfusion.Themes.MaterialDark.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.7.2.0.1422\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\packages\WPFToolkit.Extended\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\AnonymizeStringConverter.cs" />
+    <Compile Include="Converters\EqualWidthConverter.cs" />
+    <Compile Include="Converters\OpacityByValueConverter.cs" />
+    <Compile Include="Converters\LineBrushByValueConverter.cs" />
+    <Compile Include="Converters\BrushByValueConverter.cs" />
+    <Compile Include="Converters\IsValueGraterOrEqualConverter.cs" />
+    <Compile Include="CustomControl\CustomLvChartLegend.xaml.cs">
+      <DependentUpon>CustomLvChartLegend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\CustomMessageBox.cs" />
+    <Compile Include="CustomControl\CustomMessageBoxWindow.xaml.cs">
+      <DependentUpon>CustomMessageBoxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\TrendsChartTooltip\PatientTrendsTooltip.xaml.cs">
+      <DependentUpon>PatientTrendsTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\TrendsChartTooltip\ExaminationTrendsTooltip.xaml.cs">
+      <DependentUpon>ExaminationTrendsTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\RoomOccupancyGraphToolTip.xaml.cs">
+      <DependentUpon>RoomOccupancyGraphToolTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\MultiSelectComboBox.xaml.cs">
+      <DependentUpon>MultiSelectComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\SchedulerControl.xaml.cs">
+      <DependentUpon>SchedulerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\SchedulerControlFilter.xaml.cs">
+      <DependentUpon>SchedulerControlFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AppointmentRefData.cs" />
+    <Compile Include="ViewModels\CloudSyncViewModel.cs" />
+    <Compile Include="ViewModels\ConfigurationViewModel.cs" />
+    <Compile Include="ViewModels\OperationalViewModel.cs" />
+    <Compile Include="ViewModels\LeftBottomMenuViewModel.cs" />
+    <Compile Include="ViewModels\TrendsGraphViewModel.cs" />
+    <Compile Include="ViewModels\UserLoginViewModel.cs" />
+    <Compile Include="Views\UserControls\CloudSync\TrackUploadStatusLogsPopup.xaml.cs">
+      <DependentUpon>TrackUploadStatusLogsPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\CloudSync\TrackDownloadStatusLogsPopup.xaml.cs">
+      <DependentUpon>TrackDownloadStatusLogsPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\CloudSync\PatientFilesFollowUpTile.xaml.cs">
+      <DependentUpon>PatientFilesFollowUpTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\CloudSync\UpdateDownOrUploadDate.xaml.cs">
+      <DependentUpon>UpdateDownOrUploadDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\CloudSync\AppointedPatientsSyncTile.xaml.cs">
+      <DependentUpon>AppointedPatientsSyncTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\CloudSync\CloudSyncUC.xaml.cs">
+      <DependentUpon>CloudSyncUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\AddAppointmentType.xaml.cs">
+      <DependentUpon>AddAppointmentType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\AddRole.xaml.cs">
+      <DependentUpon>AddRole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\AddRoom.xaml.cs">
+      <DependentUpon>AddRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\AddUser.xaml.cs">
+      <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\MiscellaneousConfigurationView.xaml.cs">
+      <DependentUpon>MiscellaneousConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\UserConfigurationView.xaml.cs">
+      <DependentUpon>UserConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\AppointmentTypeConfigurationView.xaml.cs">
+      <DependentUpon>AppointmentTypeConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\RolePermissionConfigurationView.xaml.cs">
+      <DependentUpon>RolePermissionConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\RoleConfigurationView.xaml.cs">
+      <DependentUpon>RoleConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\RoomConfigurationView.xaml.cs">
+      <DependentUpon>RoomConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Configuration\ConfigurationUC.xaml.cs">
+      <DependentUpon>ConfigurationUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\ExcisedMarkerListTile.xaml.cs">
+      <DependentUpon>ExcisedMarkerListTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\GhostMarkersTile.xaml.cs">
+      <DependentUpon>GhostMarkersTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\LessionsFollowUpTile.xaml.cs">
+      <DependentUpon>LessionsFollowUpTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\LeftBottomPanel\ContactUC.xaml.cs">
+      <DependentUpon>ContactUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\LeftBottomPanel\PrivacyUC.xaml.cs">
+      <DependentUpon>PrivacyUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Operational\AppointedPatientsTile.xaml.cs">
+      <DependentUpon>AppointedPatientsTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Operational\AppointedDoctorsTile.xaml.cs">
+      <DependentUpon>AppointedDoctorsTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Operational\FollowUpTile.xaml.cs">
+      <DependentUpon>FollowUpTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Operational\OperationalTreatmentBreakdownTile.xaml.cs">
+      <DependentUpon>OperationalTreatmentBreakdownTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Operational\OperationalUC.xaml.cs">
+      <DependentUpon>OperationalUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Operational\RoomOccupancyTile.xaml.cs">
+      <DependentUpon>RoomOccupancyTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Operational\TotalScheduledHoursTile.xaml.cs">
+      <DependentUpon>TotalScheduledHoursTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Performance\LowFrequentPatients.xaml.cs">
+      <DependentUpon>LowFrequentPatients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Performance\LowFrequentPatientsTile.xaml.cs">
+      <DependentUpon>LowFrequentPatientsTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Scheduler\AppointmentEditor.xaml.cs">
+      <DependentUpon>AppointmentEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\FollowUpSessionTooltip.xaml.cs">
+      <DependentUpon>FollowUpSessionTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DpiDecorator.cs" />
+    <Compile Include="Helpers\DialogWindowHelper.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SchedulerViewModel.cs" />
+    <Compile Include="ViewModels\PerformanceViewModel.cs" />
+    <Compile Include="ViewModels\ServiceViewModel.cs" />
+    <Compile Include="ViewModels\SystemLoginViewModel.cs" />
+    <Compile Include="Views\UserControls\Dashboard\DashboardUC.xaml.cs">
+      <DependentUpon>DashboardUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\ExaminationTimeTile.xaml.cs">
+      <DependentUpon>ExaminationTimeTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\ExcisionTile.xaml.cs">
+      <DependentUpon>ExcisionTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\ExaminationHistoryTile.xaml.cs">
+      <DependentUpon>ExaminationHistoryTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\MedicalHistoryTile.xaml.cs">
+      <DependentUpon>MedicalHistoryTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\FollowUpIntervalTile.xaml.cs">
+      <DependentUpon>FollowUpIntervalTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\FollowUpSessionTile.xaml.cs">
+      <DependentUpon>FollowUpSessionTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\MicroImageTile.xaml.cs">
+      <DependentUpon>MicroImageTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\LesionsTile.xaml.cs">
+      <DependentUpon>LesionsTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\PatientUC.xaml.cs">
+      <DependentUpon>PatientUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\DashboardDataFilter.xaml.cs">
+      <DependentUpon>DashboardDataFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\SkinTypeTile.xaml.cs">
+      <DependentUpon>SkinTypeTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\BadgeTile.xaml.cs">
+      <DependentUpon>BadgeTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Dashboard\SessionsTile.xaml.cs">
+      <DependentUpon>SessionsTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\LeftBottomPanel\AboutUC.xaml.cs">
+      <DependentUpon>AboutUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\LeftBottomPanel\TermsofServiceUC.xaml.cs">
+      <DependentUpon>TermsofServiceUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Scheduler\SchedulerUC.xaml.cs">
+      <DependentUpon>SchedulerUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Performance\BodyMappingSessionsTile.xaml.cs">
+      <DependentUpon>BodyMappingSessionsTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Performance\DiagnosedPatientsTile.xaml.cs">
+      <DependentUpon>DiagnosedPatientsTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Performance\HighRiskPatientTile.xaml.cs">
+      <DependentUpon>HighRiskPatientTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Performance\ExcisionTile.xaml.cs">
+      <DependentUpon>ExcisionTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Performance\PerformanceFilterTile.xaml.cs">
+      <DependentUpon>PerformanceFilterTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Performance\PerformanceUC.xaml.cs">
+      <DependentUpon>PerformanceUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Performance\TreatmentBreakdownTile.xaml.cs">
+      <DependentUpon>TreatmentBreakdownTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Service\AppUpdateTile.xaml.cs">
+      <DependentUpon>AppUpdateTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Service\AppVersionTile.xaml.cs">
+      <DependentUpon>AppVersionTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Service\ATBMMasterTile.xaml.cs">
+      <DependentUpon>ATBMMasterTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Service\HardwareCounterTile.xaml.cs">
+      <DependentUpon>HardwareCounterTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Service\ServiceUC.xaml.cs">
+      <DependentUpon>ServiceUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ThemeSettingFlyout.xaml.cs">
+      <DependentUpon>ThemeSettingFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\AvgerageSessionDurationTrends_1Year.xaml.cs">
+      <DependentUpon>AvgerageSessionDurationTrends_1Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\SessionDurationTrends_1Year.xaml.cs">
+      <DependentUpon>SessionDurationTrends_1Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\AverageSessionDurationTrends_20Year.xaml.cs">
+      <DependentUpon>AverageSessionDurationTrends_20Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\SessionDurationTrends_20Year.xaml.cs">
+      <DependentUpon>SessionDurationTrends_20Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\AverageSessionDurationTrends_5Year.xaml.cs">
+      <DependentUpon>AverageSessionDurationTrends_5Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\SessionDurationTrends_5Year.xaml.cs">
+      <DependentUpon>SessionDurationTrends_5Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\MicroImagesTaken_1Year.xaml.cs">
+      <DependentUpon>MicroImagesTaken_1Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\PatientTrends_1Year.xaml.cs">
+      <DependentUpon>PatientTrends_1Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\MicroImagesTaken_20Year.xaml.cs">
+      <DependentUpon>MicroImagesTaken_20Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\PatientTrends_20Year.xaml.cs">
+      <DependentUpon>PatientTrends_20Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\MicroImagesTaken_5Year.xaml.cs">
+      <DependentUpon>MicroImagesTaken_5Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\PatientTrends_5Year.xaml.cs">
+      <DependentUpon>PatientTrends_5Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\ExaminationTrends_5Year.xaml.cs">
+      <DependentUpon>ExaminationTrends_5Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\ExaminationTrends_20Year.xaml.cs">
+      <DependentUpon>ExaminationTrends_20Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\ExaminationTrends_1Year.xaml.cs">
+      <DependentUpon>ExaminationTrends_1Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TrendsGraphExamined\TrendsGraphUC.xaml.cs">
+      <DependentUpon>TrendsGraphUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\SystemLoginWindow.xaml.cs">
+      <DependentUpon>SystemLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\UserLogin.xaml.cs">
+      <DependentUpon>UserLogin.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CustomControl\CustomLvChartLegend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControl\CustomMessageBoxWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControl\TrendsChartTooltip\PatientTrendsTooltip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControl\TrendsChartTooltip\ExaminationTrendsTooltip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControl\RoomOccupancyGraphToolTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControl\MultiSelectComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControl\SchedulerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControl\SchedulerControlFilter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControl\SchedulerHeaderStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\CloudSync\TrackUploadStatusLogsPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\CloudSync\TrackDownloadStatusLogsPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\CloudSync\PatientFilesFollowUpTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\CloudSync\UpdateDownOrUploadDate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\CloudSync\AppointedPatientsSyncTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\CloudSync\CloudSyncUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\AddAppointmentType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\AddRole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\AddRoom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\AddUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\MiscellaneousConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\UserConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\AppointmentTypeConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\RolePermissionConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\RoleConfigurationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\RoomConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Configuration\ConfigurationUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\ExcisedMarkerListTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\GhostMarkersTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\LessionsFollowUpTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\LeftBottomPanel\ContactUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\LeftBottomPanel\PrivacyUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Operational\AppointedPatientsTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Operational\AppointedDoctorsTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Operational\FollowUpTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Operational\OperationalTreatmentBreakdownTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Operational\OperationalUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Operational\RoomOccupancyTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Operational\TotalScheduledHoursTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Performance\LowFrequentPatients.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Performance\LowFrequentPatientsTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Scheduler\AppointmentEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControl\FollowUpSessionTooltip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\DashboardUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\ExaminationTimeTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\ExcisionTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\ExaminationHistoryTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\MedicalHistoryTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\FollowUpIntervalTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\FollowUpSessionTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\MicroImageTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\LesionsTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\PatientUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\DashboardDataFilter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\SkinTypeTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\BadgeTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Dashboard\SessionsTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\LeftBottomPanel\AboutUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\LeftBottomPanel\TermsofServiceUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Scheduler\SchedulerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Performance\BodyMappingSessionsTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Performance\DiagnosedPatientsTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Performance\HighRiskPatientTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Performance\ExcisionTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Performance\PerformanceFilterTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Performance\PerformanceUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Performance\TreatmentBreakdownTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Service\AppUpdateTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Service\AppVersionTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Service\ATBMMasterTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Service\HardwareCounterTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Service\ServiceUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\AvgerageSessionDurationTrends_1Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\SessionDurationTrends_1Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\AverageSessionDurationTrends_20Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\SessionDurationTrends_20Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\AverageSessionDurationTrends_5Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\SessionDurationTrends_5Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\MicroImagesTaken_1Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\PatientTrends_1Year.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\MicroImagesTaken_20Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\PatientTrends_20Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\MicroImagesTaken_5Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\PatientTrends_5Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\ExaminationTrends_5Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\ExaminationTrends_20Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\ExaminationTrends_1Year.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\TrendsGraphExamined\TrendsGraphUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Windows\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\UserControls\ThemeSettingFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Windows\SystemLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\UserLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FF.Cockpit.Chart.Core\FF.Cockpit.Chart.Core.csproj">
+      <Project>{f261c3d7-6194-4625-9516-044081b06028}</Project>
+      <Name>FF.Cockpit.Chart.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FF.Cockpit.Chart\FF.Cockpit.Chart.csproj">
+      <Project>{4d253423-ae05-47f6-a59d-9162ec0bb1f2}</Project>
+      <Name>FF.Cockpit.Chart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FF.Cockpit.Common\FF.Cockpit.Common.csproj">
+      <Project>{96c160bb-4647-4245-9d62-08a5ba2b7613}</Project>
+      <Name>FF.Cockpit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FF.Cockpit.Entity\FF.Cockpit.Entity.csproj">
+      <Project>{34a65bec-2c14-49bc-a287-7cb9b9a165ae}</Project>
+      <Name>FF.Cockpit.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FF.Cockpit.Theme\FF.Cockpit.Theme.csproj">
+      <Project>{35fb5359-6aa8-4405-9597-442c53ffc752}</Project>
+      <Name>FF.Cockpit.Theme</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppStarter.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Properties\app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="CommonServiceLocator">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="ControlzEx">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Dapper">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Dapper.Contrib">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="FF.Cockpit.Common">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="FF.Cockpit.Entity">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="FF.Cockpit.Theme">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="fr\FF.Cockpit.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="it\FF.Cockpit.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="LiveCharts">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="LiveCharts.Wpf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="pl\FF.Cockpit.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="Prism">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Prism.Unity.Wpf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Prism.Wpf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="pt\FF.Cockpit.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ru\FF.Cockpit.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Data.SqlClient">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Runtime.CompilerServices.Unsafe">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Threading.Tasks.Extensions">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.ValueTuple">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Windows.Interactivity">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="tr\FF.Cockpit.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="Unity.Abstractions">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Unity.Container">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-CHS\FF.Cockpit.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LoginDialog\mask.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LoginDialog\lock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LoginDialog\red_overlay.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LoginDialog\FotoFinderLogo_white.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ATBMMaster.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.S3.3.7.205.9\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.S3.3.7.205.9\analyzers\dotnet\cs\SharedAnalysisCode.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CockpitSettings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\Cockpit_Application.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

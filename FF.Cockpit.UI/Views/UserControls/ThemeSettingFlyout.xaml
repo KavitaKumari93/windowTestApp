@@ -1,0 +1,120 @@
+﻿<themeCtrl:Flyout x:Class="FF.Cockpit.UI.ThemeSettingFlyout"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:themeCtrl="clr-namespace:FF.Cockpit.Theme.Controls;assembly=FF.Cockpit.Theme"
+                 xmlns:themeDialog="clr-namespace:FF.Cockpit.Theme.Controls.Dialogs;assembly=FF.Cockpit.Theme"
+                 xmlns:themeAction="clr-namespace:FF.Cockpit.Theme.Actions;assembly=FF.Cockpit.Theme"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 Width="400"
+                 d:DesignHeight="300"
+                 d:DesignWidth="400"
+                 Header="{Binding}"
+                 Position="Right"
+                 mc:Ignorable="d" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness=".5 0 0 0">
+
+    <themeCtrl:Flyout.HeaderTemplate>
+        <DataTemplate>
+            <DockPanel x:Name="dpHeader"
+                       VerticalAlignment="Center"
+                       LastChildFill="True">
+                <Button x:Name="PART_BackButton"
+                        Width="34"
+                        Height="34"
+                        Margin="2 4 2 2"
+                        VerticalAlignment="Bottom"
+                        DockPanel.Dock="Left"
+                        FontFamily="Segoe UI Symbol"
+                        FontSize="16"
+                        Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type themeCtrl:Flyout}}, Path=Foreground}"
+                        IsCancel="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type themeCtrl:Flyout}}, Path=CloseButtonIsCancel}"
+                        Style="{DynamicResource FF.Cockpit.Theme.Styles.MetroCircleButtonStyle}"
+                        Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type themeCtrl:Flyout}}, Path=CloseButtonVisibility}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <themeAction:CloseFlyoutAction Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type themeCtrl:Flyout}}, Path=CloseCommand, Mode=OneWay}"
+                                                       CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type themeCtrl:Flyout}}, Path=CloseCommandParameter, Mode=OneWay}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ContentControl Width="20"
+                                    Height="20"
+                                    Content="M19,34V42H43.75L33.75,52H44.25L58.25,38L44.25,24H33.75L43.75,34H19Z"
+                                    FlowDirection="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type themeCtrl:Flyout}}, Path=FlowDirection}"
+                                    Style="{DynamicResource PathIconContentControlStyle}" />
+                </Button>
+                <TextBlock x:Name="PART_BackHeaderText"
+                           Margin="15 0 0 0"
+                           VerticalAlignment="Center"
+                           Text="{Binding Title, Mode=OneWay}"
+                           Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type themeCtrl:Flyout}}, Path=TitleVisibility}" />
+            </DockPanel>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Position, RelativeSource={RelativeSource AncestorType={x:Type themeCtrl:Flyout}}}" Value="Left">
+                    <Setter TargetName="PART_BackButton" Property="DockPanel.Dock" Value="Right" />
+                    <Setter TargetName="PART_BackButton" Property="LayoutTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="-1" />
+                        </Setter.Value>
+                    </Setter>
+                    <Setter TargetName="PART_BackHeaderText" Property="Margin" Value="0 0 15 0" />
+                    <Setter TargetName="PART_BackHeaderText" Property="TextAlignment" Value="Right" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Position, RelativeSource={RelativeSource AncestorType={x:Type themeCtrl:Flyout}}}" Value="Top">
+                    <Setter TargetName="PART_BackButton" Property="LayoutTransform">
+                        <Setter.Value>
+                            <RotateTransform Angle="-90" />
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Position, RelativeSource={RelativeSource AncestorType={x:Type themeCtrl:Flyout}}}" Value="Bottom">
+                    <Setter TargetName="PART_BackButton" Property="LayoutTransform">
+                        <Setter.Value>
+                            <RotateTransform Angle="90" />
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </themeCtrl:Flyout.HeaderTemplate>
+
+    <Grid>
+        <DockPanel Margin="15">
+
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock Text="Select Theme" FontWeight="Medium" DockPanel.Dock="Top" FontSize="14"/>
+                <ComboBox x:Name="cmbThemeList" Height="30">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <Rectangle Fill="{Binding ColorBrush,Mode=OneWay}" 
+                                           Stroke="{Binding BorderColorBrush, Mode=OneWay}"
+                                           StrokeThickness="1"
+                                           Width="16" Height="16" Margin="0,2,5,2" Visibility="Collapsed"/>
+                                <TextBlock Text="{Binding BaseColorScheme,Mode=OneTime}" />
+                            </DockPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </DockPanel>
+
+            <DockPanel VerticalAlignment="Top" Margin="0 20 0 0">
+                <TextBlock Text="Select Theme Color" FontWeight="Medium" DockPanel.Dock="Top" FontSize="14"/>
+                <ComboBox x:Name="cmbColorList" Height="30" DockPanel.Dock="Top">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <Rectangle Fill="{Binding ShowcaseBrush,Mode=OneWay}" 
+                                           Width="16" Height="16" Margin="0,2,5,2"/>
+                                <TextBlock Text="{Binding ColorScheme,Mode=OneWay}" />
+                            </DockPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+
+
+</themeCtrl:Flyout>
+

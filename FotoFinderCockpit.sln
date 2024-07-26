@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FF.Cockpit.Common", "FF.Cockpit.Common\FF.Cockpit.Common.csproj", "{96C160BB-4647-4245-9D62-08A5BA2B7613}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FF.Cockpit.UI", "FF.Cockpit.UI\FF.Cockpit.UI.csproj", "{3AA83DB9-D086-4F5F-9511-25E4D4D0A0F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FF.Cockpit.Theme", "FF.Cockpit.Theme\FF.Cockpit.Theme.csproj", "{35FB5359-6AA8-4405-9597-442C53FFC752}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FF.Cockpit.Entity", "FF.Cockpit.Entity\FF.Cockpit.Entity.csproj", "{34A65BEC-2C14-49BC-A287-7CB9B9A165AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FF.Cockpit.Chart", "FF.Cockpit.Chart\FF.Cockpit.Chart.csproj", "{4D253423-AE05-47F6-A59D-9162EC0BB1F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FF.Cockpit.Chart.Core", "FF.Cockpit.Chart.Core\FF.Cockpit.Chart.Core.csproj", "{F261C3D7-6194-4625-9516-044081B06028}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FF.Cockpit.Setup", "FF.Cockpit.Setup\FF.Cockpit.Setup.vdproj", "{5877EBC3-DACB-4DDF-9FC6-1528C5DC6298}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96C160BB-4647-4245-9D62-08A5BA2B7613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96C160BB-4647-4245-9D62-08A5BA2B7613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C160BB-4647-4245-9D62-08A5BA2B7613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96C160BB-4647-4245-9D62-08A5BA2B7613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AA83DB9-D086-4F5F-9511-25E4D4D0A0F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA83DB9-D086-4F5F-9511-25E4D4D0A0F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA83DB9-D086-4F5F-9511-25E4D4D0A0F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA83DB9-D086-4F5F-9511-25E4D4D0A0F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FB5359-6AA8-4405-9597-442C53FFC752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FB5359-6AA8-4405-9597-442C53FFC752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FB5359-6AA8-4405-9597-442C53FFC752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FB5359-6AA8-4405-9597-442C53FFC752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34A65BEC-2C14-49BC-A287-7CB9B9A165AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A65BEC-2C14-49BC-A287-7CB9B9A165AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A65BEC-2C14-49BC-A287-7CB9B9A165AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A65BEC-2C14-49BC-A287-7CB9B9A165AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D253423-AE05-47F6-A59D-9162EC0BB1F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D253423-AE05-47F6-A59D-9162EC0BB1F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D253423-AE05-47F6-A59D-9162EC0BB1F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D253423-AE05-47F6-A59D-9162EC0BB1F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F261C3D7-6194-4625-9516-044081B06028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F261C3D7-6194-4625-9516-044081B06028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F261C3D7-6194-4625-9516-044081B06028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F261C3D7-6194-4625-9516-044081B06028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5877EBC3-DACB-4DDF-9FC6-1528C5DC6298}.Debug|Any CPU.ActiveCfg = Debug
+		{5877EBC3-DACB-4DDF-9FC6-1528C5DC6298}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B340C3C9-FBD7-4645-A892-35044F9FF987}
+	EndGlobalSection
+EndGlobal

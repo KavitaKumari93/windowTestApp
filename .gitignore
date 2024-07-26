@@ -1,0 +1,6 @@
+*.suo
+*.user
+bin
+obj
+.vs
+/FF.Cockpit.Setup/Debug/FF.Cockpit.Setup.msi

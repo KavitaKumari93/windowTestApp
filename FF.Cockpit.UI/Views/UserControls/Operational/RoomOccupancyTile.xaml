@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.Operational.RoomOccupancyTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls.Operational"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:customCtrl="clr-namespace:FF.Cockpit.UI.CustomControl"
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common" 
+             xmlns:viewmodels="clr-namespace:FF.Cockpit.UI.ViewModels" 
+             xmlns:model="clr-namespace:FF.Cockpit.Entity.StoreProcedure_Result;assembly=FF.Cockpit.Entity"
+             d:DataContext="{d:DesignInstance Type=viewmodels:OperationalViewModel}"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+    <Grid>
+        <Border CornerRadius="4" Background="{DynamicResource TileBackgroundBrush}">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="11*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="88*"/>
+                </Grid.RowDefinitions>
+
+
+                <Grid x:Name="tileHeader" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{x:Static localisation:Resources.OperationaRoomOccupancy_resx}" Style="{DynamicResource TileHeaderTextStyle}" VerticalAlignment="Center"/>
+                    <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <Image Width="10" Source="{DynamicResource Icon_TileLock}" Visibility="Visible"/>
+                    </DockPanel>
+                </Grid>
+                <Border Grid.Row="1" Background="{DynamicResource TileHeaderLineBrush}" Height="1.5"/>
+                <Grid x:Name="tileContent" Grid.Row="2" Margin="8 8">
+
+                    <lvc:CartesianChart Name="barChart" Series="{Binding RoomOccupancySeries}"
+                                        LegendLocation="Bottom" >
+
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Title="{x:Static localisation:Resources.Operational_RoomOccupancyChartXAxis_resx}" Labels="{Binding RoomOccupancyXAxisLabels}"  >
+                                <lvc:Axis.Sections>
+                                    <lvc:AxisSection StrokeThickness=".5"  Stroke="#22262b" Opacity="0"/>
+                                </lvc:Axis.Sections>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis 
+                                    MaxValue="100" MinValue="0" FontSize="10" FontWeight="Medium"  >
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator Step="20" StrokeThickness="0" />
+                                </lvc:Axis.Separator>
+                                <lvc:Axis.Sections>
+                                    <lvc:AxisSection StrokeThickness="1"  Stroke="DarkGray" Opacity="1"/>
+                                </lvc:Axis.Sections>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+                        <!--<lvc:CartesianChart.Resources>
+                            <Style TargetType="lvc:LineSeries">
+                                <Setter Property="DataLabels" Value="True"></Setter>
+                                <Setter Property="FontSize" Value="16"></Setter>
+                                <Setter Property="Foreground" Value="#303030"></Setter>
+                                <Setter Property="DataLabelsTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate DataType="lvc:DataPointViewModel">
+                                            --><!--<TextBlock Text="text" Foreground="Red"/>--><!--
+                                            <TextBlock Text="{Binding ChartPoint.Instance.(model:RoomOccupancyTileDataResult.RoomName)}" Foreground="Red" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </lvc:CartesianChart.Resources>
+                        <lvc:CartesianChart.DataTooltip>
+                            <customCtrl:RoomOccupancyGraphToolTip/>
+                        </lvc:CartesianChart.DataTooltip>-->
+                    </lvc:CartesianChart>
+                    <Rectangle Width=".5" Height="108" Fill="DarkGray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25,0,0,40"/>
+
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

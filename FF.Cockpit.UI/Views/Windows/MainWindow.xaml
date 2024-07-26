@@ -1,0 +1,517 @@
+﻿<themeCtrl:MetroWindow x:Class="FF.Cockpit.UI.Views.Windows.MainWindow"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:local="clr-namespace:FF.Cockpit.UI"
+                       mc:Ignorable="d"
+                       xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+                       Title="Shell"
+                       xmlns:themeCtrl="clr-namespace:FF.Cockpit.Theme.Controls;assembly=FF.Cockpit.Theme"
+                       xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                       xmlns:uc="clr-namespace:FF.Cockpit.UI.Views.UserControls"
+                       SizeChanged="MetroWindow_SizeChanged" 
+                       MinHeight="650"
+                       MinWidth="1250" WindowState="Maximized"
+                       WindowStartupLocation="CenterScreen"
+                       Background="#191c1e"
+                       UseNoneWindowStyle="True" 
+                       xmlns:con="clr-namespace:FF.Cockpit.Theme.Converters;assembly=FF.Cockpit.Theme"
+                       xmlns:vm="clr-namespace:FF.Cockpit.UI.ViewModels"
+                       xmlns:bottomuc="clr-namespace:FF.Cockpit.UI.Views.UserControls.LeftBottomPanel" 
+                       xmlns:ucOp="clr-namespace:FF.Cockpit.UI.Views.UserControls.Operational" 
+                       xmlns:ucSync="clr-namespace:FF.Cockpit.UI.Views.UserControls.CloudSync" 
+                       xmlns:trendsGraph="clr-namespace:FF.Cockpit.UI.Views.UserControls.TrendsGraphExamined" 
+                       Deactivated="MetroWindow_Deactivated" GotMouseCapture="MetroWindow_GotMouseCapture"   >
+
+    <themeCtrl:MetroWindow.WindowButtonCommands>
+        <themeCtrl:WindowButtonCommands Style="{DynamicResource FF.Cockpit.Theme.Styles.WindowButtonCommands.Win10}" />
+    </themeCtrl:MetroWindow.WindowButtonCommands>
+
+    <themeCtrl:MetroWindow.RightWindowCommands>
+        <themeCtrl:WindowCommands>
+            <!--<Button x:Name="btn_Theme_Setting" Content="C" FontFamily="Wingdings"
+                    FontSize="20" Cursor="Hand" ToolTip="Theme Setting"
+                   />-->
+        </themeCtrl:WindowCommands>
+    </themeCtrl:MetroWindow.RightWindowCommands>
+
+    <themeCtrl:MetroWindow.Flyouts>
+        <themeCtrl:FlyoutsControl x:Name="flyoutsControl" >
+            <local:ThemeSettingFlyout x:Name="theme_flyout"/>
+        </themeCtrl:FlyoutsControl>
+    </themeCtrl:MetroWindow.Flyouts>
+
+
+    <themeCtrl:MetroWindow.DataContext>
+        <vm:MainViewModel/>
+    </themeCtrl:MetroWindow.DataContext>
+
+    <themeCtrl:MetroWindow.Resources>
+        <con:InvertBoolConverter x:Key="InvertBoolConverter"/>
+        <Storyboard x:Key="StartImageRotation" >
+            <DoubleAnimation
+                              Storyboard.TargetProperty="RenderTransform.Angle" 
+                              From="0"
+                              To="360"
+                              Duration="0:0:1"
+                              RepeatBehavior="Forever" />
+        </Storyboard>
+        <Storyboard x:Key="StopImageRotation" >
+            <DoubleAnimation
+                             Storyboard.TargetProperty="RenderTransform.Angle" 
+                             From="0"
+                             To="0"
+                             Duration="0:0:1"
+                             RepeatBehavior="Forever" />
+        </Storyboard>
+        <!--#region Top items of Left Panel-->
+        <DataTemplate DataType="{x:Type vm:SchedulerViewModel}">
+            <uc:SchedulerUC/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+            <uc:DashboardUC/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:PerformanceViewModel}">
+            <uc:PerformanceUC />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ServiceViewModel}">
+            <uc:ServiceUC />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ConfigurationViewModel}">
+            <uc:ConfigurationUC/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:TrendsGraphViewModel}">
+            <trendsGraph:TrendsGraphUC/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:OperationalViewModel}">
+            <ucOp:OperationalUC/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:CloudSyncViewModel}">
+            <ucSync:CloudSyncUC/>
+        </DataTemplate>
+
+        <!--#endregion-->
+
+        <!--#region Bottom items of Left Panel-->
+        <DataTemplate DataType="{x:Type vm:AboutViewModel}">
+            <bottomuc:AboutUC/>
+        </DataTemplate>
+        <!--#endregion-->
+
+    </themeCtrl:MetroWindow.Resources>
+    <!--<local:DpiDecorator>-->
+    <Grid>
+        <DockPanel>
+            <themeCtrl:FlyoutsControl x:Name="flyoutIcon" Background="Transparent">
+                <themeCtrl:Flyout x:Name="leftNavigationIcons" Style="{DynamicResource Custom_LeftSmallFlyoutStyle}">
+                    <themeCtrl:Flyout.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50*"/>
+                                    <RowDefinition Height="50*"/>
+                                </Grid.RowDefinitions>
+                                <Image Tag="Icon_FotoFinder_logo_small" Style="{StaticResource Custom_ImageStyle}"
+                                       DockPanel.Dock="Top" Margin="5"/>
+                                <Grid Grid.Row="1" Background="#81684e" Height="28">
+                                    <Button Click="leftNavigation_Click" Height="18" Width="20" FocusVisualStyle="{x:Null}"
+                                        Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                        Tag="Icon_Menu_open"
+                                        Style="{DynamicResource CustomImageButtonStyle}" Margin="0 0 2 0">
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </themeCtrl:Flyout.HeaderTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="68*"/>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="22*"/>
+                         </Grid.RowDefinitions>
+
+                        <ListView Name="lstIconPanel" 
+                                  ItemsSource="{Binding NavigationModelList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                  ItemContainerStyle="{DynamicResource Custom_ListViewForIconStyle}"
+                                  SelectedItem="{Binding SelectedMenu}" Background="Transparent"
+                                  PreviewMouseDown="lstTitlePanel_PreviewMouseDown"/>
+
+
+                        <DockPanel Grid.Row="1" VerticalAlignment="Top" Background="Transparent">
+                            <!--<Image Tag="Icon_Account" Style="{StaticResource Custom_BottomImageStyle}"
+                                   Margin="17 0 17 0" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PreviewMouseDown">
+                                        <i:InvokeCommandAction Command="{Binding AccountCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Image>-->
+
+                            <Path   Name="Icon_Refresh"  Stretch="Uniform"   Width="20" Margin="0,0,0,10"  Cursor="Hand" Opacity=".5"
+                                  VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top" Fill="White" Data="F1 M 9.63872,26.6667L 5.1134,22.1413L 9.63872,17.616L 10.8241,18.8013L 8.39175,21.2337L 9.75939,21.2337C 11.8606,21.2623 13.8802,20.4207 15.3393,18.9083C 16.8517,17.4492 17.6934,15.4296 17.6649,13.3283C 17.6673,12.7675 17.6164,12.2076 17.5128,11.6565C 17.416,11.1446 17.2629,10.6451 17.0565,10.1669L 18.3638,8.85953C 18.7538,9.55053 19.0453,10.2926 19.2298,11.0644C 19.4025,11.8062 19.4893,12.5654 19.4888,13.327C 19.5166,15.9083 18.4773,18.3863 16.6165,20.1753C 14.8256,22.0388 12.3438,23.0789 9.75939,23.0489L 8.39175,23.0489L 10.8241,25.4813M 1.12484,17.8184C 0.735054,17.1289 0.448347,16.3861 0.273827,15.6136C 0.111014,14.8696 0.0292403,14.1101 0.0299737,13.3484C 3.17891e-007,10.764 1.04003,8.28223 2.90355,6.49129C 4.69416,4.62809 7.17541,3.58809 9.75939,3.61772L 11.0668,3.61772L 8.63435,1.18538L 9.81973,0L 14.345,4.52531L 9.81973,9.05061L 8.60292,7.83383L 11.0064,5.44295L 9.75939,5.44295C 7.65767,5.41407 5.63759,6.25577 4.17817,7.76843C 2.66581,9.22757 1.82413,11.2471 1.85267,13.3484C 1.85004,13.91 1.90608,14.4703 2.01985,15.0203C 2.12539,15.5249 2.26268,16.0224 2.43089,16.5099L 1.12484,17.8184 Z" 
+                                 RenderTransformOrigin="0.5,0.5">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseDown">
+                                        <i:InvokeCommandAction Command="{Binding SyncCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Path.RenderTransform>
+                                    <RotateTransform/>
+                                </Path.RenderTransform>
+
+                                <Path.Style>
+                                    <Style>
+                                        <Style.Triggers>
+                                            <DataTrigger  Binding="{Binding IsImageRotate,UpdateSourceTrigger=PropertyChanged}" Value="true" >
+                                                <DataTrigger.EnterActions>
+                                                    <BeginStoryboard Storyboard="{StaticResource StartImageRotation}"/>
+                                                </DataTrigger.EnterActions>
+                                                <DataTrigger.ExitActions>
+                                                    <BeginStoryboard Storyboard="{StaticResource StopImageRotation}"/>
+                                                </DataTrigger.ExitActions>
+                                            </DataTrigger>
+                                           
+                                        </Style.Triggers>
+                                    </Style>
+                                </Path.Style>
+                            </Path>
+
+                            
+                            <Image Tag="Icon_Logout" Style="{StaticResource Custom_BottomImageStyle}" 
+                                    Width="20" VerticalAlignment="Center" Cursor="Hand" HorizontalAlignment="Center" DockPanel.Dock="Top">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseDown">
+                                        <i:InvokeCommandAction Command="{Binding LogoutCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Image>
+                        </DockPanel>
+                        <Grid  Grid.Row="2" Cursor="Hand" Background="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10*"/>
+                                <RowDefinition Height="65*"/>
+                                <RowDefinition Height="25*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Background="{DynamicResource LightBlackBrush}" >
+                                <TextBlock VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" Text="NS"   />
+                            </Grid>
+
+                            <DockPanel Grid.Row="1"  VerticalAlignment="Top" Margin="10,5" >
+                                <Border BorderBrush="{DynamicResource LightBlackBrush}" BorderThickness="0 0 0 .8" DockPanel.Dock="Top" Margin="0 5 0 0">
+                                    <TextBlock Text="{x:Static localisation:Resources.About_resx}"  Style="{DynamicResource FlyoutIconsBottomPanelStyle}"/>
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding AboutCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Border>
+                                <Border BorderBrush="{DynamicResource LightBlackBrush}" BorderThickness="0 0 0 .8" DockPanel.Dock="Top" Margin="0 5 0 0">
+                                    <TextBlock Text="{x:Static localisation:Resources.Privacy_resx}"  Style="{DynamicResource FlyoutIconsBottomPanelStyle}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding PrivacyCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    </TextBlock>
+                                </Border>
+                                <Border BorderBrush="{DynamicResource LightBlackBrush}" BorderThickness="0 0 0 .8" DockPanel.Dock="Top" Margin="0 5 0 0">
+                                    <TextBlock Text="{x:Static localisation:Resources.Contact_resx}"  Style="{DynamicResource FlyoutIconsBottomPanelStyle}">
+                                        <i:Interaction.Triggers>
+                                           <i:EventTrigger EventName="PreviewMouseDown">
+                                           <i:InvokeCommandAction Command="{Binding ContactCommand}"/>
+                                           </i:EventTrigger>
+                                           </i:Interaction.Triggers>
+                                    </TextBlock>
+                                </Border>
+                                <Border BorderBrush="Black" BorderThickness="0 0 0 .8" DockPanel.Dock="Top" Margin="0 5 0 0">
+                                    <TextBlock Text="{x:Static localisation:Resources.Terms_resx}"  Style="{DynamicResource FlyoutIconsBottomPanelStyle}"/>
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseDown">
+                                            <i:InvokeCommandAction Command="{Binding TermsCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Border>
+                                <TextBlock  DockPanel.Dock="Top" Text="{Binding ShortVersion}"   Margin="0 15 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity=".5" />
+                            </DockPanel>
+
+                            <TextBlock Grid.Row="2"  TextWrapping="WrapWithOverflow"   Opacity=".5"  HorizontalAlignment="Center"  VerticalAlignment="Top">
+                                 <Run Text="{x:Static localisation:Resources.Copyright_resx}" />
+                                 <Run Text="{x:Static localisation:Resources.CopyrightYears_resx}"/>
+                            </TextBlock>
+
+                        </Grid>
+                    </Grid>
+                </themeCtrl:Flyout>
+            </themeCtrl:FlyoutsControl>
+
+            <themeCtrl:FlyoutsControl x:Name="flyoutTitle">
+                <themeCtrl:Flyout x:Name="leftNavigationTitle" Style="{StaticResource Custom_LeftLargeFlyoutStyle}">
+                    <themeCtrl:Flyout.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50*"/>
+                                    <RowDefinition Height="50*"/>
+                                </Grid.RowDefinitions>
+                                <Image Tag="Icon_FotoFinder_logo_large" Style="{StaticResource Custom_ImageStyle}"
+                                       HorizontalAlignment="Left" VerticalAlignment="Center" Height="50" Margin="5" />
+                                <Grid Grid.Row="1" Background="#81684e" Height="27">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="85*"/>
+                                        <ColumnDefinition Width="15*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{x:Static localisation:Resources.Dashboard_resx}" FontSize="16" VerticalAlignment="Center" TextAlignment="Center"/>
+                                    <Button Grid.Column="1" Click="leftNavigation_Click" Height="20" Width="20" FocusVisualStyle="{x:Null}"
+                                            Background="Transparent" VerticalAlignment="Center"
+                                            Style="{DynamicResource CustomImageButtonStyle}"
+                                            Tag="Icon_Menu_close"
+                                            DockPanel.Dock="Right" Margin="0 0 2 0"/>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </themeCtrl:Flyout.HeaderTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            
+                        </Grid.RowDefinitions>
+
+                        <ListView Margin="0 2 0 0" Name="lstTitlePanel" VerticalAlignment="Top"  Background="Transparent"
+                                  ItemsSource="{Binding NavigationModelList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                  ItemContainerStyle="{DynamicResource Custom_ListViewForTitleStyle}"
+                                  SelectedItem="{Binding SelectedMenu}" PreviewMouseDown="lstTitlePanel_PreviewMouseDown"/>
+
+                        
+
+                        <!--Bottom Panel for flyout with titles-->
+                        <Grid  Grid.Row="2" Cursor="Hand" Margin="0,0,15,0" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45*"/>
+                                <RowDefinition Height="10*"/>
+                                <RowDefinition Height="35*"/>
+                            </Grid.RowDefinitions>
+                            <DockPanel Grid.Row="0" VerticalAlignment="Top">
+                                <Grid Visibility="Collapsed" Cursor="Hand" Style="{StaticResource Custom_BottomGridStyle}" DockPanel.Dock="Top">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="25"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="1" Tag="Icon_Account" Style="{StaticResource Custom_ImageStyle}" Margin="7" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <TextBlock Grid.Column="2" TextWrapping="WrapWithOverflow" Text="{x:Static localisation:Resources.MyAccount_resx}" Margin="5 0 0 0" VerticalAlignment="Center" FontSize="16"/>
+                                </Grid>
+
+                                <Grid Cursor="Hand" Style="{StaticResource Custom_BottomGridStyle}" DockPanel.Dock="Top">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="25"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40*"/>
+                                        <RowDefinition Height="20*"/>
+                                        <RowDefinition Height="40*"/>
+                                    </Grid.RowDefinitions>
+                                    <Path Grid.Column="1"   Name="Title_IconRefresh"  Stretch="Uniform"   Width="20" Margin="0,4,0,8"  Cursor="Hand" 
+                                      VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top" Fill="White" Data="F1 M 9.63872,26.6667L 5.1134,22.1413L 9.63872,17.616L 10.8241,18.8013L 8.39175,21.2337L 9.75939,21.2337C 11.8606,21.2623 13.8802,20.4207 15.3393,18.9083C 16.8517,17.4492 17.6934,15.4296 17.6649,13.3283C 17.6673,12.7675 17.6164,12.2076 17.5128,11.6565C 17.416,11.1446 17.2629,10.6451 17.0565,10.1669L 18.3638,8.85953C 18.7538,9.55053 19.0453,10.2926 19.2298,11.0644C 19.4025,11.8062 19.4893,12.5654 19.4888,13.327C 19.5166,15.9083 18.4773,18.3863 16.6165,20.1753C 14.8256,22.0388 12.3438,23.0789 9.75939,23.0489L 8.39175,23.0489L 10.8241,25.4813M 1.12484,17.8184C 0.735054,17.1289 0.448347,16.3861 0.273827,15.6136C 0.111014,14.8696 0.0292403,14.1101 0.0299737,13.3484C 3.17891e-007,10.764 1.04003,8.28223 2.90355,6.49129C 4.69416,4.62809 7.17541,3.58809 9.75939,3.61772L 11.0668,3.61772L 8.63435,1.18538L 9.81973,0L 14.345,4.52531L 9.81973,9.05061L 8.60292,7.83383L 11.0064,5.44295L 9.75939,5.44295C 7.65767,5.41407 5.63759,6.25577 4.17817,7.76843C 2.66581,9.22757 1.82413,11.2471 1.85267,13.3484C 1.85004,13.91 1.90608,14.4703 2.01985,15.0203C 2.12539,15.5249 2.26268,16.0224 2.43089,16.5099L 1.12484,17.8184 Z" 
+                                      RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <RotateTransform Angle="0" />
+                                        </Path.RenderTransform>
+                                        <Path.Style>
+                                            <Style>
+                                                <Style.Triggers>
+                                                    <DataTrigger  Binding="{Binding IsImageRotate,UpdateSourceTrigger=PropertyChanged}" Value="true" >
+                                                        <DataTrigger.EnterActions>
+                                                            <BeginStoryboard Storyboard="{StaticResource StartImageRotation}"/>
+                                                        </DataTrigger.EnterActions>
+                                                        <DataTrigger.ExitActions>
+                                                            <BeginStoryboard Storyboard="{StaticResource StopImageRotation}"/>
+                                                        </DataTrigger.ExitActions>
+                                                    </DataTrigger>
+
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+
+                                    <TextBlock x:Name="myTextBlock"  Grid.Column="2" TextWrapping="WrapWithOverflow" Text="{x:Static localisation:Resources.Refresh_resx}" 
+                                            Margin="10,0,0,0"  VerticalAlignment="Center" FontSize="18" FontFamily="bold" >
+                                    <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseDown">
+                                        <i:InvokeCommandAction Command="{Binding SyncCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                    </TextBlock>
+                                    <TextBlock x:Name="syncTextBox" Grid.Row="1"  Grid.Column="2" TextWrapping="WrapWithOverflow" 
+                                            Margin="10,0,0,0"  VerticalAlignment="Center" FontSize="12" FontFamily="semiBold"  Visibility="Visible" >
+                                    <Run Text="{Binding SyncStatus,UpdateSourceTrigger=PropertyChanged}"/>
+                                    <Run Text="{Binding CurrentDate,UpdateSourceTrigger=PropertyChanged}"/>
+                                    </TextBlock>
+                                </Grid>
+                                
+                                <Grid  Cursor="Hand" Style="{StaticResource Custom_BottomGridStyle}" Margin="0,10,0,0" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="25"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="1" Tag="Icon_Logout" Style="{StaticResource Custom_ImageStyle}" Margin="2" VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="2" TextWrapping="WrapWithOverflow" Text="{x:Static localisation:Resources.Logout_resx}" 
+                                            Margin="10,0,0,0"  VerticalAlignment="Center" FontSize="18" FontFamily="bold" />
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseDown">
+                                            <i:InvokeCommandAction Command="{Binding LogoutCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Grid>
+                            </DockPanel>
+
+                            <Grid Visibility="Collapsed" Background="Black">
+                                <TextBlock  VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center"  DockPanel.Dock="Top" Text="Name Surname"  />
+                            </Grid>
+                            <Grid Grid.Row="1" VerticalAlignment="Top">
+                              
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="40*"/>
+                                </Grid.ColumnDefinitions>
+                          
+                                <Border Grid.Column="0" BorderBrush="{DynamicResource LightBlackBrush}" BorderThickness="0 0 0 .7" Margin="3 0">
+                                    <TextBlock Text="{x:Static localisation:Resources.About_resx}"
+                                              Style="{DynamicResource FlyoutTilesBottomPanelStyle}"  />
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding AboutCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Border>
+
+                                <Border  Grid.Column="1" BorderBrush="{DynamicResource LightBlackBrush}" BorderThickness="0 0 0 .7" Margin="3 0">
+                                    <TextBlock Text="{x:Static localisation:Resources.Privacy_resx}"  Style="{DynamicResource FlyoutTilesBottomPanelStyle}"  >
+                                        <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseDown">
+                                            <i:InvokeCommandAction Command="{Binding PrivacyCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    </TextBlock>
+                                </Border>
+
+                                <Border Grid.Column="2" BorderBrush="{DynamicResource LightBlackBrush}" BorderThickness="0 0 0 .7" Margin="3 0">
+                                    <TextBlock Text="{x:Static localisation:Resources.Contact_resx}" Style="{DynamicResource FlyoutTilesBottomPanelStyle}"  >
+                                        <i:Interaction.Triggers>
+                                           <i:EventTrigger EventName="PreviewMouseDown">
+                                           <i:InvokeCommandAction Command="{Binding ContactCommand}"/>
+                                           </i:EventTrigger>
+                                           </i:Interaction.Triggers>
+                                    </TextBlock>
+                                </Border>
+
+                                <Border Grid.Column="3" BorderBrush="{DynamicResource LightBlackBrush}" BorderThickness="0 ,0, 0, .7" Margin="3 0">
+                                    <TextBlock Text="{x:Static localisation:Resources.Terms_resx}"  Style="{DynamicResource FlyoutTilesBottomPanelStyle}"  />
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseDown">
+                                            <i:InvokeCommandAction Command="{Binding TermsCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Border>
+
+                            </Grid>
+                         
+                            <DockPanel Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+                                <TextBlock Margin="0,0,0,5" DockPanel.Dock="Top" Text="{Binding FullVersion,UpdateSourceTrigger=PropertyChanged}"
+                                            FontSize="16"  VerticalAlignment ="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" 
+                                            FontFamily="Bold" Opacity=".5"/>
+                                <TextBlock  DockPanel.Dock="Top"   FontSize="12"  VerticalAlignment ="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" 
+                                            FontFamily="Bold" Opacity=".5"  >
+                                    <Run Text="{x:Static localisation:Resources.Copyright_resx}"/>
+                                    <Run Text="{x:Static localisation:Resources.CopyrightYears_resx}"/>
+                                </TextBlock>
+                                <TextBlock  DockPanel.Dock="Top" Text="{x:Static localisation:Resources.Company_resx}"  VerticalAlignment ="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" 
+                                            FontFamily="Bold" Opacity=".5"  FontSize="11" />
+                            </DockPanel>
+                        </Grid>
+                    </Grid>
+                </themeCtrl:Flyout>
+            </themeCtrl:FlyoutsControl>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!-- Close -->
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="15*"/>
+                    </Grid.ColumnDefinitions>
+                    <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <!--Minimize-->
+                        <Button  x:Name="MinimizeButton"  Width="20"  Style="{DynamicResource OpacityButton}"
+                         Padding="2" WindowChrome.IsHitTestVisibleInChrome="True" Click="MinimizeButton_Click">
+                            <Canvas Height="10" Width="12">
+                                <Rectangle Canvas.Top="6" Width="10" Height="3" Stroke="White" StrokeThickness="2" />
+                            </Canvas>
+                        </Button>
+                        <!-- Maximize -->
+                        <Button  x:Name="MaximizeButton"  Margin="5,0"  Width="20" Style="{DynamicResource OpacityButton}"
+                                WindowChrome.IsHitTestVisibleInChrome="True" Click="MaximizeButton_Click">
+                            <Canvas Width="12" Height="10">
+                                <Rectangle Canvas.Top="1" Width="11" Height="9" Stroke="White" StrokeThickness="2"  />
+                            </Canvas>
+                        </Button>
+
+                        <!--Close-->
+                        <Button x:Name="CloseButton"  Width="20" Margin="0,0,8,0"  Style="{DynamicResource OpacityButton}" 
+                        WindowChrome.IsHitTestVisibleInChrome="True" Click="CloseButton_Click">
+                            <Path Width="12" Height="12" Stroke="White" StrokeThickness="2.2" Stretch="Fill" Data="{DynamicResource CloseX}" />
+                        </Button>
+                    </DockPanel>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Border IsEnabled="{Binding IsLoaderActive,Converter={StaticResource InvertBoolConverter}}" Margin="8 0 20 0">
+
+                        <ContentPresenter x:Name="workingRegion" Content="{Binding CurrentView,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Opacity" Value="1"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsLoaderActive}" Value="True">
+                                        <Setter Property="Opacity" Value=".3"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                    </Border>
+                    <themeCtrl:ProgressRing IsActive="{Binding IsLoaderActive,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                Foreground="{DynamicResource LoaderBrush}" Width="50" Height="50"/>
+                </Grid>
+            </Grid>
+
+        </DockPanel>
+
+    </Grid>
+    <!--</local:DpiDecorator>-->
+</themeCtrl:MetroWindow>
+
+
+
+

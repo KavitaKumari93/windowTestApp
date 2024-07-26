@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.UserConfigurationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls"
+             xmlns:tile="clr-namespace:FF.Cockpit.UI.Views.UserControls.Dashboard"
+             mc:Ignorable="d"
+             xmlns:localization="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+             xmlns:themeCtrl="clr-namespace:FF.Cockpit.Theme.Controls;assembly=FF.Cockpit.Theme"
+             SizeChanged="UserControl_SizeChanged"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
+
+    <Grid>
+        <Border Background="{DynamicResource TileBackgroundBrush}" CornerRadius="3">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid Margin="0 20 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="93*"/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="1">
+                    <TextBlock Text="{x:Static localization:Resources.ConfigurationTabHeaderUsersType_resx}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" FontWeight="Medium" FontSize="18"/>
+                    <Button x:Name="btnAddUser" Content="{x:Static localization:Resources.ConfigurationTabBtnAddUser_resx}" 
+                        Style="{DynamicResource RoundButtonStyle}" 
+                        Command="{Binding OpenPopupCommand}" CommandParameter="isAddButtonClick" 
+                            HorizontalAlignment="Right" Margin="0 0 15 0"/>
+                </DockPanel>
+                <DataGrid x:Name="dataGrid" Grid.Row="3" ItemsSource="{Binding UserList}" SelectedItem="{Binding SelectedUser}"
+                          AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled"
+                          Background="Transparent" Style="{DynamicResource CustomDataGridStyle}" CellStyle="{DynamicResource CustomDataGridCellStyle}"
+                          RowStyle="{DynamicResource ConfigurationDataGridRowStyle}" ColumnHeaderStyle="{DynamicResource ConfigurationDataGridColumnHeaderStyle}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding OpenPopupCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="{x:Static localization:Resources.DataGridHeaderCol_Name_resx}" HorizontalAlignment="Left"/>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding UserName}" FontFamily="Segoe UI Light" TextWrapping="WrapWithOverflow" FontSize="15"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderPhoneNumber_resx}" HorizontalAlignment="Left"/>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PhoneNumber}" FontFamily="Segoe UI Light" TextWrapping="WrapWithOverflow" FontSize="15"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="{x:Static localization:Resources.DataGridColHeaderEmail_resx}" HorizontalAlignment="Left"/>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DockPanel LastChildFill="True">
+                                        <Image x:Name="HiddenDeleteButton" Visibility="Collapsed" Cursor="Hand" Width="16" 
+                                               Source="{DynamicResource Icon_Delete}" DockPanel.Dock="Right">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                                    <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=DataContext.SaveUpdateDeleteCommand}"
+                                                                           CommandParameter="isDeleteButtonClick"/>
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </Image>
+                                        <TextBlock Text="{Binding Email}" FontFamily="Segoe UI Light" TextWrapping="WrapWithOverflow" FontSize="15"/>
+                                    </DockPanel>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="True">
+                                            <Setter Property="Visibility" TargetName="HiddenDeleteButton" Value="Visible"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </Border>
+    </Grid>
+
+</UserControl>

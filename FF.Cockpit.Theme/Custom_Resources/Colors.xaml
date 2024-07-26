@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:res="clr-namespace:FF.Cockpit.Theme.Custom_Resources">
+
+    <!-- 
+    ***************************************************************************
+    Standard Colors
+    ***************************************************************************
+    -->
+    <Color x:Key="WarningColor">#FFFFC814</Color>
+    <Color x:Key="AccentColor">#FFD22828</Color>
+    <Color x:Key="ExternalTrichoLabBrandColor">#5FCCF5</Color>
+    <Color x:Key="ForegroundColor">#F1EFE2</Color>
+    <Color x:Key="SolidBackgroundColor">#262B31</Color>
+    <Color x:Key="HeadUpSolidColor">#B1262B31</Color>
+    <Color x:Key="WorkBackgroundColor">#373E46</Color>
+    <Color x:Key="DataGridHoverColor">#CC575E66</Color>
+    <Color x:Key="WorkBackgroundHalfColor">#58373E46</Color>
+    <Color x:Key="FotoFinderColor">#FFDF0000</Color>
+    <Color x:Key="XpertColor1">#FFED7603</Color>
+    <Color x:Key="XpertColor2">#FF019BDE</Color>
+    <Color x:Key="XpertColor3">#FF00A100</Color>
+    <Color x:Key="MedicQueryColor">#FFA19C9C</Color>
+    <Color x:Key="MedicCockpitColor">#FF387BAF</Color>
+    <Color x:Key="MedicScreeningColor">#FFD57325</Color>
+    <Color x:Key="MedicDermoscopyColor">#FFD57325</Color>
+    <Color x:Key="MedicAestheticColor">#FF893681</Color>
+    <Color x:Key="MedicBodyStudioColor">#FFA1244F</Color>
+    <Color x:Key="MedicBodyStudioMatchColor">#FFFF0000</Color>
+    <Color x:Key="MedicUserManagementColor">#FF00CC6E</Color>
+    <Color x:Key="DefaultMarkerColor">#FF00FFFF</Color>
+    <Color x:Key="DeactivatedMarkerColor">#AAAAAAAA</Color>
+    <Color x:Key="UniverseColorGrass">#FF19965B</Color>
+    <Color x:Key="UniverseColorOcean">#FF0491E0</Color>
+    <Color x:Key="UniverseColorGrey">#FF85878B</Color>
+    <Color x:Key="DarkBackgroundColor">#1D2023</Color>
+
+    <!-- Farbe zur Nachbildung der "WorkBackgroundHalfColor" (ohne Transparenz) -->
+    <Color x:Key="WorkBackgroundFullColor">#FF2C3138</Color>
+
+    <!-- Farben für Dashboard. -->
+    <Color x:Key="DashboardAccentColor">#FF332F2E</Color>
+    <Color x:Key="DashboardBackgroundColor">#FF424242</Color>
+    <Color x:Key="DashboardLineAccentColor">#FF707070</Color>
+    <Color x:Key="DashboardFontColor">#FFFFFFFF</Color>
+
+    <!-- Safety colors -->
+    <Color x:Key="SafetyRed">#FC0D15</Color>
+    <Color x:Key="SafetyOrange">#FF8700</Color>
+    <Color x:Key="SafetyYellow">#FFC30D</Color>
+    <Color x:Key="SafetyBlue">#0784E3</Color>
+    <Color x:Key="SafetyGreen">#1A985C</Color>
+</ResourceDictionary>

@@ -1,0 +1,169 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:res="clr-namespace:FF.Cockpit.Theme.Custom_Resources">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/Brushes.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/Icons.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <!-- Textboxes -->
+    <Style x:Key="EditTextBoxStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ForegroundBrush}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="Background" Value="{StaticResource WorkBackgroundBrush}"/>
+
+    </Style>
+
+    <Style x:Key="MedicalHistoryTextboxGridStyle" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Margin" Value="2"/>
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="{StaticResource WorkBackgroundBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="MedicalHistoryTextStyle">
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Margin" Value="5,0"/>
+        <Setter Property="Padding" Value="5,0"/>
+        <Setter Property="Foreground" Value="#000"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="MinWidth" Value="200"/>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="border" CornerRadius="5"
+                     BorderBrush="#000"
+                     BorderThickness="2"
+                     Background="#fff">
+
+                        <ScrollViewer x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="False">
+                            <Setter Property="Foreground" Value="white" />
+                            <Setter Property="Background" TargetName="border" Value="black"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="black"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="Background" TargetName="border" Value="white"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="white"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="true">
+                            <Setter Property="Foreground" Value="white" />
+                            <Setter Property="Background" TargetName="border" Value="black"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="black"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="Foreground" Value="white" />
+                            <Setter Property="Background" TargetName="border" Value="black"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="red"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <Style TargetType="TextBox" x:Key="AppointmentEditor">
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#252525"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="border" CornerRadius="0"
+                     BorderBrush="#000"
+                     BorderThickness="1"
+                     Background="#fff">
+
+                        <ScrollViewer x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsEnabled" Value="true">
+                            <Setter Property="Foreground" Value="white" />
+                            <Setter Property="Background" TargetName="border" Value="#252525"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#cccccc"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="Foreground" Value="white" />
+                            <Setter Property="Background" TargetName="border" Value="#252525"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#cccccc"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="MiscelleousConfigurationTxtboxStyle">
+     
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="MinHeight" Value="25"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Margin" Value="0,3"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="border" CornerRadius="0"
+                     BorderBrush="White"
+                     BorderThickness="1"
+                     Background="{DynamicResource GrayBlueColorLowOpacity}">
+
+                        <ScrollViewer x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsEnabled" Value="true">
+                            <Setter Property="Foreground" Value="white" />
+                            <Setter Property="Background" TargetName="border" Value="#252525"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#cccccc"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="Foreground" Value="white" />
+                            <Setter Property="Background" TargetName="border" Value="#252525"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#cccccc"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>
+

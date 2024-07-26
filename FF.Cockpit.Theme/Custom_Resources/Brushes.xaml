@@ -1,0 +1,211 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:res="clr-namespace:FF.Cockpit.Theme.Custom_Resources">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/FF.Cockpit.Theme;component/Custom_Resources/Colors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <SolidColorBrush x:Key="TileHeaderLineBrush" Color="#3E454D"/>
+    <SolidColorBrush x:Key="TileHeaderIconBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="TileBackgroundBrush" Color="#22262b"/>
+    <SolidColorBrush x:Key="BlackBrush" Color="#000000"/>
+    <SolidColorBrush x:Key="UpdateTileBackgroundBrush" Color="#DB0B12"/>
+    <SolidColorBrush x:Key="LeftPanelBackgroundBrush" Color="#25292d"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="BrownBrush" Color="#846b51"/>
+    <SolidColorBrush x:Key="BrownBrush2" Color="#BF967E"/>
+
+
+    <SolidColorBrush x:Key="GreenBrush" Color="Green"/>
+    <SolidColorBrush x:Key="RedBrush" Color="Red"/>
+    <SolidColorBrush x:Key="LightBlackBrush" Color="#1E2124"/>
+    <SolidColorBrush x:Key="LightGrayBrush" Color="#3F464E"/>
+    <SolidColorBrush x:Key="LightGrayBrush2" Color="WhiteSmoke"/>
+    <SolidColorBrush x:Key="LoaderBrush" Color="#B88340"/>
+    
+
+
+
+    <!--Brushes-->
+    <!-- WindowBackgroundBrush -->
+    <!--<LinearGradientBrush x:Key="TileBackgroundBrush">
+        <GradientStop Color="#22262b"/>
+    </LinearGradientBrush>-->
+
+    <!-- HeaderBackgorundBrush -->
+    <LinearGradientBrush x:Key="HeaderBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <!--<GradientStop Color="#FF4B565A"/>
+        <GradientStop Color="#FF242A2A" Offset="0.961"/>
+        <GradientStop Color="#FF2B3132" Offset="0.763"/>
+        <GradientStop Color="#FF424C4F" Offset="0.259"/>
+        <GradientStop Color="#FF191D1D" Offset="1"/>-->
+        <GradientStop Color="#202020" Offset="2"/>
+    </LinearGradientBrush>
+    <!-- 
+    ***************************************************************************
+    Standard Brushes
+    ***************************************************************************
+    -->
+    <!-- SolidColorBrushes -->
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}"/>
+    <SolidColorBrush x:Key="ExternalTrichoLabBrandBrush" Color="{DynamicResource ExternalTrichoLabBrandColor}"/>
+    <SolidColorBrush x:Key="FotoFinderAccentBrush" Color="{DynamicResource FotoFinderColor}"/>
+    <SolidColorBrush x:Key="ForegroundBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="WorkBackgroundBrush" Color="{DynamicResource WorkBackgroundColor}" />
+    <SolidColorBrush x:Key="WorkBackgroundHalfBrush" Color="{StaticResource WorkBackgroundHalfColor}" />
+    <SolidColorBrush x:Key="SolidBackgroundBrush" Color="{DynamicResource SolidBackgroundColor}" />
+    <SolidColorBrush x:Key="HeadUpSolidBrush" Color="{DynamicResource HeadUpSolidColor}" />
+    <SolidColorBrush x:Key="XpertBrush1" Color="{DynamicResource XpertColor1}"/>
+    <SolidColorBrush x:Key="XpertBrush2" Color="{DynamicResource XpertColor2}"/>
+    <SolidColorBrush x:Key="XpertBrush3" Color="{DynamicResource XpertColor3}"/>
+    <SolidColorBrush x:Key="DefaultMarkerBrush" Color="{DynamicResource DefaultMarkerColor}"/>
+    <SolidColorBrush x:Key="SeparatorTopBrush" Color="#171A1D" />
+    <SolidColorBrush x:Key="SearchBackgroundBrush" Color="#171A1D" />
+    <SolidColorBrush x:Key="SeparatorBottomBrush" Color="#434950" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="UniverseGrassBrush" Color="{DynamicResource UniverseColorGrass}" />
+    <SolidColorBrush x:Key="UniverseOceanBrush" Color="{DynamicResource UniverseColorOcean}" />
+    <SolidColorBrush x:Key="DarkBackgroundBrush" Color="{DynamicResource DarkBackgroundColor}" />
+    <SolidColorBrush x:Key="UniverseRedBrush" Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="UniverseGreyBrush" Color="{DynamicResource UniverseColorGrey}" />
+
+    <!-- Safety brushes -->
+    <SolidColorBrush x:Key="SafetyRedBrush" Color="{DynamicResource SafetyRed}" />
+    <SolidColorBrush x:Key="SafetyOrangeBrush" Color="{DynamicResource SafetyOrange}" />
+    <SolidColorBrush x:Key="SafetyYellowBrush" Color="{StaticResource SafetyYellow}" />
+    <SolidColorBrush x:Key="SafetyBlueBrush" Color="{DynamicResource SafetyBlue}" />
+    <SolidColorBrush x:Key="SafetyGreenBrush" Color="{DynamicResource SafetyGreen}" />
+
+    <SolidColorBrush x:Key="InterventionBrush" Color="{DynamicResource MedicAestheticColor}"/>
+
+    <!-- Farbe zur Nachbildung der "WorkBackgroundHalfColor" (ohne Transparenz) -->
+    <SolidColorBrush x:Key="WorkBackgroundFullBrush" Color="{DynamicResource WorkBackgroundFullColor}" />
+
+    <!-- LinearGradientBrushes -->
+    <LinearGradientBrush x:Key="DataGridHoverBrush" EndPoint="0.504, 1.5" StartPoint="0.504, 0.03">
+        <GradientStop Color="{DynamicResource DataGridHoverColor}" Offset="0"/>
+        <GradientStop Color="{DynamicResource WorkBackgroundColor}" Offset="0.567"/>
+    </LinearGradientBrush>
+
+    <!-- Verlaufs-Brush für einen Slider-Thumb, Version 2016 -->
+    <LinearGradientBrush x:Key="SliderThumbDefaultBrush2016" StartPoint=".5,.0" EndPoint=".5,1.0">
+        <GradientStop Color="#FAFAFA" Offset=".0" />
+        <GradientStop Color="#C6C6C6" Offset="0.5" />
+        <GradientStop Color="#A8A8A8" Offset="0.5" />
+        <GradientStop Color="#888888" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <!-- Verlaufs-Brush für einen deaktivierten Slider-Thumb, Version 2016 -->
+    <LinearGradientBrush x:Key="SliderThumbDisabledBrush2016" StartPoint=".5,.0" EndPoint=".5,1.0">
+        <GradientStop Color="#BABABA" Offset=".0" />
+        <GradientStop Color="#969696" Offset="0.5" />
+        <GradientStop Color="#787878" Offset="0.5" />
+        <GradientStop Color="#585858" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <!-- Brush für schräge Linien (für den Gebrauch als Hintergrund) -->
+    <DrawingBrush x:Key="BackgroundStripesBrush" Stretch="UniformToFill" ViewportUnits="Absolute" Viewport="0,0,10,10" TileMode="Tile">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Brush="Gray">
+                        <GeometryDrawing.Geometry>
+                            <GeometryGroup FillRule="Nonzero">
+                                <PathGeometry>
+                                    <PathFigure StartPoint="0,0">
+                                        <LineSegment Point="100,0"/>
+                                        <LineSegment Point="100,100"/>
+                                        <LineSegment Point="0,100"/>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </GeometryGroup>
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                    <GeometryDrawing Brush="#CC404040">
+                        <GeometryDrawing.Geometry>
+                            <GeometryGroup FillRule="Nonzero">
+                                <PathGeometry>
+                                    <PathFigure StartPoint="0,0">
+                                        <LineSegment Point="25,0"/>
+                                        <LineSegment Point="100,75"/>
+                                        <LineSegment Point="100,100"/>
+                                        <LineSegment Point="75,100"/>
+                                        <LineSegment Point="0,25"/>
+                                        <LineSegment Point="0,0"/>
+                                    </PathFigure>
+                                    <PathFigure StartPoint="75,0">
+                                        <LineSegment Point="100,25"/>
+                                        <LineSegment Point="100,0"/>
+                                    </PathFigure>
+                                    <PathFigure StartPoint="0,75">
+                                        <LineSegment Point="25,100"/>
+                                        <LineSegment Point="0,100"/>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </GeometryGroup>
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <!-- Farben für Dashboard -->
+    <SolidColorBrush x:Key="DashboardAccentBrush" Color="{DynamicResource DashboardAccentColor}" />
+    <SolidColorBrush x:Key="DashboardBackgroundBrush" Color="{DynamicResource DashboardBackgroundColor}" />
+    <SolidColorBrush x:Key="DashboardFontBrush" Color="{DynamicResource DashboardFontColor}" />
+    <SolidColorBrush x:Key="DashboardLineAccentBrush" Color="{DynamicResource DashboardLineAccentColor}" />
+
+
+    <!-- ========================================================================================= -->
+    <!-- B R U S H E S                                                                             -->
+    <!-- ========================================================================================= -->
+
+
+
+    <!-- Vordergrund-Brush für Überschriften -->
+    <SolidColorBrush x:Key="TextForegroundBrush" Color="{DynamicResource TextForegroundColor}" />
+
+    <!-- Farbe für Pflichtfelder (Sternchen) -->
+    <SolidColorBrush x:Key="MandatoryMarkerBrush" Color="{DynamicResource MandatoryMarkerColor}" />
+
+    <!-- ToggleSwitch-Hintergrundverlauf -->
+    <LinearGradientBrush x:Key="ToggleSwitchCheckedBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#FF00d710" Offset="0" />
+        <GradientStop Color="#FF00de10" Offset="0.1" />
+        <GradientStop Color="#FF00e310" Offset="0.5" />
+        <GradientStop Color="#FF00e310" Offset="0.5" />
+        <GradientStop Color="#ff00af10" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- ToggleSwitch-Rand -->
+    <SolidColorBrush x:Key="ToggleSwitchCheckedBorderBrush" Color="{DynamicResource HeadUpSolidColor}" />
+
+    <!-- ToggleSwitch-Vordergrundverlauf A -->
+    <LinearGradientBrush x:Key="ToggleSwitchForegroundBrushA" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#FFB5B5B5" Offset="0" />
+        <GradientStop Color="#FFDEDEDE" Offset="0.1" />
+        <GradientStop Color="#FFEEEEEE" Offset="0.5" />
+        <GradientStop Color="#FFFAFAFA" Offset="0.5" />
+        <GradientStop Color="#FFFEFEFE" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- ToggleSwitch-Vordergrundverlauf B -->
+    <LinearGradientBrush x:Key="ToggleSwitchForegroundBrushB" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFF0F0F0" Offset="0" />
+        <GradientStop Color="#FFCDCDCD" Offset="0.1" />
+        <GradientStop Color="#FFFBFBFB" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- Rahmen-Brush für den ToggleSwitch -->
+    <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="{DynamicResource ToggleSwitchBorderColor}" />
+
+    <!-- Text-Brush für den ToggleSwitch -->
+    <SolidColorBrush x:Key="ToggleSwitchTextBrush" Color="{DynamicResource ToggleSwitchTextColor}" />
+
+
+
+
+</ResourceDictionary>

@@ -1,0 +1,60 @@
+﻿<Window x:Class="FF.Cockpit.UI.Views.Windows.DialogWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:FF.Cockpit.UI.Views.Windows" 
+        mc:Ignorable="d" MaxWidth="500" MinWidth="400" MinHeight="200"
+        SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        UseLayoutRounding="True" Topmost="True" ResizeMode="NoResize"
+        xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+        ShowInTaskbar="False" >
+    <!--{DynamicResource WorkBackgroundBrush}-->
+    <Grid Background="#191C1E">
+        <Grid Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Border CornerRadius="8,8,0,0" BorderThickness="4" BorderBrush="#FFC30D" Grid.Row="0">
+                <Grid Background="#FFC30D">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="40*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="1" x:Name="txt_title" Style="{DynamicResource DialogWindowTextblockStyle}" />
+                    <Image x:Name="alertImage" Source="{DynamicResource Icon_Warning}" Width="25" Visibility="Collapsed"/>
+                    <TextBlock Grid.Column="2" x:Name="txt_title_caption" FontFamily="Segoe UI Light" Style="{DynamicResource DialogWindowTextblockStyle}" />
+                </Grid>
+            </Border>
+            <!--Content Area-->
+            <Grid x:Name="contentArea" Grid.Row="1" Background="#191C1E">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="74*"/>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="textmessage" Margin="7" TextWrapping="Wrap" Style="{DynamicResource DialogWindowMsgTextblockStyle}" />
+                <ScrollViewer Grid.Row="2" Grid.Column="1" VerticalScrollBarVisibility="Auto" MaxHeight="500" Grid.ColumnSpan="2">
+                    <TextBlock x:Name="errorMessageText" Visibility="Collapsed" MaxWidth="500" Style="{DynamicResource WarningText}" TextWrapping="Wrap"></TextBlock>
+                </ScrollViewer>
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical">
+                    <TextBlock Grid.Row="1" Grid.Column="1" x:Name="confirmationText"  Margin="7" TextWrapping="Wrap" Style="{DynamicResource DialogWindowMsgTextblockStyle}" />
+                    <Rectangle Width="500" Fill="White" Height="1" HorizontalAlignment="Left" StrokeThickness="0" Margin="6,0,6,0"></Rectangle>
+                </StackPanel>
+                <!--Buttons-->
+                <StackPanel x:Name="buttonsBlock" Grid.Row="4" Grid.Column="1" Margin="15" Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <Button x:Name="buttonOk" Content="{x:Static localisation:Resources.OkBtn_resx}" Width="40" Click="buttonOK_Click" Style="{DynamicResource DialogWindowButtonsStyle}"/>
+                    <Button x:Name="buttonYes" Content="{x:Static localisation:Resources.YesBtn_resx}" Width="120" Click="buttonYes_Click" Style="{DynamicResource DialogWindowButtonsStyle}"/>
+                    <Button x:Name="buttonNo" Margin="13,0,0,0" Content="{x:Static localisation:Resources.NOBtn_resx}" Width="120" Click="buttonNo_Click" Style="{DynamicResource DialogWindowButtonsStyle}"/>
+                    <Button x:Name="buttonCancel" Content="{x:Static localisation:Resources.CancelButton_resx}" Click="buttonCancel_Click" Style="{DynamicResource DialogWindowButtonsStyle}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

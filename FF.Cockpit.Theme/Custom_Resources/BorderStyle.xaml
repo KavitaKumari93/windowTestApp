@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:res="clr-namespace:FF.Cockpit.Theme.Custom_Resources">
+
+    <Style x:Key="SkinTypeTileButtonStyle" TargetType="Border">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Background" Value="{Binding Path=Background, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="Opacity" Value="0.5"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="1"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="MedicalHistoryTileGridStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="7"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Style.Triggers>
+            <Trigger Property="Focusable" Value="True">
+                <Setter Property="BorderBrush" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+   
+</ResourceDictionary>

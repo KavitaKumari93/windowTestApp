@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppStarter>
+  <Language>%%LANGUAGE%%</Language>
+  <ConnectionString>%%CONNECTION%%</ConnectionString>
+  <DataSource>SMARTDATA-248\UNIVERSE</DataSource>
+  <InitialCatalog>FotoFinder.Universe</InitialCatalog>
+  <UserName>sa</UserName>
+  <UserPassword>FFUR3admin!</UserPassword>
+  <IsSaveDatabaseServerDetails>True</IsSaveDatabaseServerDetails>
+  <IsSaveDatabseUserDetails>True</IsSaveDatabseUserDetails>
+  <IsWindowsAuthenticationOn>False</IsWindowsAuthenticationOn>
+  <LastSyncDate></LastSyncDate>
+
+</AppStarter>

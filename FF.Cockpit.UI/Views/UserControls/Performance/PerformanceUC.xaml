@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.PerformanceUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls"
+             mc:Ignorable="d" 
+             xmlns:tile="clr-namespace:FF.Cockpit.UI.Views.UserControls.Performance"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" >
+
+    <Grid x:Name="performanceTileContainner" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="80.33*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <tile:PerformanceFilterTile x:Name="filterTile"   Margin="50,0,0,0" VerticalAlignment="Top" />
+        </Grid>
+        <Grid Grid.Row="2" Margin="0 0 0 3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <tile:TreatmentBreakdownTile Grid.Row="1" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="2"/>
+            <tile:DiagnosedPatientsTile Grid.Row="5" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2"  Margin="2"/>
+
+            <tile:HighRiskPatientTile Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="10" Margin="2">
+                <tile:HighRiskPatientTile.Style>
+                    <Style TargetType="{x:Type tile:HighRiskPatientTile}">
+                        <Setter Property="Grid.RowSpan" Value="4"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsDataGridExpand,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
+                                <Setter Property="Grid.RowSpan" Value="8"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </tile:HighRiskPatientTile.Style>
+            </tile:HighRiskPatientTile>
+
+            <tile:ExcisionTile Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="2">
+                <tile:ExcisionTile.Style>
+                    <Style TargetType="{x:Type tile:ExcisionTile}">
+                        <Setter Property="Grid.Row" Value="5"/>
+                        <Setter Property="Grid.Column" Value="2"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsDataGridExpand,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
+                                <Setter Property="Grid.Row" Value="7"/>
+                                <Setter Property="Grid.Column" Value="0"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </tile:ExcisionTile.Style>
+            </tile:ExcisionTile>
+
+            <tile:BodyMappingSessionsTile Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="2">
+                <tile:BodyMappingSessionsTile.Style>
+                    <Style TargetType="{x:Type tile:BodyMappingSessionsTile}">
+                        <Setter Property="Grid.Row" Value="5"/>
+                        <Setter Property="Grid.Column" Value="4"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsDataGridExpand,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
+                                <Setter Property="Grid.Row" Value="9"/>
+                                <Setter Property="Grid.Column" Value="0"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </tile:BodyMappingSessionsTile.Style>
+            </tile:BodyMappingSessionsTile>
+
+            <tile:LowFrequentPatientsTile Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="2">
+                <tile:LowFrequentPatientsTile.Style>
+                    <Style TargetType="{x:Type tile:LowFrequentPatientsTile}">
+                        <Setter Property="Grid.Row" Value="5"/>
+                        <Setter Property="Grid.Column" Value="6"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsDataGridExpand,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
+                                <Setter Property="Grid.Row" Value="9"/>
+                                <Setter Property="Grid.Column" Value="2"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </tile:LowFrequentPatientsTile.Style>
+            </tile:LowFrequentPatientsTile>
+
+        </Grid>
+    </Grid>
+
+</UserControl>
+

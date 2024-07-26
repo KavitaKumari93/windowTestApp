@@ -1,0 +1,31 @@
+﻿<Window x:Class="FF.Cockpit.UI.Views.UserControls.Dashboard.ExcisedMarkerListTile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls.Dashboard"
+        xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+        mc:Ignorable="d"
+        Title="{x:Static localisation:Resources.Dashboard_ExcisedMarkersListTitle_resx}" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="135*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid VerticalAlignment="Top"
+             x:Name="patientListGrid"  
+             Style="{DynamicResource DataGridStyle}"
+              ItemsSource="{Binding ExcisedMarkerTileData_Results,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+             RowStyle="{DynamicResource ResourceKey=DataGridRowHoverStyle}" SelectionMode="Single" Grid.ColumnSpan="6">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static localisation:Resources.Dashboard_ExcisedMarkerTile_Col_Marker_resx}" Binding="{Binding MarkText}" SortMemberPath="Marker" />
+                <DataGridTextColumn Header="{x:Static localisation:Resources.Dashboard_ExcisedMarkerTile_Col_ExcisionDate_resx}" Binding="{Binding DateofExcision}" SortMemberPath="DateofExcision" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</Window>

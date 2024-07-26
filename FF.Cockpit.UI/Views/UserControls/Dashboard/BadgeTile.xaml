@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="FF.Cockpit.UI.Views.UserControls.Dashboard.BadgeTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common"
+             xmlns:converter="clr-namespace:FF.Cockpit.UI.Converters"
+             xmlns:local="clr-namespace:FF.Cockpit.UI.Views.UserControls"
+             mc:Ignorable="d"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             d:MinHeight="40" d:MinWidth="200">
+    <UserControl.Resources>
+
+        <converter:AnonymizeStringConverter x:Key="AnonymizeConverter"/>
+
+        <DrawingImage x:Key="Icon_PatientBadgeGender">
+            <DrawingImage.Drawing>
+                <DrawingGroup>
+                    <DrawingGroup.Children>
+                        <GeometryDrawing Brush="White"  Geometry="F1M480.201995849609,396C436.067321777344,396 398.333343505859,411.599334716797 367,442.798004150391 335.666656494141,473.996673583984 320,511.663330078125 320,555.797973632813 320,599.932678222656 335.599334716797,637.666687011719 366.798004150391,669 397.996673583984,700.333312988281 435.663330078125,716 479.798004150391,716 523.932678222656,716 561.666687011719,700.400695800781 593,669.202026367188 624.333312988281,638.003356933594 640,600.336669921875 640,556.202026367188 640,512.067321777344 624.400695800781,474.333343505859 593.202026367188,443 562.003356933594,411.666656494141 524.336669921875,396 480.201995849609,396z M60.0000038146973,136L280,136 280,196 163,196 263,296 319,240 361,282 305,338 348,381C367.333343505859,366.333343505859 388.166656494141,355.166656494141 410.5,347.5 432.833343505859,339.833343505859 456,336 480,336 504,336 527.333312988281,339.666656494141 550,347 572.666687011719,354.333343505859 593.666687011719,365.333343505859 613,380L797,196 680,196 680,136 900,136 900,356 840,356 840,239 656,423C670.666687011719,442.333343505859 681.666687011719,463.257659912109 689,485.773010253906 696.333312988281,508.288330078125 700,531.697326660156 700,556 700,610.666687011719 682.0556640625,658.482971191406 646.1669921875,699.448974609375 610.277648925781,740.414306640625 564.888671875,765.598022460938 510,775L510,876 590,876 590,936 510,936 510,1016 450,1016 450,936 370,936 370,876 450,876 450,775C395.111328125,765.598022460938 349.722320556641,740.414306640625 313.8330078125,699.448974609375 277.9443359375,658.482971191406 260,610.666687011719 260,556 260,532 263.666656494141,508.630004882813 271,485.890014648438 278.333343505859,463.149993896484 289.333343505859,442.186676025391 304,423L262,381 206,437 164,395 220,339 120.000007629395,239 120.000007629395,356 60.0000038146973,356 60.0000038146973,136z"/>
+
+                    </DrawingGroup.Children>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+        <DrawingImage x:Key="Icon_PatientBadgeClose">
+            <DrawingImage.Drawing>
+                <DrawingGroup>
+                    <DrawingGroup.Children>
+                        <GeometryDrawing Brush="White" Geometry="F1M330,396C338,396,345,399,351,405L480,534 609,405C615,399 622,396 630,396 638,396 645,399 651,405 657,411 660,418 660,426 660,434 657,441 651,447L522,576 651,705C657,711 660,718 660,726 660,734 657,741 651,747 645,753 638,756 630,756 622,756 615,753 609,747L480,618 351,747C345,753 338,756 330,756 322,756 315,753 309,747 303,741 300,734 300,726 300,718 303,711 309,705L438,576 309,447C303,441 300,434 300,426 300,418 303,411 309,405 315,399 322,396 330,396z M480,236C386,236 305.833343505859,269 239.5,335 173.16667175293,401 140,481.333343505859 140,576 140,670 173.16667175293,750.166687011719 239.5,816.5 305.833343505859,882.833312988281 386,916 480,916 574.666687011719,916 655,882.833312988281 721,816.5 787,750.166687011719 820,670 820,576 820,481.333343505859 787,401 721,335 655,269 574.666687011719,236 480,236z M480,176C535.333312988281,176 587.333312988281,186.5 636,207.5 684.666687011719,228.5 727,257 763,293 799,329 827.5,371.333343505859 848.5,420 869.5,468.666656494141 880,520.666687011719 880,576 880,630.666687011719 869.5,682.333312988281 848.5,731 827.5,779.666687011719 799,822.166687011719 763,858.5 727,894.833312988281 684.666687011719,923.5 636,944.5 587.333312988281,965.5 535.333312988281,976 480,976 425.333343505859,976 373.666656494141,965.5 325,944.5 276.333343505859,923.5 233.83332824707,894.833312988281 197.5,858.5 161.16667175293,822.166687011719 132.5,779.666687011719 111.500007629395,731 90.5,682.333312988281 80,630.666687011719 79.9999923706055,576 80,520.666687011719 90.5,468.666656494141 111.500007629395,420 132.5,371.333343505859 161.16667175293,329 197.5,293 233.83332824707,257 276.333343505859,228.5 325,207.5 373.666656494141,186.5 425.333343505859,176 480,176z"/>
+                    </DrawingGroup.Children>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+
+    </UserControl.Resources>
+    <Grid Height="44">
+        
+        <Canvas Height="{Binding Path=ActualHeight,RelativeSource={RelativeSource AncestorType=Grid}}"
+                Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource AncestorType=Grid}}">
+
+            <Rectangle x:Name="Rect" Stroke="Black" RadiusX="20" RadiusY="50" 
+                       Height="{Binding Path=ActualHeight,RelativeSource={RelativeSource AncestorType=Grid}}"
+                       Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource AncestorType=Grid}}" >
+                <Rectangle.Fill >
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                        <GradientStop Color="White" Offset="0.50"/>
+                        <GradientStop Color="Red" Offset="0.50"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Ellipse  Fill="Red" HorizontalAlignment="Left" Height="35" Margin="5,4,0,0" Width="36"/>
+            <Ellipse  Fill="Black" x:Name="Gender" Height="34" Margin="6,5,0,0" Width="34" HorizontalAlignment="Left" />
+
+            <Image Source="{DynamicResource Icon_PatientBadgeGender}" Height="21" Width="21" Margin="13,13,0,0" />
+
+            <Grid Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource AncestorType=Grid}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="1" Grid.Row="0" x:Name="txtblockPatientName" Foreground="Black" FontSize="12" Margin="3" 
+                           FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"
+                           ToolTip="{Binding DashboardTilesData_ResultObj.PatientName}">
+                        <Run Text="{x:Static localisation:Resources.Dashboard_BadgeUText_resx}"/>
+                        <Run  Text="{Binding DashboardTilesData_ResultObj.PatientName,Converter={StaticResource AnonymizeConverter}}"/>
+                </TextBlock>
+
+                <Grid Grid.Row="1" Grid.Column="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="60*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" FontSize="9" VerticalAlignment="Center" Padding=".5" Foreground="White" 
+                                   Text="{Binding DashboardTilesData_ResultObj.DOB}"/>
+                    <TextBlock Grid.Column="2" FontSize="9" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Padding=".5">
+                            <Run Text="{x:Static localisation:Resources.Dashboard_BadgeLText_resx}"/>
+                            <Run Text="{Binding DashboardTilesData_ResultObj.RecordNumber}"/>
+                    </TextBlock>
+                </Grid>
+            </Grid>
+
+
+        </Canvas>
+
+        <Image Source="{DynamicResource Icon_ClosePatient}" Margin="-4" Height="20" HorizontalAlignment="Right" Width="20" Cursor="Hand">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown" >
+                    <i:InvokeCommandAction Command="{Binding ClosePatientCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Image>
+    </Grid>
+    
+</UserControl>

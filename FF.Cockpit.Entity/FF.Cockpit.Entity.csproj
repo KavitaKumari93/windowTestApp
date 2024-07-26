@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34A65BEC-2C14-49BC-A287-7CB9B9A165AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FF.Cockpit.Entity</RootNamespace>
+    <AssemblyName>FF.Cockpit.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Contrib.2.0.78\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Syncfusion.Licensing, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.21.2.10\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfBusyIndicator.WPF.21.2.10\lib\net46\Syncfusion.SfBusyIndicator.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfInput.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfInput.WPF.21.2.10\lib\net46\Syncfusion.SfInput.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfScheduler.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfScheduler.WPF.21.2.10\lib\net46\Syncfusion.SfScheduler.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfSkinManager.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfSkinManager.WPF.21.2.10\lib\net46\Syncfusion.SfSkinManager.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.WPF.21.2.10\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialLight.WPF, Version=21.2460.10.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Themes.MaterialLight.WPF.21.2.10\lib\net46\Syncfusion.Themes.MaterialLight.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBConnectionHelper.cs" />
+    <Compile Include="EntityModel\CockpitSettingsModel.cs" />
+    <Compile Include="EntityModel\DataGridSettings.cs" />
+    <Compile Include="EntityModel\CloudSyncInfoModel.cs" />
+    <Compile Include="EntityModel\ImageInfoModel.cs" />
+    <Compile Include="EntityModel\ImagesStatusBreakDownModel.cs" />
+    <Compile Include="EntityModel\MiscellaneousAWSConfigurationModel.cs" />
+    <Compile Include="EntityModel\MiscellaneousModel.cs" />
+    <Compile Include="EntityModel\BasePieChartModel.cs" />
+    <Compile Include="EntityModel\ConfigurationModel.cs" />
+    <Compile Include="EntityModel\MiscellaneousSettingsModel.cs" />
+    <Compile Include="EntityModel\ModulesModel.cs" />
+    <Compile Include="EntityModel\ResourceModel.cs" />
+    <Compile Include="EntityModel\OperationalFollowTileModel.cs" />
+    <Compile Include="EntityModel\OperationalTreatmentBreakDownTileModel.cs" />
+    <Compile Include="EntityModel\RecurrenceModel.cs" />
+    <Compile Include="EntityModel\AppointmentDurationModel.cs" />
+    <Compile Include="EntityModel\AppointmentModel.cs" />
+    <Compile Include="EntityModel\UserLoginModel.cs" />
+    <Compile Include="EntityModel\UsersInformationModel.cs" />
+    <Compile Include="EntityModel\AppointmentType.cs" />
+    <Compile Include="EntityModel\RolePermissionModel.cs" />
+    <Compile Include="EntityModel\RoleModel.cs" />
+    <Compile Include="EntityModel\RoomModel.cs" />
+    <Compile Include="EntityModel\SkinTileContentModel.cs" />
+    <Compile Include="EntityModel\TrackDownloadStatusLog.cs" />
+    <Compile Include="EntityModel\TrackUploadStatusLog.cs" />
+    <Compile Include="EntityModel\TrendsModel.cs" />
+    <Compile Include="EntityModel\UpcomingAppointmentModel.cs" />
+    <Compile Include="EntityModel\TreatmentBreakdownTileModel.cs" />
+    <Compile Include="EntityModel\LoginModel.cs" />
+    <Compile Include="EntityModel\AppointedPatient.cs" />
+    <Compile Include="EntityModel\AppointedDoctor.cs" />
+    <Compile Include="StoreProcedure_Result\DashboardExcisedMarkerTileData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\HardwareCounterTileData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\HighRiskPatientTileData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\MedicalDevicesData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\OperationalScheduledHoursTileData_Result.cs" />
+    <Compile Include="EntityModel\PatientsDetails_Result.cs" />
+    <Compile Include="StoreProcedure_Result\PerformanceLowFrequentPatientsData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\PerformanceTilesData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\ExaminationHistoryData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\MedicalHistoryTileData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\RoomOccupancyTileDataResult.cs" />
+    <Compile Include="StoreProcedure_Result\ServiceTilesData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\SessionIntervalTileData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\SessionYearsData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\DashboardTilesData_Result.cs" />
+    <Compile Include="StoreProcedure_Result\FollowUpSessionTileData_Result.cs" />
+    <Compile Include="EntityModel\FollowUpSessionTileModel.cs" />
+    <Compile Include="StoreProcedure_Result\NavigationResponse.cs" />
+    <Compile Include="IGenericRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="StoreProcedure_Result\TrendsTilesData_Result.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FF.Cockpit.Chart.Core\FF.Cockpit.Chart.Core.csproj">
+      <Project>{f261c3d7-6194-4625-9516-044081b06028}</Project>
+      <Name>FF.Cockpit.Chart.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FF.Cockpit.Chart\FF.Cockpit.Chart.csproj">
+      <Project>{4d253423-ae05-47f6-a59d-9162ec0bb1f2}</Project>
+      <Name>FF.Cockpit.Chart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FF.Cockpit.Common\FF.Cockpit.Common.csproj">
+      <Project>{96c160bb-4647-4245-9d62-08a5ba2b7613}</Project>
+      <Name>FF.Cockpit.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Functions\UDF_StringEncryptor.sql" />
+    <Content Include="Functions\UDF_StringDecryptor.sql" />
+    <Content Include="Functions\SplitString.sql" />
+    <Content Include="StoreProcedure\GetExcisionCount.sql" />
+    <Content Include="StoreProcedure\GetUsersInformation.sql" />
+    <Content Include="StoreProcedure\GetTrackDownloadStatusLogs.sql" />
+    <Content Include="StoreProcedure\GetImageInfoByPatientId.sql" />
+    <Content Include="StoreProcedure\GetExcisedMarkerList.sql" />
+    <Content Include="StoreProcedure\GetSessionDurationTrendsByOneYear.sql" />
+    <Content Include="StoreProcedure\GetSessionDurationTrendsByFiveYear.sql" />
+    <Content Include="StoreProcedure\GetSessionDurationTrendsByTwentyYear.sql" />
+    <Content Include="StoreProcedure\GetAvgSessionDurationTrendsByOneYear.sql" />
+    <Content Include="StoreProcedure\GetAvgSessionDurationTrendsByFiveYear.sql" />
+    <Content Include="StoreProcedure\GetAvgSessionDurationTrendsByTwentyYear.sql" />
+    <Content Include="StoreProcedure\GetMicroImagesTrendsByOneYear.sql" />
+    <Content Include="StoreProcedure\GetMicroImagesTrendsByFiveYear.sql" />
+    <Content Include="StoreProcedure\GetMicroImagesTrendsByTwentyYear.sql" />
+    <Content Include="StoreProcedure\GetCockpitSettings.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateCockpitSettings.sql" />
+    <Content Include="StoreProcedure\SP_MergeHighRiskPatientTileData.sql" />
+    <Content Include="StoreProcedure\SP_MergeMasterTableData.sql" />
+    <Content Include="StoreProcedure\Jobs\GetHighRiskPatientTileDataByDateRange_ForJob.sql" />
+    <Content Include="StoreProcedure\UpdateDownloadStatus.sql" />
+    <Content Include="StoreProcedure\GetRolePermissionByRoleId.sql" />
+    <Content Include="StoreProcedure\GetMiscellaneousAWSConfigurationDetails.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateMiscellaneousAWSConfigurationDetails.sql" />
+    <Content Include="StoreProcedure\GetModules.sql" />
+    <Content Include="StoreProcedure\InsertModule.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateModulePermissionByRoleId.sql" />
+    <Content Include="StoreProcedure\GetLowFrequentPatients.sql" />
+    <Content Include="StoreProcedure\GetPatientTrendsByFiveYear.sql" />
+    <Content Include="StoreProcedure\GetPatientTrendsByOneYear.sql" />
+    <Content Include="StoreProcedure\GetExaminationTrendsByOneYear.sql" />
+    <Content Include="StoreProcedure\GetExaminationTrendsByFiveYear.sql" />
+    <Content Include="StoreProcedure\GetPatientTrendsByTwentyYear.sql" />
+    <Content Include="StoreProcedure\GetExaminationTrendsByTwentyYear.sql" />
+    <Content Include="StoreProcedure\GetDataGridSettings.sql" />
+    <Content Include="StoreProcedure\GetUpcomingAppointments.sql" />
+    <Content Include="StoreProcedure\GetTrackUploadStatusLogs.sql" />
+    <Content Include="StoreProcedure\DeleteAppointmentType.sql" />
+    <Content Include="StoreProcedure\GetMiscellaneousData.sql" />
+    <Content Include="StoreProcedure\GetAppointmentTypes.sql" />
+    <Content Include="StoreProcedure\GetRoomOccupancyReportByDateRange.sql" />
+    <Content Include="StoreProcedure\GetOperationalTreatmentBreakDownByDateRange.sql" />
+    <Content Include="StoreProcedure\GetScheduledAppointmentTimeByDateRange.sql" />
+    <Content Include="StoreProcedure\GetAppointedDoctors.sql" />
+    <Content Include="StoreProcedure\GetAppointedPatients.sql" />
+    <Content Include="StoreProcedure\GetOperationalFollowUpDataByDateRange.sql" />
+    <Content Include="StoreProcedure\GetRoles.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateGridSetting.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateMiscellaneousData.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateAppointmentType.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateCloudSyncInfo.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateRole.sql" />
+    <Content Include="StoreProcedure\DeleteRole.sql" />
+    <Content Include="StoreProcedure\GetAppointments.sql" />
+    <Content Include="StoreProcedure\DeleteRoom.sql" />
+    <Content Include="StoreProcedure\DeleteUserByRoleId.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateUserInformation.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateRoom.sql" />
+    <Content Include="StoreProcedure\DeleteAppointment.sql" />
+    <Content Include="StoreProcedure\InsertOrUpdateAppointment.sql" />
+    <Content Include="StoreProcedure\GetRooms.sql" />
+    <Content Include="StoreProcedure\GetFotoFinderDevicesInformation.sql" />
+    <Content Include="StoreProcedure\GetServiceTileVersionData.sql" />
+    <Content Include="StoreProcedure\GetHardwareCounterTileData.sql" />
+    <Content Include="StoreProcedure\GetHighRiskPatientTileDataByDateRange.sql" />
+    <Content Include="StoreProcedure\GetPerformanceTilesDataByDateRange.sql" />
+    <Content Include="StoreProcedure\GetTreatmentBreakdownDataByDateRange.sql" />
+    <Content Include="StoreProcedure\GetPatients.sql" />
+    <Content Include="StoreProcedure\GetExaminationHistoryDataByPatientId.sql" />
+    <Content Include="StoreProcedure\InsertMedicalHistoryDatabyPatientId.sql" />
+    <Content Include="StoreProcedure\GetMedicalHistorybyPatientId.sql" />
+    <Content Include="StoreProcedure\UpdateDashboardSkinTypeByPatientId.sql" />
+    <Content Include="StoreProcedure\GetModulesPermissionInfoByRoleId.sql" />
+    <Content Include="StoreProcedure\UpdateSessionIntervalTileData.sql" />
+    <Content Include="StoreProcedure\GetSessionIntervalTileDataByPatientId.sql" />
+    <Content Include="StoreProcedure\GetSessionYearsDataByPatientId.sql" />
+    <Content Include="StoreProcedure\GetDashboardTilesDataByPatientId.sql" />
+    <Content Include="StoreProcedure\GetFollowUpSessionTileDataByPatientId.sql" />
+    <Content Include="Tables\AppointmentRecurrence.sql" />
+    <Content Include="Tables\ModulePermission.sql" />
+    <Content Include="Tables\Modules.sql" />
+    <Content Include="Tables\MiscellaneousAWSConfigurationDetails.sql" />
+    <Content Include="Tables\MarkerStatusAudit.sql" />
+    <Content Include="Tables\TrackVideoUploadStatus.sql" />
+    <Content Include="Tables\TrackVideoDownloadStatus.sql" />
+    <Content Include="Tables\ExcisedMarkersData.sql" />
+    <Content Include="Tables\MergeHighRiskPatientTileData.sql" />
+    <Content Include="Tables\CockpitSettings.sql" />
+    <Content Include="Tables\SyncVideoDownloadLogs.sql" />
+    <Content Include="Tables\SyncDownloadLogs.sql" />
+    <Content Include="Tables\SyncUploadLogs.sql" />
+    <Content Include="Tables\DataGridSettings.sql" />
+    <Content Include="Tables\MasterSyncStatus.sql" />
+    <Content Include="Tables\MasterTable.sql" />
+    <Content Include="Tables\RaisedEvents.sql" />
+    <Content Include="Tables\RolePermission.sql" />
+    <Content Include="Tables\TrackUploadStatus.sql" />
+    <Content Include="Tables\TrackDownloadStatus.sql" />
+    <Content Include="Tables\CloudSyncInfo.sql" />
+    <Content Include="Tables\MiscellaneousData.sql" />
+    <Content Include="Tables\AppointmentTypes.sql" />
+    <Content Include="Tables\Roles.sql" />
+    <Content Include="Tables\Appointments.sql" />
+    <Content Include="Tables\UsersInformation.sql" />
+    <Content Include="Tables\Rooms.sql" />
+    <Content Include="Tables\PatientMedicalHistoryTable.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

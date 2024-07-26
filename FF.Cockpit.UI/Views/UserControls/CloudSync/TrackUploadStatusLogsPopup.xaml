@@ -1,0 +1,55 @@
+﻿<Window x:Class="FF.Cockpit.UI.Views.UserControls.CloudSync.TrackUploadStatusLogsPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:localisation="clr-namespace:FF.Cockpit.Common.Properties;assembly=FF.Cockpit.Common" xmlns:viewmodels="clr-namespace:FF.Cockpit.UI.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CloudSyncViewModel}"
+        mc:Ignorable="d" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Margin="20,0">
+
+            <Button x:Name="all"  Content="All" Uid="All"   
+                Style="{StaticResource FilterButtonStyle}" 
+                CommandParameter="{Binding ElementName=all,Path=Uid}"
+                Command="{Binding CloudSyncUploadFilterSelectionCommand}"/>
+
+
+
+            <Button x:Name="images"  Content="Images" Uid="Images"   
+                Style="{StaticResource FilterButtonStyle}" 
+                CommandParameter="{Binding ElementName=images,Path=Uid}"
+                Command="{Binding CloudSyncUploadFilterSelectionCommand}"/>
+
+            <Button x:Name="icons"  Content="Icons" Uid="Icons"   
+                Style="{StaticResource FilterButtonStyle}" 
+                CommandParameter="{Binding ElementName=icons,Path=Uid}"
+                Command="{Binding CloudSyncUploadFilterSelectionCommand}"/>
+
+            <Button x:Name="videos"  Content="Videos" Uid="Videos"   
+                Style="{StaticResource FilterButtonStyle}" 
+                 CommandParameter="{Binding ElementName=videos,Path=Uid}"
+                 Command="{Binding CloudSyncUploadFilterSelectionCommand}"/>
+
+        </DockPanel>
+        <DataGrid x:Name="YourDataGridReference"  Grid.Row="1" VerticalAlignment="Top" 
+                ItemsSource="{Binding TrackUploadStatusLogList,UpdateSourceTrigger=PropertyChanged}"
+               Style="{DynamicResource DataGridStyle}" RowStyle="{DynamicResource ResourceKey=DataGridRowHoverStyle}" 
+              SelectionMode="Single" SelectedItem="{Binding SelectedPatient,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static localisation:Resources.CloudSync_AppointedPatient_Col_PatientName_resx}" Binding="{Binding PatientName}"/>
+                <DataGridTextColumn Header="{x:Static localisation:Resources.CloudSync_TrackUpload_Col_MachineName_resx}" Binding="{Binding MachineName}"/>
+                <DataGridTextColumn Header="{x:Static localisation:Resources.CloudSync_TrackUpload_Col_FileName_resx}" Binding="{Binding FileName}"/>
+                <DataGridTextColumn Header="{x:Static localisation:Resources.CloudSync_TrackUpload_Col_FileStatus_resx}" Binding="{Binding FileStatus}"/>
+                <DataGridTextColumn Header="{x:Static localisation:Resources.CloudSync_TrackUpload_Col_FileType_resx}" Binding="{Binding FileType}"/>
+                <DataGridTextColumn Header="{x:Static localisation:Resources.CloudSync_TrackUpload_Col_UploadTime_resx}" Binding="{Binding UploadTime}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+
+</Window>
